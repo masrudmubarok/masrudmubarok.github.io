@@ -1189,3 +1189,17 @@ section {
     line-height: 24px;
   }
 }
+
+/*--------------------------------------------------------------
+# Modal section
+--------------------------------------------------------------*/
+body {
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  color: #484848;
+}

@@ -261,4 +261,11 @@
     })
   });
 
+  /**
+   * Modal notif btnresume
+   */
+  $('#btnresume').on('click', function() {
+      $('#openModal').show();
+  });
+
 })()
