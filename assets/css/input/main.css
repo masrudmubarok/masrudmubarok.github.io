@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.hamburger-line {
+    @apply w-[30px] h-[2px] my-2 bg-black;
+}
+
+.hamburger-active > div:nth-child(1) {
+    @apply rotate-45;
+}
+
+.hamburger-active > div:nth-child(2) {
+    @apply scale-0;
+}
+
+.hamburger-active > div:nth-child(3) {
+    @apply -rotate-45;
+}
+
+.float {  
+    animation-name: ani-float;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out; 
+}
+
+@keyframes ani-float {
+    0% { transform: translate(0,  0px); }
+    50% { transform: translate(0, 15px); }
+    100% { transform: translate(0, -0px); }    
+}
+
+#home .contacts {
+    margin-top: 20px;
+}
