@@ -42,12 +42,54 @@ ul
     background: var(--bg-black-900);
     min-height: 100vh;
     display: block;
-    position: fixed;
-    left: 270px;
-    top: 0;
-    right: 0;
-    z-index: 0;
+    padding: 0 30px;
     opacity: 1;
+}
+
+.main-content
+{
+    padding-left: 270px;
+}
+
+.padd-15
+{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container
+{
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+}
+
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    position: relative;
+}
+
+.btn
+{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 35px;
+    color: white;
+    border-radius: 40px;
+    display: inline-block;
+    white-space: nowrap;
+    background: var(--skin-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover
+{
+    transform: scale(1.05);
 }
 
 /* aside */
@@ -191,4 +233,83 @@ ul
 .aside .nav li a i
 {
     margin-right: 15px;
+}
+
+/* home */
+.home
+{
+    min-height: 100vh;
+    display: flex;
+    color: var(--text-black-900);
+
+}
+
+.home .home-info
+{
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+h3.hello
+{
+    font-size: 40px;
+    margin-top: 80px;
+    margin-bottom: 5px;
+
+}
+
+h3.hello span
+{
+    font-family: 'Clicker Script', cursive;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--skin-color);
+}
+
+h3.profession
+{
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+
+.typing
+{
+    color: var(--skin-color);
+}
+
+.home .home-img
+{
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: center;
+    position: relative;
+}
+
+/* .home .home-img::after
+{
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-bottom: 10px solid var(--skin-color);
+    border-left: 10px solid var(--skin-color);
+    left: 60%;
+    bottom: -40px;
+} */
+
+.home .home-img::before
+{
+    content: '';
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-top: 15px solid var(--skin-color);
+    border-right: 15px solid var(--skin-color);
+    right: 4%;
+    top: -30px;
+}
+
+.home .home-img img
+{
+    height: 300px;
 }
