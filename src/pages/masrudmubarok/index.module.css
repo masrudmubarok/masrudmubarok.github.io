@@ -9,6 +9,11 @@
   overflow: hidden;
 }
 
+/* Dark mode container */
+[data-theme='dark'] .container {
+  background-color: #222;
+}
+
 /* Card memenuhi layar */
 .card {
   background-color: white;
@@ -24,15 +29,22 @@
   align-items: center;
   text-align: center;
 }
-/* Profile picture */
-.profilePic {
-  width: 200px;  /* Ukuran lebih kecil */
-  height: 200px;
-  border-radius: 50%;
-  margin-bottom: 12px; /* Jarak antara foto dan nama */
+
+/* Dark mode card */
+[data-theme='dark'] .card {
+  background-color: #222;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
-/* Nama dan Role */
+/* Profile picture */
+.profilePic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+/* Nama */
 .name {
   font-size: 45px;
   font-weight: bold;
@@ -40,10 +52,16 @@
   margin-bottom: 4px;
 }
 
+/* Role */
 .role {
   color: #4a5568;
   font-size: 25px;
-  margin-bottom: 12px; /* Jarak lebih dekat dengan tombol */
+  margin-bottom: 12px;
+}
+
+/* Dark mode role */
+[data-theme='dark'] .role {
+  color: #cfcfcf;
 }
 
 /* Link container */
@@ -51,7 +69,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 8px; /* Jarak lebih dekat */
+  margin-top: 8px;
 }
 
 /* Ikon efek parallax */
@@ -61,11 +79,16 @@
   color: #4a5568;
 }
 
+/* Dark mode icon */
+[data-theme='dark'] .icon {
+  color: #b0bec5;
+}
+
 /* Hover efek tambahan */
 .link:hover .icon {
   transform: scale(1.3);
   opacity: 0.8;
-  color: var(--primary-color);
+  color: var(--ifm-color-primary);
 }
 
 /* Responsif */
@@ -88,6 +111,7 @@
   }
 }
 
+/* Tombol Project */
 .projectButton {
   display: inline-block;
   margin-top: 20px;
@@ -95,15 +119,28 @@
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  color: var(--ifm-color-primary); /* Warna teks hijau tosca */
-  border: 2px solid var(--ifm-color-primary); /* Border hijau tosca */
-  background-color: transparent; /* Background transparan */
-  border-radius: 30px; /* Membuat tombol rounded */
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+  background-color: transparent;
+  border-radius: 30px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
 
+/* Dark mode project button */
+[data-theme='dark'] .projectButton {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+/* Hover effect */
 .projectButton:hover {
-  background-color: var(--ifm-color-primary); /* Warna hijau tosca saat hover */
-  color: white; /* Warna teks jadi putih saat hover */
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Dark mode hover */
+[data-theme='dark'] .projectButton:hover {
+  background-color: var(--ifm-color-primary);
+  color: black;
 }

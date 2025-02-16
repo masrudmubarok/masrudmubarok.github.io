@@ -53,7 +53,6 @@ const PortfolioGallery = () => {
                 className={`${styles.filterButton} ${activeCategory === category ? styles.active : ""}`}
                 onClick={() => setActiveCategory(category)}
                 whileHover={{ scale: 1.1 }} // Slight zoom effect on hover
-                transition={{ duration: 0.2 }}
                 initial={{ scale: 0 }} // Start scale 0
                 animate={{ scale: 1 }} // Animate to scale 1
                 transition={{ duration: 0.5, ease: "easeOut" }}

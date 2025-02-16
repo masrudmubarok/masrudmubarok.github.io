@@ -8,6 +8,7 @@
 
 /* Ensure full width and height */
 .fixedContainer {
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,47 +151,85 @@
   color: #4a5568;
 }
 
+/* Dark Mode Styles */
+[data-theme='dark'] .fixedContainer {
+  background-color: #222;
+}
+
+[data-theme='dark'] .buttonsContainerFixed {
+  background: #222;
+  border-bottom: 1px solid #444;
+}
+
+[data-theme='dark'] .filterButton {
+  background-color: #222;
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .filterButton:hover,
+[data-theme='dark'] .filterButton.active {
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* Gallery Items */
+[data-theme='dark'] .galleryItem {
+  background: #222;
+  border: 1px solid #333;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .galleryItem:hover {
+  transform: scale(1.02);
+}
+
+[data-theme='dark'] .cardContent {
+  color: #ddd;
+}
+
+/* Project Title */
+[data-theme='dark'] .projectTitle {
+  color: var(--ifm-color-primary);
+}
+
+/* Project Category */
+[data-theme='dark'] .projectCategory {
+  color: #aaa;
+}
+
+/* Tech Stack */
+[data-theme='dark'] .projectTech {
+  color: var(--ifm-color-primary);
+}
+
+/* Icon Buttons */
+[data-theme='dark'] .iconButton {
+  background-color: #333;
+  color: #fff;
+}
+
+[data-theme='dark'] .iconButton:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* Title Section */
+[data-theme='dark'] .title {
+  color: #f0f0f0;
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .title {
     font-size: 2rem;
   }
 
-  .filterButton {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-
   .galleryGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .galleryItem {
-    padding: 15px;
-  }
-
-  .galleryImage {
-    height: 150px;
-  }
-
-  .projectTitle {
-    font-size: 1.1rem;
-  }
-
-  .projectCategory {
-    font-size: 0.9rem;
-  }
-
-  .techIcon {
-    font-size: 0.9rem;
-  }
-
-  .iconButton {
-    font-size: 1.3rem;
-  }
 }
 
-/* Mobile Small */
 @media screen and (max-width: 480px) {
   .galleryGrid {
     grid-template-columns: 1fr;
@@ -198,34 +237,5 @@
 
   .title {
     font-size: 1.7rem;
-  }
-
-  .filterButton {
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-
-  .galleryItem {
-    padding: 12px;
-  }
-
-  .galleryImage {
-    height: 120px;
-  }
-
-  .projectTitle {
-    font-size: 1rem;
-  }
-
-  .projectCategory {
-    font-size: 0.8rem;
-  }
-
-  .techIcon {
-    font-size: 0.8rem;
-  }
-
-  .iconButton {
-    font-size: 1.2rem;
   }
 }

@@ -62,20 +62,35 @@
 
 /* Modal Content */
 .modalContent {
-  background: #fff;
+  background: var(--ifm-background-color);
   padding: 2rem;
   border-radius: 10px;
   max-width: 500px;
   width: 90%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
+  border: 2px solid #bbb; /* Gray border */
+}
+
+/* Custom Dark Mode Styles */
+[data-theme='dark'] .modalContent {
+  background: #222; /* Dark background for dark mode */
+  color: #fff; /* Ensure text is visible in dark mode */
+  border: 2px solid #666; /* Darker gray border in dark mode */
+}
+
+/* Custom Light Mode Styles */
+[data-theme='light'] .modalContent {
+  background: #fff; /* White background for light mode */
+  color: #000; /* Ensure text is visible in light mode */
+  border: 2px solid #bbb; /* Light gray border in light mode */
 }
 
 /* Modal Title */
 .modalTitle {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* Form Styles */
@@ -107,7 +122,7 @@
   margin-top: 1rem;
 }
 
-cancelButton,
+.cancelButton,
 .sendButton {
   padding: 10px 16px;
   font-size: 1rem;
