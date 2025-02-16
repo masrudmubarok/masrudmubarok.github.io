@@ -1,0 +1,93 @@
+/* General Styles */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Added padding for better spacing on mobile */
+}
+
+.feedbackContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Feedback Box Styles */
+.feedbackLeft, .feedbackRight {
+  flex: 1;
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Titles and Subtitles */
+.title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .feedbackContainer {
+      flex-direction: column;
+      gap: 2rem; /* Reduced gap between columns on smaller screens */
+  }
+
+  .feedbackLeft, .feedbackRight {
+      flex: none;
+      width: 100%;
+      padding: 1.5rem; /* Reduced padding for smaller devices */
+  }
+
+  .title {
+      font-size: 1.5rem; /* Smaller font size on mobile */
+  }
+
+  .subtitle {
+      font-size: 0.9rem; /* Smaller subtitle font size on mobile */
+  }
+
+  .button {
+      width: 100%; /* Button width 100% for better mobile layout */
+      padding: 14px 0; /* Adjust padding to look better on mobile */
+  }
+
+  .modalContent {
+      width: 90%; /* Make modal content responsive */
+  }
+}
+
+/* Small screen adjustments (e.g., phones in portrait mode) */
+@media (max-width: 480px) {
+  .title {
+      font-size: 1.25rem; /* Even smaller font size for very small screens */
+  }
+
+  .subtitle {
+      font-size: 0.85rem;
+  }
+
+  .button {
+      font-size: 0.9rem; /* Reduce button text size on small screens */
+  }
+}
