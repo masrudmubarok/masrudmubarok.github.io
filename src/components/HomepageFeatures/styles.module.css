@@ -1,0 +1,16 @@
+.features {
+  width: 100vw; /* Lebar penuh */
+  height: 100vh; /* Tinggi penuh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features .container {
+  max-width: 100%; /* Gunakan lebar penuh */
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
