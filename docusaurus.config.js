@@ -161,7 +161,16 @@ const config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  }),  
+  }),
+    
+  scripts: [
+    {
+      src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      async: true,
+      crossorigin: "anonymous",
+      "data-ad-client": "ca-pub-3468535792953225",
+    },
+  ],
 };
 
 export default config;
