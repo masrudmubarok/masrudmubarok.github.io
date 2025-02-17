@@ -6,18 +6,18 @@ import styles from "./styles.module.css";
 
 const AboutList = [
   {
-    title: "Devlite (Developer Elite): A Software Development Handbook with a Ninja Approach",
+    title: "Devlite (Developer Elite)",
     Svg: require("@site/static/img/undraw_hello_ccwj.svg").default,
     description: (
       <>
         <p className={styles.justifyText}>
-          Devlite is an open-source software development learning platform inspired by the discipline and mastery of a ninja. We believe that becoming a great developer requires more than technical skills—it demands perseverance, strategy, and continuous growth.
+        Devlite is an open-source handbook designed for software development learning, drawing inspiration from the discipline and agility of a ninja. We believe that becoming a great developer requires not only technical skills but also perseverance, strategy, and continuous growth.
         </p>
         <p className={styles.justifyText}>
-          Our structured learning path provides a clear and seamless journey for developers, guiding them from Genin (beginner) to Kage (master) while ensuring steady progress at every stage. Devlite empowers developers to continuously sharpen their skills, adapt to new challenges, and master the art of coding with confidence.
+        Our structured learning path provides an engaging and smooth journey, guiding developers from Genin (beginner) to Kage (master) at their own pace. With Devlite, you have the freedom to explore, learn, and refine your coding skills without pressure, just pure knowledge to empower your progress.
         </p>
         <p className={styles.justifyText}>
-          As an open-source platform, Devlite creates a collaborative ecosystem where anyone can learn, contribute, and refine their skills. Whether you're a beginner or a professional looking to enhance your expertise, Devlite provides the resources to help you grow in the ever-evolving world of technology.
+        As an open-source resource, Devlite creates a dynamic environment for exploration and growth. Whether you're just starting or looking to deepen your expertise, Devlite provides valuable insights to help you navigate and thrive in the ever-evolving world of technology.
         </p>
       </>
     ),

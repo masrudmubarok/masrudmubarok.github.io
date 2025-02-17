@@ -7,7 +7,7 @@ const FeatureList = [
   {
     title: 'Structured Learning Path',
     Svg: require('@site/static/img/undraw_applications_h0mq.svg').default,
-    description: 'Devlite offers a tiered handbook covering software development from beginner to master levels, ensuring a systematic learning journey.',
+    description: 'Devlite offers a tiered handbook inspired by ninja mastery, guiding you through software development from Genin (beginner) to Kage (master), ensuring a focused and systematic learning journey.',
   },
   {
     title: 'Industry-Relevant & Up-to-Date',
@@ -17,7 +17,7 @@ const FeatureList = [
   {
     title: 'Open Source & Free',
     Svg: require('@site/static/img/undraw_tasting_cd81.svg').default,
-    description: 'The handbook is fully open-source, accessible to everyone, and open for contributions without restrictions.',
+    description: 'This open-source handbook is freely accessible to everyone. Designed for learners at all levels, it welcomes feedback and suggestions to improve its content, supporting your growth at no cost.',
   },
 ];
 
@@ -60,7 +60,7 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <h1 className="text--center"><b>Why Devlite?</b></h1>
+        <h1 className="text--center"><b>Key Points</b></h1>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

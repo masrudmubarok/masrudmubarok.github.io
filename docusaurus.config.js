@@ -1,10 +1,9 @@
 import { themes as prismThemes } from 'prism-react-renderer';
-import { FaGithub, FaYoutube } from 'react-icons/fa';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Mastering Software Development',
-  tagline: 'Like a Ninja: Fast, Fierce, Unstoppable 🚀',
+  tagline: 'With a Ninja-Inspired Learning Approach 🚀',
   favicon: 'img/devlite.png',
 
   url: 'https://masrudmubarok.github.io',
@@ -157,12 +156,6 @@ const config = {
           ],
         },
         {
-          to: '/#roadmap',
-          label: 'Roadmap',
-          activeBaseRegex: '/#roadmap',
-          position: 'right',
-        },
-        {
           to: '/#about',
           label: 'About',
           activeBaseRegex: '/#about',
@@ -175,7 +168,7 @@ const config = {
       ],
     },
     footer: {
-      style: 'dark', // Bisa 'light' atau 'dark'
+      style: 'dark',
       copyright: `© ${new Date().getFullYear()} Devlite. All rights reserved.`,
     },
     prism: {

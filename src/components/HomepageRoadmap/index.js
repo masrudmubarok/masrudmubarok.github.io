@@ -13,7 +13,7 @@ function Roadmap() {
 
     return (
         <div className="wrapper">
-            <h1>Roadmap</h1>
+            <h1>Stages</h1>
             
             {/* Motion.div untuk animasi VerticalTimeline */}
             <motion.div
