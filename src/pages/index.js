@@ -84,7 +84,7 @@ export default function Home() {
     <Layout
       title={`Devlite`}
       description="Description will go into a meta tag in <head />">
-      <div className={styles.scrollContainer}>
+      <div className={styles.responsiveContainer}> {/* Ganti dengan responsiveContainer */}
         <HomepageHeader />
         <HomepageAboutWrapper />
         <HomepageRoadmapWrapper />

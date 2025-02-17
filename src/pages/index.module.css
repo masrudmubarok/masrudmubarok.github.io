@@ -1,9 +1,4 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
- .fullScreen {
+.fullScreen {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,21 +23,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: -3.5rem;
-  }
-
-  .heroSubtitle {
-    display: none !important;
-  }
-
-  .container {
-    max-width: 90%;
-    text-align: center;
-  }
 }
 
 .buttons {
@@ -108,34 +88,10 @@
   }
 }
 
-.whiteBackgroundContainer {
-  width: 100%;
-  min-height: 100%; /* Sesuaikan dengan heroBanner */
-  background-color: white !important; /* Tetap putih di dark mode */
-  color: black !important; /* Pastikan teks tetap hitam */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
 /* Pastikan tetap putih di dark mode */
 html[data-theme='dark'] .whiteBackgroundContainer {
   background-color: white !important;
   color: black !important;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.scrollContainer {
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-}
-
-.scrollableSection {
-  scroll-margin-top: 80px; /* Agar smooth scroll tidak terpotong header */
 }
 
 .dynamicHeight {
@@ -153,4 +109,43 @@ html {
 .handbooksSection {
   margin: 4rem 0;
   min-height: 100vh;
+}
+
+/* CSS untuk responsive container tanpa scroll */
+.responsiveContainer {
+  height: 100%; /* Menjamin tinggi kontainer sesuai ukuran elemen lainnya */
+  width: 100%; /* Menjamin lebar kontainer sesuai ukuran layar */
+  box-sizing: border-box; /* Pastikan padding dan margin tidak mempengaruhi ukuran */
+  display: flex;
+  flex-direction: column; /* Menyusun konten secara vertikal */
+  overflow: hidden; /* Menyembunyikan scroll */
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: -3.5rem;
+  }
+
+  .heroSubtitle {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 90%;
+    text-align: center;
+  }
+}
+
+/* Media Query untuk perangkat mobile */
+@media screen and (max-width: 768px) {
+  .responsiveContainer {
+    flex-direction: column; /* Memastikan konten tetap vertikal */
+  }
+}
+
+/* Media Query untuk perangkat lebih besar */
+@media screen and (min-width: 768px) {
+  .responsiveContainer {
+    flex-direction: column; /* Memastikan konten tetap vertikal */
+  }
 }
