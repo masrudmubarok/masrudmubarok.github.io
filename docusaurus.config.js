@@ -37,6 +37,26 @@ const config = {
     ],
   ],
 
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        async: true,
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3468535792953225', // Ganti dengan client ID Anda
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'script',
+      innerHTML: `
+        (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3468535792953225", // Ganti dengan ID AdSense Anda
+          enable_page_level_ads: true
+        });
+      `,
+    },
+  ],
+
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
@@ -162,15 +182,6 @@ const config = {
       darkTheme: prismThemes.dracula,
     },
   }),
-    
-  scripts: [
-    {
-      src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-      async: true,
-      crossorigin: "anonymous",
-      "data-ad-client": "ca-pub-3468535792953225",
-    },
-  ],
 };
 
 export default config;
