@@ -41,16 +41,17 @@ const config = {
     {
       tagName: 'script',
       attributes: {
-        async: true,
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3468535792953225', // Ganti dengan client ID Anda
+        async: 'true',
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3468535792953225',
         crossorigin: 'anonymous',
       },
     },
     {
       tagName: 'script',
+      attributes: {},
       innerHTML: `
         (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-3468535792953225", // Ganti dengan ID AdSense Anda
+          google_ad_client: "ca-pub-3468535792953225",
           enable_page_level_ads: true
         });
       `,
