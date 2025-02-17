@@ -6,7 +6,7 @@ const config = {
   tagline: 'With a Ninja-Inspired Learning Approach 🚀',
   favicon: 'img/devlite.png',
 
-  url: 'https://masrudmubarok.github.io',
+  url: 'https://devlite.org',
   baseUrl: '/',
 
   organizationName: 'facebook',
