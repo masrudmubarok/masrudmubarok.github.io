@@ -94,7 +94,7 @@
 /* Responsif */
 @media (max-width: 768px) {
   .card {
-      width: 95vw;
+      width: 100vw;
       padding: 24px;
   }
 
