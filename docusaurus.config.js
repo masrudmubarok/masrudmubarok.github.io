@@ -2,7 +2,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Mastering Software Development',
+  title: 'Software Development Handbook',
   tagline: 'With a Ninja-Inspired Learning Approach 🚀',
   favicon: 'img/devlite.png',
 
