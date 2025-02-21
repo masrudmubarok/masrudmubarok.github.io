@@ -16,8 +16,6 @@
 /* Feedback Box Styles */
 .feedbackLeft, .feedbackRight {
   flex: 1;
-  border: 2px solid var(--ifm-color-primary);
-  border-radius: 10px;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);

@@ -2,15 +2,16 @@
 sidebar_position: 1
 ---
 
-# Genin Lesson
+# Introduction
 
-## Introduction
+## Genin Lesson
 Welcome to the **Genin Lesson**, the starting point for mastering software development. At this level, you will build a solid foundation in programming concepts and essential web technologies.
 
 ## Topics Covered
 ### 1. Programming Languages
-- Python
+- PHP
 - JavaScript
+- Python
 - Java
 
 ### 2. Algorithm
