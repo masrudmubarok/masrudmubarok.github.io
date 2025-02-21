@@ -59,7 +59,6 @@ export default function MasrudMubarok() {
               { href: "https://github.com/masrudmubarok/", icon: <FaGithub />, name: "github" },
               { href: "https://www.youtube.com/@masrudmubarok", icon: <FaYoutube />, name: "youtube" },
               { href: "mailto:masrud.mubarok21@gmail.com", icon: <FaEnvelope />, name: "email" },
-              { href: "/", icon: <FaGlobe />, name: "website" },
             ].map(({ href, icon, name }) => (
               <motion.a 
                 key={name}
