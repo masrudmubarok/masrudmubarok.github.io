@@ -30,7 +30,7 @@ After choosing and installing one of the options above, you are ready to start w
 
 PHP code starts with the `<?php` tag and ends with the `?>` tag. Between these two tags, you can write PHP code.
 
-```php title="PHP"
+```javascript title="PHP" showLineNumbers
 <?php
   echo "Hello, world!";
 ?>
@@ -40,7 +40,7 @@ PHP code starts with the `<?php` tag and ends with the `?>` tag. Between these t
 
 In PHP, variables start with a dollar sign (`$`).
 
-```php title="PHP Variables"
+```javascript title="PHP Variables" showLineNumbers
 <?php
   $name = "Budi";
   echo "Hello, " . $name . "!"; // Output: Hello, Budi
@@ -53,96 +53,96 @@ PHP has several basic data types, including:
 
 *   **string** (text):
 
-    ```php title="String Example"
+    ```javascript title="String Example" showLineNumbers
     <?php
-    $name = "Budi"; // Example of a string using double quotes
-    $message = 'Hello, how are you?'; // Example of a string using single quotes
+      $name = "Budi"; // Example of a string using double quotes
+      $message = 'Hello, how are you?'; // Example of a string using single quotes
 
-    echo "Name: " . $name . "<br>"; // Output: Name: Budi
-    echo "Message: " . $message . "<br>"; // Output: Message: Hello, how are you?
+      echo "Name: " . $name . "<br>"; // Output: Name: Budi
+      echo "Message: " . $message . "<br>"; // Output: Message: Hello, how are you?
     ?>
     ```
 
 *   **integer** (whole number):
 
-    ```php title="Integer Example"
+    ```javascript title="Integer Example" showLineNumbers
     <?php
-    $age = 25;
+      $age = 25;
 
-    echo "Age: " . $age . "<br>"; // Output: Age: 25
+      echo "Age: " . $age . "<br>"; // Output: Age: 25
     ?>
     ```
 
 *   **float** (decimal number):
 
-    ```php title="Float Example"
+    ```javascript title="Float Example" showLineNumbers
     <?php
-    $height = 175.5;
+      $height = 175.5;
 
-    echo "Height: " . $height . " cm <br>"; // Output: Height: 175.5 cm
+      echo "Height: " . $height . " cm <br>"; // Output: Height: 175.5 cm
     ?>
     ```
 
 *   **boolean** (true or false):
 
-    ```php title="Boolean Example"
+    ```javascript title="Boolean Example" showLineNumbers
     <?php
-    $isMarried = true;
+      $isMarried = true;
 
-    if ($isMarried) {
-      echo "Status: Married <br>"; // Output: Status: Married
-    } else {
-      echo "Status: Not married <br>";
-    }
+      if ($isMarried) {
+        echo "Status: Married <br>"; // Output: Status: Married
+      } else {
+        echo "Status: Not married <br>";
+      }
     ?>
     ```
 
 *   **array** (data collection):
 
-    ```php title="Array Example"
+    ```javascript title="Array Example" showLineNumbers
     <?php
-    $hobbies = array("Reading", "Writing", "Sports");
+      $hobbies = array("Reading", "Writing", "Sports");
 
-    echo "Hobbies: ";
-    foreach ($hobbies as $item) {
-      echo $item . ", "; // Output: Reading, Writing, Sports,
-    }
-    echo "<br>";
+      echo "Hobbies: ";
+      foreach ($hobbies as $item) {
+        echo $item . ", "; // Output: Reading, Writing, Sports,
+      }
+      echo "<br>";
     ?>
     ```
 
 *   **object** (object):
 
-    ```php title="Object Example"
+    ```javascript title="Object Example" showLineNumbers
     <?php
-    class Car {
-      public $brand;
-      public $color;
+      class Car {
+        public $brand;
+        public $color;
 
-      public function __construct($brand, $color) {
-        $this->brand = $brand;
-        $this->color = $color;
+        public function __construct($brand, $color) {
+          $this->brand = $brand;
+          $this->color = $color;
+        }
+
+        public function info() {
+          echo "This car is a " . $this->brand . " and is " . $this->color . ".<br>";
+        }
       }
 
-      public function info() {
-        echo "This car is a " . $this->brand . " and is " . $this->color . ".<br>";
-      }
-    }
-
-    $myCar = new Car("Toyota", "Red");
-    $myCar->info(); // Output: This car is a Toyota and is Red.
+      $myCar = new Car("Toyota", "Red");
+      $myCar->info(); // Output: This car is a Toyota and is Red.
     ?>
     ```
 
 *   **NULL** (indicates an empty value):
 
-    ```php title="NULL Example"
+    ```javascript showLineNumbers php title="NULL Example"
     <?php
-    $value = NULL;
+      $value = NULL;
 
-    if ($value === NULL) {
-      echo "Value: Empty <br>"; // Output: Value: Empty
-    }
+      if ($value === NULL) {
+        echo "Value: Empty <br>"; // Output: Value: Empty
+      }
     ?>
     ```
 
@@ -152,80 +152,80 @@ PHP has various operators, including:
 
 *   **Arithmetic operators**: `+`, `-`, `*`, `/`, `%` (modulus/remainder)
 
-    ```php title="Arithmetic Operators Example"
+    ```javascript showLineNumbers title="Arithmetic Operators Example"
     <?php
-    $a = 10;
-    $b = 3;
+      $a = 10;
+      $b = 3;
 
-    echo "Addition: " . ($a + $b) . "<br>"; // Output: 13
-    echo "Subtraction: " . ($a - $b) . "<br>"; // Output: 7
-    echo "Multiplication: " . ($a * $b) . "<br>"; // Output: 30
-    echo "Division: " . ($a / $b) . "<br>"; // Output: 3.333...
-    echo "Modulus: " . ($a % $b) . "<br>"; // Output: 1
+      echo "Addition: " . ($a + $b) . "<br>"; // Output: 13
+      echo "Subtraction: " . ($a - $b) . "<br>"; // Output: 7
+      echo "Multiplication: " . ($a * $b) . "<br>"; // Output: 30
+      echo "Division: " . ($a / $b) . "<br>"; // Output: 3.333...
+      echo "Modulus: " . ($a % $b) . "<br>"; // Output: 1
     ?>
     ```
 
 *   **Comparison operators**: `==` (equal to), `!=` (not equal to), `>` (greater than), `<` (less than), `>=` (greater than or equal to), `<=` (less than or equal to)
 
-    ```php title="Comparison Operators Example"
+    ```javascript showLineNumbers title="Comparison Operators Example"
     <?php
-    $x = 5;
-    $y = 10;
+      $x = 5;
+      $y = 10;
 
-    var_dump($x == $y); // Output: false
-    var_dump($x != $y); // Output: true
-    var_dump($x > $y); // Output: false
-    var_dump($x < $y); // Output: true
-    var_dump($x >= $y); // Output: false
-    var_dump($x <= $y); // Output: true
+      var_dump($x == $y); // Output: false
+      var_dump($x != $y); // Output: true
+      var_dump($x > $y); // Output: false
+      var_dump($x < $y); // Output: true
+      var_dump($x >= $y); // Output: false
+      var_dump($x <= $y); // Output: true
     ?>
     ```
 
 *   **Logical operators**: `&&` (AND), `||` (OR), `!` (NOT)
 
-    ```php title="Logical Operators Example"
+    ```javascript showLineNumbers title="Logical Operators Example"
     <?php
-    $true = true;
-    $false = false;
+      $true = true;
+      $false = false;
 
-    var_dump($true && $false); // Output: false
-    var_dump($true || $false); // Output: true
-    var_dump(!$true); // Output: false
+      var_dump($true && $false); // Output: false
+      var_dump($true || $false); // Output: true
+      var_dump(!$true); // Output: false
     ?>
     ```
 
 *   **Assignment operators**: `=`, `+=`, `-=`, `*=`, `/=`, `%=`
 
-    ```php title="Assignment Operators Example"
+    ```javascript showLineNumbers title="Assignment Operators Example"
     <?php
-    $z = 5;
+      $z = 5;
 
-    $z += 3; // $z = $z + 3;
-    echo $z . "<br>"; // Output: 8
+      $z += 3; // $z = $z + 3;
+      echo $z . "<br>"; // Output: 8
 
-    $z -= 2; // $z = $z - 2;
-    echo $z . "<br>"; // Output: 6
+      $z -= 2; // $z = $z - 2;
+      echo $z . "<br>"; // Output: 6
 
-    $z *= 4; // $z = $z * 4;
-    echo $z . "<br>"; // Output: 24
+      $z *= 4; // $z = $z * 4;
+      echo $z . "<br>"; // Output: 24
 
-    $z /= 6; // $z = $z / 6;
-    echo $z . "<br>"; // Output: 4
+      $z /= 6; // $z = $z / 6;
+      echo $z . "<br>"; // Output: 4
 
-    $z %= 3; // $z = $z % 3;
-    echo $z . "<br>"; // Output: 1
+      $z %= 3; // $z = $z % 3;
+      echo $z . "<br>"; // Output: 1
     ?>
     ```
 
 *   **String operator**: `.` (concatenation)
 
-    ```php title="String Operator Example"
+    ```javascript showLineNumbers title="String Operator Example"
     <?php
-    $firstName = "Budi";
-    $lastName = "Santoso";
+      $firstName = "Budi";
+      $lastName = "Santoso";
 
-    $fullName = $firstName . " " . $lastName;
-    echo $fullName; // Output: Budi Santoso
+      $fullName = $firstName . " " . $lastName;
+      echo $fullName; // Output: Budi Santoso
     ?>
     ```
 
