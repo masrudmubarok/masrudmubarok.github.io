@@ -7,6 +7,7 @@
   height: 100vh;
   background-color: #f3f4f6;
   overflow: hidden;
+  position: relative;
 }
 
 /* Dark mode container */
@@ -37,11 +38,34 @@
 }
 
 /* Profile picture */
-.profilePic {
-  width: 200px;
-  height: 200px;
+.profilePicWrapper {
+  width: 210px; /* Perbesar ukuran lingkaran */
+  height: 210px;
   border-radius: 50%;
-  margin-bottom: 12px;
+  padding: 8px; /* Sesuaikan ruang untuk border luar */
+  background: rgba(255, 255, 255, 0.2); /* Untuk light mode */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Efek shadow lebih nyata */
+  border: 6px solid rgba(123, 121, 121, 0.2); /* Border dalam lebih tebal */
+  margin-bottom: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+[data-theme='dark'] .profilePicWrapper {
+  background: #222; /* Lebih gelap untuk mode gelap */
+  box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.1); /* Shadow lebih soft */
+  border: 6px solid rgba(255, 255, 255, 0.2); /* Border lebih cerah */
+}
+
+.profilePic {
+  width: 190px; /* Perbesar ukuran gambar */
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Nama */
@@ -55,7 +79,7 @@
 /* Role */
 .role {
   color: #4a5568;
-  font-size: 25px;
+  font-size: 35px;
   margin-bottom: 12px;
 }
 
@@ -74,7 +98,7 @@
 
 /* Ikon efek parallax */
 .icon {
-  font-size: 32px;
+  font-size: 30px;
   transition: transform 0.1s ease-out;
   color: #4a5568;
 }
@@ -99,11 +123,11 @@
   }
 
   .name {
-      font-size: 24px;
+      font-size: 38px;
   }
 
   .role {
-      font-size: 16px;
+      font-size: 28px;
   }
 
   .icon {
@@ -116,7 +140,7 @@
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
   text-align: center;
   color: var(--ifm-color-primary);

@@ -43,16 +43,16 @@ export default function MasrudMubarok() {
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.5 }}
         >
-          <motion.img
-            src="/img/profile.png"
-            alt="Masrud Mubarok"
-            className={styles.profilePic}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+          <motion.div
+            className={styles.profilePicWrapper}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-          />
-          <h1 className={styles.name}>Masrud Mubarok</h1>
-          <p className={styles.role}>Software Developer</p>
+          >
+            <img src="/img/profile.png" alt="Masrud Mubarok" className={styles.profilePic} />
+          </motion.div>
+          <h1 className={styles.name}>Ahmad Masrud Mubarok</h1>
+          <p className={styles.role}>Software Engineer</p>
           <div className={styles.links}>
             {[
               { href: "https://linkedin.com/masrudmubarok/", icon: <FaLinkedin />, name: "linkedin" },
@@ -86,7 +86,7 @@ export default function MasrudMubarok() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            Showcase
+            Contact Me
 
             <FaMouse style={{ marginLeft: "7px", fontSize: "15px", transform: "rotate(180deg)" }} /> {/* Resized and rotated mouse icon */}
 

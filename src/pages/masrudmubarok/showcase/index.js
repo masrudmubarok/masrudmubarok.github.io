@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaLaravel, FaVuejs, FaJava, FaExternalLinkAlt, FaCode } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaLaravel, FaVuejs, FaJava, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 import { SiMongodb, SiMysql, SiNextdotjs, SiExpress } from "react-icons/si";
 import styles from "./index.module.css";
 
@@ -37,14 +37,22 @@ const PortfolioGallery = () => {
   return (
     <div className={styles.fixedContainer}>
       <div className={styles.portfolioContainer}>
-        <motion.div 
-          initial={{ scale: 0 }} 
-          animate={{ scale: 1 }} 
-          transition={{ duration: 0.5, ease: "easeOut" }} 
-          className={styles.titleSection}
+      <motion.div 
+        initial={{ scale: 0 }} 
+        animate={{ scale: 1 }} 
+        transition={{ duration: 0.5, ease: "easeOut" }} 
+        className={styles.titleSection}
+      >
+        <h2 className={styles.title}>Portfolio</h2>
+        <motion.p 
+          className={styles.description} 
+          initial={{ opacity: 0, y: 10 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className={styles.title}>My Projects</h2>
-        </motion.div>
+          A collection of my best work, blending innovation, performance, and seamless functionality. Each project is crafted with precision and powered by cutting-edge technology.
+        </motion.p>
+      </motion.div>
 
         <div className={styles.filterWrapper}>
           <div className={styles.buttonsContainerFixed}>
