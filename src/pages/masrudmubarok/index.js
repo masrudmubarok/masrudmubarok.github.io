@@ -86,7 +86,7 @@ export default function MasrudMubarok() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            Contact Me
+            Showcase
 
             <FaMouse style={{ marginLeft: "7px", fontSize: "15px", transform: "rotate(180deg)" }} /> {/* Resized and rotated mouse icon */}
 

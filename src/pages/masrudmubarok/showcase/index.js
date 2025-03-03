@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaLaravel, FaVuejs, FaJava, FaExternalLinkAlt, FaCode } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiNextdotjs, SiExpress } from "react-icons/si";
+import { SiMongodb, SiMysql, SiNextdotjs, SiExpress, SiRedis, SiElasticsearch, SiSwagger } from "react-icons/si";
 import styles from "./index.module.css";
 
 const techIcons = {
@@ -14,6 +14,9 @@ const techIcons = {
   "Java": { icon: <FaJava className={styles.techIcon} />, link: "https://www.java.com/" },
   "MySQL": { icon: <SiMysql className={styles.techIcon} />, link: "https://www.mysql.com/" },
   "MongoDB": { icon: <SiMongodb className={styles.techIcon} />, link: "https://www.mongodb.com/" },
+  "Redis": { icon: <SiRedis className={styles.techIcon} />, link: "https://redis.io/" },
+  "Elasticsearch": { icon: <SiElasticsearch className={styles.techIcon} />, link: "https://www.elastic.co/elasticsearch/" },
+  "Swagger API": { icon: <SiSwagger className={styles.techIcon} />, link: "https://swagger.io/" },
 };
 
 const portfolioItems = [
@@ -23,6 +26,7 @@ const portfolioItems = [
   { id: 4, category: "Web", title: "Devlite", description: "A handbook platform for developers to learn and refine the software development skills.", tech: ["React.js"], image: "/img/devlite-portofolio.png", site: "https://devlite.org/", code: "#" },
   { id: 5, category: "Web", title: "Devanote", description: "A note-taking web app with real-time collaboration.", tech: ["Node.js", "React.js", "Express.js", "MongoDB"], image: "/img/project.png", site: "#", code: "#" },
   { id: 6, category: "Web", title: "Khelsya Store", description: "An e-commerce website for selling fashion products.", tech: ["Next.js", "MongoDB"], image: "/img/project.png", site: "#", code: "#" },
+  { id: 7, category: "Web", title: "Attendance API", description: "An API for managing user attendance with real-time data processing", tech: ["Express.js", "MySQL", "Redis", "Elasticsearch", "Swagger API"], image: "/img/attendance-api.png", site: "#", code: "#" },
 ];
 
 const categories = ["All", "Web", "Mobile", "Desktop"];
