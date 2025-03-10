@@ -1,151 +1,192 @@
-.fullScreen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Mengisi seluruh tinggi layar */
-  text-align: center;
-}
-
+/* Fullscreen container */
 .container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.heroBanner {
   width: 100vw;
-  min-height: 100vh;
-  padding: 0;
-  text-align: center;
+  height: 100vh;
+  background-color: #f3f4f6;
+  overflow: hidden;
   position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Dark mode container */
+[data-theme='dark'] .container {
+  background-color: #222;
 }
 
-.heroTitle {
-  color: var(--ifm-color-primary) !important;
-  font-size: 2.3rem;
-}
-
-.heroSubtitle {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid var(--ifm-color-primary); /* Cursor effect */
-  width: 0;
-  animation: typing 10s steps(20, end)  infinite alternate, 
-             blink 0.7s infinite;
-}
-
-/* Animasi mengetik dan menghapus */
-@keyframes typing {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 47%; /* Sesuai jumlah karakter teks */
-  }
-  100% {
-    width: 0;
-  }
-}
-
-/* Animasi kursor berkedip */
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.appLogo {
-  height: 55vmin;
-  pointer-events: none;
-  margin-top: -7%; /* Menggeser logo ke atas */
+/* Card memenuhi layar */
+.card {
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 32px;
+  width: 100vw;
+  height: 100vh;
   max-width: 100%;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .appLogo {
-    animation: app-logo-spin infinite 5s linear;
-  }
-}
-
-@keyframes app-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Pastikan tetap putih di dark mode */
-html[data-theme='dark'] .whiteBackgroundContainer {
-  background-color: white !important;
-  color: black !important;
-}
-
-.dynamicHeight {
-  min-height: auto;
-  height: auto;
-  overflow: visible;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  text-align: center;
 }
 
-/* Tambahkan margin untuk HomepageHandbooks */
-.handbooksSection {
-  margin: 4rem 0;
-  min-height: 100vh;
+/* Dark mode card */
+[data-theme='dark'] .card {
+  background-color: #222;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
-/* CSS untuk responsive container tanpa scroll */
-.responsiveContainer {
-  height: 100%; /* Menjamin tinggi kontainer sesuai ukuran elemen lainnya */
-  width: 100%; /* Menjamin lebar kontainer sesuai ukuran layar */
-  box-sizing: border-box; /* Pastikan padding dan margin tidak mempengaruhi ukuran */
+/* Profile picture */
+.profilePicWrapper {
+  width: 210px; /* Perbesar ukuran lingkaran */
+  height: 210px;
+  border-radius: 50%;
+  padding: 8px; /* Sesuaikan ruang untuk border luar */
+  background: rgba(255, 255, 255, 0.2); /* Untuk light mode */
   display: flex;
-  flex-direction: column; /* Menyusun konten secara vertikal */
-  overflow: hidden; /* Menyembunyikan scroll */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Efek shadow lebih nyata */
+  border: 6px solid rgba(123, 121, 121, 0.2); /* Border dalam lebih tebal */
+  margin-bottom: 25px;
+  transition: all 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: -3.5rem;
+/* Dark Mode */
+[data-theme='dark'] .profilePicWrapper {
+  background: #222; /* Lebih gelap untuk mode gelap */
+  box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.1); /* Shadow lebih soft */
+  border: 6px solid rgba(255, 255, 255, 0.2); /* Border lebih cerah */
+}
+
+.profilePic {
+  width: 190px; /* Perbesar ukuran gambar */
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Nama */
+.name {
+  font-size: 45px;
+  font-weight: bold;
+  color: var(--ifm-color-primary);
+  margin-bottom: 4px;
+}
+
+/* Role */
+.role {
+  color: #4a5568;
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+/* Dark mode role */
+[data-theme='dark'] .role {
+  color: #cfcfcf;
+}
+
+/* Link container */
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+/* Ikon efek parallax */
+.icon {
+  font-size: 30px;
+  transition: transform 0.1s ease-out;
+  color: #4a5568;
+}
+
+/* Dark mode icon */
+[data-theme='dark'] .icon {
+  color: #b0bec5;
+}
+
+/* Hover efek tambahan */
+.link:hover .icon {
+  transform: scale(1.3);
+  opacity: 0.8;
+  color: var(--ifm-color-primary);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .card {
+      width: 100vw;
+      padding: 24px;
   }
 
-  .heroSubtitle {
-    display: none !important;
+  .name {
+      font-size: 38px;
   }
 
-  .container {
-    max-width: 90%;
-    text-align: center;
+  .role {
+      font-size: 28px;
+  }
+
+  .icon {
+      font-size: 28px;
   }
 }
 
-/* Media Query untuk perangkat mobile */
-@media screen and (max-width: 768px) {
-  .responsiveContainer {
-    flex-direction: column; /* Memastikan konten tetap vertikal */
+/* Tombol Project */
+.projectButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+  background-color: transparent;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dark mode project button */
+[data-theme='dark'] .projectButton {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+/* Hover effect */
+.projectButton:hover {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Dark mode hover */
+[data-theme='dark'] .projectButton:hover {
+  background-color: var(--ifm-color-primary);
+  color: black;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: -10px;
+}
+
+@media (max-width: 768px) {
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: -20px;
   }
 }
 
-/* Media Query untuk perangkat lebih besar */
-@media screen and (min-width: 768px) {
-  .responsiveContainer {
-    flex-direction: column; /* Memastikan konten tetap vertikal */
-  }
+.description {
+  font-size: 1.2rem;
+  color: #aaa;
+  text-align: center;
 }

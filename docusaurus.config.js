@@ -1,12 +1,13 @@
+import React from 'react';
 import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Software Development Handbook',
+  title: 'Masrud Mubarok',
   tagline: 'With a Ninja-Inspired Learning Approach 🚀',
   favicon: 'img/devlite.png',
 
-  url: 'https://devlite.org',
+  url: 'https://masrudmubarok.my.id',
   baseUrl: '/',
 
   organizationName: 'facebook',
@@ -57,103 +58,20 @@ const config = {
     },
   ],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'genin',
-        path: 'handbook/genin',
-        routeBasePath: 'handbook/genin',
-        sidebarPath: require.resolve('./config/sidebarsGenin.js'),
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'chunin',
-        path: 'handbook/chunin',
-        routeBasePath: 'handbook/chunin',
-        sidebarPath: require.resolve('./config/sidebarsChunin.js'),
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'jounin',
-        path: 'handbook/jounin',
-        routeBasePath: 'handbook/jounin',
-        sidebarPath: require.resolve('./config/sidebarsJounin.js'),
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'sannin',
-        path: 'handbook/sannin',
-        routeBasePath: 'handbook/sannin',
-        sidebarPath: require.resolve('./config/sidebarsSannin.js'),
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'kage',
-        path: 'handbook/kage',
-        routeBasePath: 'handbook/kage',
-        sidebarPath: require.resolve('./config/sidebarsKage.js'),
-      },
-    ],
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-        indexDocs: true,
-        indexPages: true,
-        highlightSearchTermsOnTargetPage: true,
-      },
-    ],
-  ],
-
-  themeConfig: ({
+  themeConfig: {
     image: 'img/devlite.png',
     navbar: {
       title: 'DEVLITE',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'DEVLITE Logo',
         src: 'img/devlite.png',
       },
       items: [
         {
-          type: 'dropdown',
-          label: 'Handbook',
+          to: '/#main',
+          label: 'Main',
+          activeBaseRegex: '/#main',
           position: 'right',
-          items: [
-            {
-              to: 'handbook/genin/intro',
-              label: 'Genin',
-              activeBaseRegex: '/genin/',
-            },
-            {
-              to: 'handbook/chunin/intro',
-              label: 'Chunin',
-              activeBaseRegex: '/chunin/',
-            },
-            {
-              to: 'handbook/jounin/intro',
-              label: 'Jounin',
-              activeBaseRegex: '/jounin/',
-            },
-            {
-              to: 'handbook/sannin/intro',
-              label: 'Sannin',
-              activeBaseRegex: '/sannin/',
-            },
-            {
-              to: 'handbook/kage/intro',
-              label: 'Kage',
-              activeBaseRegex: '/kage/',
-            },
-          ],
         },
         {
           to: '/#about',
@@ -162,10 +80,18 @@ const config = {
           position: 'right',
         },
         {
-          type: 'search',
+          to: '/#service',
+          label: 'Service',
+          activeBaseRegex: '/#service',
           position: 'right',
         },
-      ],
+        {
+          to: '/#portfolio',
+          label: 'Portfolio',
+          activeBaseRegex: '/#',
+          position: 'right',
+        },
+      ]
     },
     footer: {
       style: 'dark',
@@ -175,7 +101,10 @@ const config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  }),
+    colorMode: {
+      defaultMode: 'dark',
+    },
+  },
 };
 
 export default config;
