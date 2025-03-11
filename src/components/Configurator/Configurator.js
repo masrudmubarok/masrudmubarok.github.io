@@ -68,7 +68,7 @@ export default function Configurator(props) {
             </Text>
             <Switch
               colorScheme="blue"
-              isChecked={switched}
+              isChecked={!switched}
               onChange={() => {
                 setSwitched(!switched);
                 toggleColorMode();
