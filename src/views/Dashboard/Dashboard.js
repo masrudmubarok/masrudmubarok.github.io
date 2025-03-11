@@ -140,14 +140,15 @@ function Profile() {
           </CardHeader>
           <CardBody px='5px'>
             <Flex direction='column'>
-              <Text fontSize='md' color='gray.400' fontWeight='400' mb='30px' wordBreak="break-word" whiteSpace="normal">
-                Hey there! I'm <b>Masrud Mubarok</b>, a <b>Software Developer</b> with <b>3+ years of experience</b> in building scalable, high-performance applications.
-                <br /><br />
-                🔹 <b>Back-End :</b> Crafting powerful APIs and designing robust system architectures using <b>Symfony, Laravel, and Node.js</b> <br />
-                🔹 <b>Front-End :</b> Creating seamless user experiences with <b>Vue.js and React.js</b> <br /> <br />
+            <Text fontSize='md' color='gray.400' fontWeight='400' mb='30px' wordBreak="break-word" whiteSpace="normal">
+              Hey there! I'm <b>Masrud Mubarok</b>, a <b>Software Developer</b> with <b>3+ years of experience</b> in building scalable, high-performance applications.
+              <br /><br />
+              🔹 <b>Back-End:</b> Crafting powerful APIs and designing robust system architectures using <b>Symfony, Laravel, and Node.js</b> <br />
+              🔹 <b>Front-End:</b> Creating seamless user experiences with <b>Vue.js and React.js</b> <br /><br />
 
-                I love solving complex problems and turning ideas into reality through clean, maintainable code.
-              </Text>
+              I thrive on solving complex problems, writing clean and maintainable code, and transforming innovative ideas into functional software solutions. 
+              Always eager to learn and stay up-to-date with the latest technologies, I enjoy collaborating with teams to build products that make a difference. 🚀
+            </Text>
               <Flex direction='column' mb='18px'>
                 <Text fontSize='md' color={textColor} fontWeight='bold' mb='10px'>
                   Connect With Me :
