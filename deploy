@@ -5,7 +5,7 @@ set -e
 
 # Build project
 echo "Building project..."
-pnpm run build
+npm run build
 
 # Create CNAME file with the domain
 echo "Creating CNAME file..."
@@ -13,6 +13,6 @@ echo "masrudmubarok.my.id" > build/CNAME
 
 # Deploy to GitHub Pages
 echo "Deploying to GitHub Pages..."
-pnpm run deploy
+npm run deploy
 
 echo "Deployment successful!"
