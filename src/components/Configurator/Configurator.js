@@ -13,7 +13,7 @@ import {
   useColorModeValue
 } from "@chakra-ui/react";
 import { HSeparator } from "components/Separator/Separator";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function Configurator(props) {
@@ -26,9 +26,22 @@ export default function Configurator(props) {
     fixed,
     ...rest
   } = props;
-  const [switched, setSwitched] = useState(props.isChecked);
-
+  
   const { colorMode, toggleColorMode } = useColorMode();
+  const [switched, setSwitched] = useState(colorMode === "dark");
+
+  useEffect(() => {
+    const savedColorMode = localStorage.getItem("chakra-ui-color-mode");
+    if (savedColorMode) {
+      setSwitched(savedColorMode === "dark");
+    }
+  }, []);
+
+  const handleToggle = () => {
+    setSwitched(!switched);
+    toggleColorMode();
+    localStorage.setItem("chakra-ui-color-mode", switched ? "light" : "dark");
+  };
 
   let bgButton = useColorModeValue(
     "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
@@ -40,6 +53,7 @@ export default function Configurator(props) {
   const secondaryButtonColor = useColorModeValue("gray.700", "white");
   const bgDrawer = useColorModeValue("white", "navy.800");
   const settingsRef = React.useRef();
+
   return (
     <>
       <Drawer
@@ -53,7 +67,7 @@ export default function Configurator(props) {
           <DrawerHeader pt="24px" px="24px">
             <DrawerCloseButton />
             <Text fontSize="xl" fontWeight="bold" mt="16px">
-              Masrud Mubarok
+              {colorMode === "dark" ? "Dark Mode" : "Light Mode"}
             </Text>
             <Text fontSize="md" mb="16px">
               Software Developer
@@ -62,19 +76,16 @@ export default function Configurator(props) {
           </DrawerHeader>
           <DrawerBody w="340px" ps="24px" pe="40px">
             <Flex flexDirection="column">
-            <Flex justifyContent="space-between" mb="16px">
-            <Text fontSize="md" fontWeight="600" mb="4px">
-              Dark / Light Mode
-            </Text>
-            <Switch
-              colorScheme="blue"
-              isChecked={switched}
-              onChange={() => {
-                setSwitched(!switched);
-                toggleColorMode();
-              }}
-            />
-          </Flex>
+              <Flex justifyContent="space-between" mb="16px">
+                <Text fontSize="md" fontWeight="600" mb="4px">
+                  {colorMode === "dark" ? "Dark Mode" : "Light Mode"}
+                </Text>
+                <Switch
+                  colorScheme="blue"
+                  isChecked={switched}
+                  onChange={handleToggle}
+                />
+              </Flex>
               <HSeparator />
               <Box mt="24px">
                 <Box>
@@ -98,11 +109,11 @@ export default function Configurator(props) {
                 </Box>
                 <Box w="100%">
                   <Text mb="6px" textAlign="center">
-                    Share your thougt!
+                    Share your thought!
                   </Text>
                   <Flex justifyContent="center" alignContent="center">
                     <Link
-                      isExternal="true"
+                      isExternal={true}
                       href="https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/argon-dashboard-chakra/&text=Check%20Argon%20Dashboard%20Chakra%20made%20by%20@simmmple_web%20and%20@CreativeTim"
                     >
                       <Button
@@ -114,7 +125,7 @@ export default function Configurator(props) {
                       </Button>
                     </Link>
                     <Link
-                      isExternal="true"
+                      isExternal={true}
                       href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard-chakra/"
                     >
                       <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
