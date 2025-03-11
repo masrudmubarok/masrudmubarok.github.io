@@ -28,19 +28,19 @@ export default function Configurator(props) {
   } = props;
   
   const { colorMode, toggleColorMode } = useColorMode();
-  const [switched, setSwitched] = useState(colorMode === "dark");
+  const [switched, setSwitched] = useState(colorMode !== "dark");
 
   useEffect(() => {
     const savedColorMode = localStorage.getItem("chakra-ui-color-mode");
     if (savedColorMode) {
-      setSwitched(savedColorMode === "dark");
+      setSwitched(savedColorMode !== "dark");
     }
   }, []);
 
   const handleToggle = () => {
     setSwitched(!switched);
     toggleColorMode();
-    localStorage.setItem("chakra-ui-color-mode", switched ? "light" : "dark");
+    localStorage.setItem("chakra-ui-color-mode", switched ? "dark" : "light");
   };
 
   let bgButton = useColorModeValue(
@@ -67,7 +67,7 @@ export default function Configurator(props) {
           <DrawerHeader pt="24px" px="24px">
             <DrawerCloseButton />
             <Text fontSize="xl" fontWeight="bold" mt="16px">
-              {colorMode === "dark" ? "Dark Mode" : "Light Mode"}
+              Masrud Mubarok
             </Text>
             <Text fontSize="md" mb="16px">
               Software Developer
@@ -78,7 +78,7 @@ export default function Configurator(props) {
             <Flex flexDirection="column">
               <Flex justifyContent="space-between" mb="16px">
                 <Text fontSize="md" fontWeight="600" mb="4px">
-                  {colorMode === "dark" ? "Dark Mode" : "Light Mode"}
+                  {switched ? "Light Mode" : "Dark Mode"}
                 </Text>
                 <Switch
                   colorScheme="blue"
@@ -103,7 +103,7 @@ export default function Configurator(props) {
                       variant="no-effects"
                       px="30px"
                     >
-                      Download CV
+                     Download CV
                     </Button>
                   </Link>
                 </Box>
@@ -131,7 +131,7 @@ export default function Configurator(props) {
                       <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
                         <Text>Share</Text>
                       </Button>
-                    </Link>
+                  </Link>
                   </Flex>
                 </Box>
               </Box>
