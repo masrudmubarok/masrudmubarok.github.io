@@ -6,15 +6,16 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
-  Flex, Link,
+  Flex,
+  Link,
   Switch,
   Text,
   useColorMode,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { HSeparator } from "components/Separator/Separator";
 import React, { useState, useEffect } from "react";
-import { FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaClock, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Configurator(props) {
   const {
@@ -26,9 +27,12 @@ export default function Configurator(props) {
     fixed,
     ...rest
   } = props;
-  
+
   const { colorMode, toggleColorMode } = useColorMode();
   const [switched, setSwitched] = useState(colorMode !== "dark");
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [location, setLocation] = useState("Mencari Lokasi...");
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   useEffect(() => {
     const savedColorMode = localStorage.getItem("chakra-ui-color-mode");
@@ -43,14 +47,55 @@ export default function Configurator(props) {
     localStorage.setItem("chakra-ui-color-mode", switched ? "dark" : "light");
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          try {
+            const response = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+            );
+            const data = await response.json();
+            if (data && data.address) {
+              const { city, town, village, county } = data.address;
+              const cityName = city || town || village || county;
+              if (cityName) {
+                setLocation(cityName);
+              } else {
+                setLocation(userTimezone);
+              }
+            } else {
+              setLocation(userTimezone);
+            }
+          } catch (error) {
+            console.error("Error fetching location:", error);
+            setLocation(userTimezone);
+          }
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+          setLocation(userTimezone);
+        }
+      );
+    } else {
+      setLocation(userTimezone);
+    }
+  }, []);
+
   let bgButton = useColorModeValue(
     "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
     "white"
   );
   let colorButton = useColorModeValue("white", "gray.700");
-  const secondaryButtonBg = useColorModeValue("white", "transparent");
-  const secondaryButtonBorder = useColorModeValue("gray.700", "white");
-  const secondaryButtonColor = useColorModeValue("gray.700", "white");
   const bgDrawer = useColorModeValue("white", "navy.800");
   const settingsRef = React.useRef();
 
@@ -69,15 +114,15 @@ export default function Configurator(props) {
             <Text fontSize="xl" fontWeight="bold" mt="16px">
               Masrud Mubarok
             </Text>
-            <Text fontSize="md" mb="16px">
+            <Text fontSize="sm" mb="16px">
               Software Developer
             </Text>
             <HSeparator />
           </DrawerHeader>
           <DrawerBody w="340px" ps="24px" pe="40px">
             <Flex flexDirection="column">
-              <Flex justifyContent="space-between" mb="16px">
-                <Text fontSize="md" fontWeight="600" mb="4px">
+              <Flex justifyContent="space-between" mb="16px" alignItems="center">
+                <Text fontSize="md" fontWeight="600" mb="0px">
                   {switched ? "Light Mode" : "Dark Mode"}
                 </Text>
                 <Switch
@@ -103,35 +148,46 @@ export default function Configurator(props) {
                       variant="no-effects"
                       px="30px"
                     >
-                     Download CV
+                      Download CV
                     </Button>
                   </Link>
                 </Box>
                 <Box w="100%">
-                  <Text mb="6px" textAlign="center">
-                    Share your thought!
+                  <Text fontSize="sm" mb="6px" textAlign="center">
+                    Time / Location
                   </Text>
-                  <Flex justifyContent="center" alignContent="center">
-                    <Link
-                      isExternal={true}
-                      href="https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/argon-dashboard-chakra/&text=Check%20Argon%20Dashboard%20Chakra%20made%20by%20@simmmple_web%20and%20@CreativeTim"
+                </Box>
+                <Box w="100%">
+                  <Flex justifyContent="center" alignContent="center" mb="16px">
+                    <Button
+                      leftIcon={<FaClock />}
+                      w="48%"
+                      mb="16px"
+                      bg={bgButton}
+                      color={colorButton}
+                      fontSize="xs"
+                      variant="no-effects"
+                      px="16px"
+                      marginRight="10px"
+                      borderRadius="8px"
+                      border="1px solid"
                     >
-                      <Button
-                        colorScheme="twitter"
-                        leftIcon={<FaTwitter />}
-                        me="10px"
-                      >
-                        <Text>Tweet</Text>
-                      </Button>
-                    </Link>
-                    <Link
-                      isExternal={true}
-                      href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard-chakra/"
+                      {currentTime.toLocaleTimeString()}
+                    </Button>
+                    <Button
+                      leftIcon={<FaMapMarkerAlt />}
+                      w="48%"
+                      mb="16px"
+                      bg={bgButton}
+                      color={colorButton}
+                      fontSize="xs"
+                      variant="no-effects"
+                      px="16px"
+                      borderRadius="8px"
+                      border="1px solid"
                     >
-                      <Button colorScheme="facebook" leftIcon={<FaFacebook />}>
-                        <Text>Share</Text>
-                      </Button>
-                  </Link>
+                      {location}
+                    </Button>
                   </Flex>
                 </Box>
               </Box>

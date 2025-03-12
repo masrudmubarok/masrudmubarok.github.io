@@ -14,7 +14,6 @@ import {
   ChakraLogoDark,
   ChakraLogoLight,
 } from "components/Icons/Icons";
-import Sidebar from "components/Sidebar/Sidebar.js";
 import React, { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import routes from "routes.js";
@@ -28,7 +27,7 @@ export default function Dashboard(props) {
   const { ...rest } = props;
   const [fixed, setFixed] = useState(false);
   const { colorMode } = useColorMode();
-  const location = useLocation(); // ✅ Ganti window.location.pathname
+  const location = useLocation();
 
   const getActiveRoute = (routes) => {
     let activeRoute = "Default Brand Text";
@@ -103,32 +102,12 @@ export default function Dashboard(props) {
         bgSize='cover'
         top='0'
       />
-      <Sidebar
-        routes={routes}
-        logo={
-          <Stack direction='row' spacing='12px' align='center' justify='center'>
-            {colorMode === "dark" ? (
-              <ArgonLogoLight w='74px' h='27px' />
-            ) : (
-              <ArgonLogoDark w='74px' h='27px' />
-            )}
-            <Box w='1px' h='20px' bg={colorMode === "dark" ? "white" : "gray.700"} />
-            {colorMode === "dark" ? (
-              <ChakraLogoLight w='82px' h='21px' />
-            ) : (
-              <ChakraLogoDark w='82px' h='21px' />
-            )}
-          </Stack>
-        }
-        display='none'
-        {...rest}
-      />
       <MainPanel w={{ base: "100%", xl: "calc(100% - 275px)" }}>
         <PanelContent>
           <PanelContainer>
             <Switch>
               {getRoutes(routes)}
-              <Redirect from="*" to="/" />  {/* 🔄 Redirect ke root */}
+              <Redirect from="*" to="/" />
             </Switch>
           </PanelContainer>
         </PanelContent>

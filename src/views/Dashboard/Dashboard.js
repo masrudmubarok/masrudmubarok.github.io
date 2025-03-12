@@ -32,12 +32,12 @@ import {
   FaCube,
   FaFacebook,
   FaInstagram,
-  FaPenFancy,
+  FaPaperPlane,
   FaPlus,
   FaLinkedin,
   FaGithub,
   FaYoutube,
-  FaCode, FaLaptopCode, FaDatabase, FaCogs, FaCloud,
+  FaCode,
   FaChalkboardTeacher
 } from "react-icons/fa";
 
@@ -45,11 +45,18 @@ function Profile() {
   const { colorMode } = useColorMode();
 
   // Chakra color mode
-  const textColor = useColorModeValue("gray.700", "white");
+  const textColor = useColorModeValue("gray.900", "white");
   const iconColor = useColorModeValue("blue.500", "white");
   const bgProfile = useColorModeValue("hsla(0,0%,100%,.8)", "navy.800");
   const borderProfileColor = useColorModeValue("white", "transparent");
-  const emailColor = useColorModeValue("gray.400", "gray.300");
+  const emailColor = useColorModeValue("gray.600", "gray.300");
+  let bgButton = useColorModeValue(
+    "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
+    "white"
+  );
+  let colorButton = useColorModeValue("gray.700", "gray.700");
+  const bgDrawer = useColorModeValue("white", "navy.800");
+  const settingsRef = React.useRef();
 
   return (
     <Flex direction='column' pt={{ base: "120px", md: "75px", lg: "100px" }}>
@@ -96,35 +103,62 @@ function Profile() {
         </Flex>
         <Flex
           direction={{ sm: "column", lg: "row" }}
-          w={{ sm: "100%", md: "50%", lg: "auto" }}>
-          <Button p='0px' bg='transparent' variant='no-effects'>
+          w="100%"
+          justify={{ sm: "center", lg: "right" }}
+          align="center"
+        >
+          <Button
+            p="0px"
+            w={{ sm: "100%", lg: "40%" }}
+            bg="transparent"
+            variant="no-effects"
+            mb={{ sm: "10px", lg: "0px" }}
+            mr={{ lg: "10px" }}
+            onClick={() => window.location.href = "mailto:masrud.mubarok21@gmail.com"}
+          >
             <Flex
-              align='center'
-              w={{ sm: "100%", lg: "135px" }}
-              bg={colorMode === "dark" ? "navy.900" : "#fff"}
-              borderRadius='8px'
-              justifyContent='center'
-              py='10px'
-              boxShadow='0px 2px 5.5px rgba(0, 0, 0, 0.06)'
-              cursor='pointer'>
-              <Icon color={textColor} as={FaPenFancy} me='6px' />
-              <Text fontSize='xs' color={textColor} fontWeight='bold'>
-                LET'S CONNECT
+              align="center"
+              w="100%"
+              bg={colorMode === "dark" ? "#fff" : "#fff"}
+              borderRadius="8px"
+              justifyContent="center"
+              py="10px"
+              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.15)"  // Efek shadow lebih kuat
+              cursor="pointer"
+              transition="all 0.3s ease"
+              _hover={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)" }} // Efek hover lebih kuat
+            >
+              <Icon color={colorButton} as={FaPaperPlane} me="6px" fontSize="20px" />
+              <Text fontSize="xs" color={colorButton} fontWeight="bold">
+                masrud.mubarok21@gmail.com
               </Text>
             </Flex>
           </Button>
-          <Button p='0px' bg='transparent' variant='no-effects'>
+
+          <Button
+            p="0px"
+            w={{ sm: "100%", lg: "25%" }}
+            bg="transparent"
+            variant="no-effects"
+            onClick={() => {
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <Flex
-              align='center'
-              w={{ lg: "135px" }}
-              borderRadius='15px'
-              justifyContent='center'
-              py='10px'
-              mx={{ lg: "1rem" }}
-              cursor='pointer'>
-              <Icon color={textColor} as={FaCube} me='6px' />
-              <Text fontSize='xs' color={textColor} fontWeight='bold'>
-                SEE MY WORK
+              align="center"
+              w="100%"
+              bg={colorMode === "dark" ? "#fff" : "#fff"}
+              borderRadius="8px"
+              justifyContent="center"
+              py="10px"
+              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.15)"
+              cursor="pointer"
+              transition="all 0.3s ease"
+              _hover={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)" }}
+            >
+              🚀 &nbsp;
+              <Text fontSize="xs" color={colorButton} fontWeight="bold">
+                Explore My Craft
               </Text>
             </Flex>
           </Button>
@@ -140,7 +174,7 @@ function Profile() {
           </CardHeader>
           <CardBody px='5px'>
             <Flex direction='column'>
-            <Text fontSize='md' color='gray.400' fontWeight='400' mb='30px' wordBreak="break-word" whiteSpace="normal">
+            <Text fontSize='md' color={emailColor} fontWeight='400' mb='30px' wordBreak="break-word" whiteSpace="normal">
               Hey there! I'm <b>Masrud Mubarok</b>, a <b>Software Developer</b> with <b>3+ years of experience</b> in building scalable, high-performance applications.
               <br /><br />
               🔹 <b>Back-End:</b> Crafting powerful APIs and designing robust system architectures using <b>Symfony, Laravel, and Node.js</b> <br />
@@ -154,10 +188,10 @@ function Profile() {
                   Connect With Me :
                 </Text>
                 <Flex>
-                  <Link href='#' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "blue.500" }}>
+                  <Link href='https://www.linkedin.com/in/masrudmubarok/' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "blue.500" }}>
                     <Icon as={FaLinkedin} />
                   </Link>
-                  <Link href='#' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "gray.500" }}>
+                  <Link href='https://github.com/masrudmubarok/' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "gray.500" }}>
                     <Icon as={FaGithub} />
                   </Link>
                   <Link href='#' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "blue.500" }}>
@@ -166,7 +200,7 @@ function Profile() {
                   <Link href='#' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "pink.500" }}>
                     <Icon as={FaInstagram} />
                   </Link>
-                  <Link href='#' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "red.500" }}>
+                  <Link href='https://www.youtube.com/channel/UCQlzVd6RFAYCfMVxlYLunvg' color={iconColor} fontSize='lg' me='10px' _hover={{ color: "red.500" }}>
                     <Icon as={FaYoutube} />
                   </Link>
                 </Flex>
@@ -181,51 +215,65 @@ function Profile() {
               <Text fontSize='lg' color={textColor} fontWeight='bold'>
                 What I Do
               </Text>
-              <Text fontSize='sm' color='gray.400' fontWeight='400'>
+              <Text fontSize='sm' color={emailColor} fontWeight='400'>
                 My expertise and roles
               </Text>
             </Flex>
           </CardHeader>
           <CardBody px='5px'>
-            <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap='24px'>
-              {/* Card 1 */}
-              <Card p='16px' border='1px solid white' borderRadius='15px' textAlign='center' maxWidth="100%">
-                <CardBody display='flex' flexDirection='column' alignItems='center'>
-                  <Icon as={FaCode} color={iconColor} fontSize='4xl' mb='12px' />
-                  <Text fontSize='lg' color={textColor} fontWeight='bold' mb='8px'>
-                    Software Development
-                  </Text>
-                  <Text fontSize='sm' color={textColor} fontWeight='400'>
-                    Building scalable web applications using modern technologies.
-                  </Text>
-                </CardBody>
-              </Card>
+          <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap="24px">
+            {/* Card 1 */}
+            <Card
+              p="16px"
+              border="1px solid white"
+              borderRadius="15px"
+              textAlign="center"
+              maxWidth="100%"
+              boxShadow="0px 10px 30px rgba(0, 0, 0, 0.2)"
+            >
+              <CardBody display="flex" flexDirection="column" alignItems="center">
+                <Icon as={FaCode} color={iconColor} fontSize="4xl" mb="12px" />
+                <Text fontSize="lg" color={textColor} fontWeight="bold" mb="8px">
+                  Software Development
+                </Text>
+                <Text fontSize="sm" color={emailColor} fontWeight="400">
+                  Building scalable web applications using modern technologies.
+                </Text>
+              </CardBody>
+            </Card>
 
-              {/* Card 2 */}
-              <Card p='16px' border='1px solid white' borderRadius='15px' textAlign='center' maxWidth="100%">
-                <CardBody display='flex' flexDirection='column' alignItems='center'>
-                  <Icon as={FaChalkboardTeacher} color={iconColor} fontSize='4xl' mb='12px' />
-                  <Text fontSize='lg' color={textColor} fontWeight='bold' mb='8px'>
-                    Programming Mentor
-                  </Text>
-                  <Text fontSize='sm' color={textColor} fontWeight='400'>
-                    Teaching coding concepts and guiding students through projects.
-                  </Text>
-                </CardBody>
-              </Card>
-            </Grid>
+            {/* Card 2 */}
+            <Card
+              p="16px"
+              border="1px solid white"
+              borderRadius="15px"
+              textAlign="center"
+              maxWidth="100%"
+              boxShadow="0px 10px 30px rgba(0, 0, 0, 0.2)"
+            >
+              <CardBody display="flex" flexDirection="column" alignItems="center">
+                <Icon as={FaChalkboardTeacher} color={iconColor} fontSize="4xl" mb="12px" />
+                <Text fontSize="lg" color={textColor} fontWeight="bold" mb="8px">
+                  Programming Mentor
+                </Text>
+                <Text fontSize="sm" color={emailColor} fontWeight="400">
+                  Teaching coding concepts and guiding students through projects.
+                </Text>
+              </CardBody>
+            </Card>
+          </Grid>
           </CardBody>
         </Card>
       </Grid>
 
-      <Card p='16px' my='24px'>
+      <Card p='16px' my='24px' id='projects'>
         <CardHeader p='12px 5px' mb='12px'>
           <Flex direction='column'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>
               Projects
             </Text>
-            <Text fontSize='sm' color='gray.400' fontWeight='400'>
-              Architects design houses
+            <Text fontSize='sm' color={emailColor} fontWeight='400'>
+              Building innovative and scalable software solutions.
             </Text>
           </Flex>
         </CardHeader>
@@ -246,17 +294,17 @@ function Profile() {
                   bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
               </Box>
               <Flex direction='column'>
-                <Text fontSize='md' color='gray.400' fontWeight='600' mb='10px'>
-                  Project #1
+                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
+                  Web
                 </Text>
                 <Text
                   fontSize='xl'
                   color={textColor}
                   fontWeight='bold'
                   mb='10px'>
-                  Modern
+                  SIMKEU PPTIK
                 </Text>
-                <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
+                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
                   As Uber works through a huge amount of internal management
                   turmoil.
                 </Text>
@@ -285,17 +333,17 @@ function Profile() {
                   bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
               </Box>
               <Flex direction='column'>
-                <Text fontSize='md' color='gray.400' fontWeight='600' mb='10px'>
-                  Project #2
+                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
+                  Web & Mobile
                 </Text>
                 <Text
                   fontSize='xl'
                   color={textColor}
                   fontWeight='bold'
                   mb='10px'>
-                  Scandinavian
+                  PPTIK Academy
                 </Text>
-                <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
+                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
                   Music is something that every person has his or her own
                   specific opinion about.
                 </Text>
@@ -324,17 +372,17 @@ function Profile() {
                   bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
               </Box>
               <Flex direction='column'>
-                <Text fontSize='md' color='gray.400' fontWeight='600' mb='10px'>
-                  Project #3
+                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
+                  Web
                 </Text>
                 <Text
                   fontSize='xl'
                   color={textColor}
                   fontWeight='bold'
                   mb='10px'>
-                  Minimalist
+                  Devlite
                 </Text>
-                <Text fontSize='md' color='gray.400' fontWeight='400' mb='20px'>
+                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
                   Different people have different taste, especially various
                   types of music.
                 </Text>
@@ -351,19 +399,45 @@ function Profile() {
                 </Flex>
               </Flex>
             </Flex>
-            <Button
-              p='0px'
-              bg='transparent'
-              border='1px solid lightgray'
-              borderRadius='15px'
-              minHeight={{ sm: "200px", md: "100%" }}>
-              <Flex direction='column' justifyContent='center' align='center'>
-                <Icon as={FaPlus} color={textColor} fontSize='lg' mb='12px' />
-                <Text fontSize='lg' color={textColor} fontWeight='bold'>
-                  Create a New Project
+            <Flex direction='column'>
+              <Box mb='20px' position='relative' borderRadius='15px'>
+                <Image src={ImageArchitect3} borderRadius='15px' />
+                <Box
+                  w='100%'
+                  h='100%'
+                  position='absolute'
+                  top='0'
+                  borderRadius='15px'
+                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
+              </Box>
+              <Flex direction='column'>
+                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
+                  Web
                 </Text>
+                <Text
+                  fontSize='xl'
+                  color={textColor}
+                  fontWeight='bold'
+                  mb='10px'>
+                  Khelsya Store
+                </Text>
+                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
+                  Different people have different taste, especially various
+                  types of music.
+                </Text>
+                <Flex justifyContent='space-between'>
+                  <Button variant='dark' minW='110px' h='36px'>
+                    VIEW ALL
+                  </Button>
+                  <AvatarGroup size='xs'>
+                    <Avatar name='Ryan Florence' src={avatar6} />
+                    <Avatar name='Segun Adebayo' src={avatar2} />
+                    <Avatar name='Kent Dodds' src={avatar3} />
+                    <Avatar name='Prosper Otemuyiwa' src={avatar4} />
+                  </AvatarGroup>
+                </Flex>
               </Flex>
-            </Button>
+            </Flex>
           </Grid>
         </CardBody>
       </Card>
