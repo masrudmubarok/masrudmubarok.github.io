@@ -117,10 +117,10 @@ function Profile() {
               borderRadius="8px"
               justifyContent="center"
               py="10px"
-              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.15)"  // Efek shadow lebih kuat
+              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.15)"
               cursor="pointer"
               transition="all 0.3s ease"
-              _hover={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)" }} // Efek hover lebih kuat
+              _hover={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)" }}
             >
               <Icon color={colorButton} as={FaPaperPlane} me="6px" fontSize="20px" />
               <Text fontSize="xs" color={colorButton} fontWeight="bold">
@@ -159,7 +159,7 @@ function Profile() {
         </Flex>
       </Flex>
 
-      <Grid templateColumns={{ base: "1fr", xl: "repeat(3, 1fr)" }} gap='22px' pt={{ lg: "10px"}}>
+      <Grid templateColumns={{ base: "1fr", xl: "repeat(3, 1fr)" }} gap='22px'>
         <Card p='16px' my={{ base: "24px", xl: "0px" }} maxWidth="100%">
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>
@@ -223,7 +223,7 @@ function Profile() {
               borderRadius="15px"
               textAlign="center"
               maxWidth="100%"
-              boxShadow="0px 10px 30px rgba(0, 0, 0, 0.2)"
+              boxShadow="0px 5px 20px rgba(44, 43, 43, 0.2)"
             >
               <CardBody display="flex" flexDirection="column" alignItems="center">
                 <Icon as={FaCode} color={iconColor} fontSize="4xl" mb="12px" />
@@ -243,7 +243,7 @@ function Profile() {
               borderRadius="15px"
               textAlign="center"
               maxWidth="100%"
-              boxShadow="0px 10px 30px rgba(0, 0, 0, 0.2)"
+              boxShadow="0px 5px 20px rgba(44, 43, 43, 0.2)"
             >
               <CardBody display="flex" flexDirection="column" alignItems="center">
                 <Icon as={FaChalkboardTeacher} color={iconColor} fontSize="4xl" mb="12px" />

@@ -29,22 +29,18 @@ export default function Configurator(props) {
   } = props;
 
   const { colorMode, toggleColorMode } = useColorMode();
-  const [switched, setSwitched] = useState(colorMode !== "light");
+  const [switched, setSwitched] = useState(colorMode === "dark");
   const [currentTime, setCurrentTime] = useState(new Date());
   const [location, setLocation] = useState("Mencari Lokasi...");
   const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   useEffect(() => {
-    const savedColorMode = localStorage.getItem("chakra-ui-color-mode");
-    if (savedColorMode) {
-      setSwitched(savedColorMode == "light");
-    }
-  }, []);
+    setSwitched(colorMode === "dark");
+  }, [colorMode]);
 
   const handleToggle = () => {
     setSwitched(!switched);
     toggleColorMode();
-    localStorage.setItem("chakra-ui-color-mode", switched ? "dark" : "light");
   };
 
   useEffect(() => {
@@ -68,11 +64,7 @@ export default function Configurator(props) {
             if (data && data.address) {
               const { city, town, village, county } = data.address;
               const cityName = city || town || village || county;
-              if (cityName) {
-                setLocation(cityName);
-              } else {
-                setLocation(userTimezone);
-              }
+              setLocation(cityName || userTimezone);
             } else {
               setLocation(userTimezone);
             }
@@ -100,100 +92,98 @@ export default function Configurator(props) {
   const settingsRef = React.useRef();
 
   return (
-    <>
-      <Drawer
-        isOpen={props.isOpen}
-        onClose={props.onClose}
-        finalFocusRef={settingsRef}
-        blockScrollOnMount={false}
-      >
-        <DrawerContent bg={bgDrawer}>
-          <DrawerHeader pt="24px" px="24px">
-            <DrawerCloseButton />
-            <Text fontSize="xl" fontWeight="bold" mt="16px">
-              Masrud Mubarok
-            </Text>
-            <Text fontSize="sm" mb="16px">
-              Software Developer
-            </Text>
+    <Drawer
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+      finalFocusRef={settingsRef}
+      blockScrollOnMount={false}
+    >
+      <DrawerContent bg={bgDrawer}>
+        <DrawerHeader pt="24px" px="24px">
+          <DrawerCloseButton />
+          <Text fontSize="xl" fontWeight="bold" mt="16px">
+            Masrud Mubarok
+          </Text>
+          <Text fontSize="sm" mb="16px">
+            Software Developer
+          </Text>
+          <HSeparator />
+        </DrawerHeader>
+        <DrawerBody w="340px" ps="24px" pe="40px">
+          <Flex flexDirection="column">
+            <Flex justifyContent="space-between" mb="16px" alignItems="center">
+              <Text fontSize="md" fontWeight="600" mb="0px">
+                {switched ? "Dark Mode" : "Light Mode"}
+              </Text>
+              <Switch
+                colorScheme="blue"
+                isChecked={switched}
+                onChange={handleToggle}
+              />
+            </Flex>
             <HSeparator />
-          </DrawerHeader>
-          <DrawerBody w="340px" ps="24px" pe="40px">
-            <Flex flexDirection="column">
-              <Flex justifyContent="space-between" mb="16px" alignItems="center">
-                <Text fontSize="md" fontWeight="600" mb="0px">
-                  {switched ? "Light Mode" : "Dark Mode"}
-                </Text>
-                <Switch
-                  colorScheme="blue"
-                  isChecked={switched}
-                  onChange={handleToggle}
-                />
-              </Flex>
-              <HSeparator />
-              <Box mt="24px">
-                <Box>
-                  <Link
-                    href="https://www.creative-tim.com/product/argon-dashboard-chakra?ref=creativetim-pud"
+            <Box mt="24px">
+              <Box>
+                <Link
+                  href="https://drive.google.com/file/d/1HUh7jT_zNdvibNgsXmKAUEi9mE_Rxr9e/view?usp=sharing"
+                  w="100%"
+                  mb="16px"
+                >
+                  <Button
                     w="100%"
                     mb="16px"
+                    bg={bgButton}
+                    color={colorButton}
+                    fontSize="xs"
+                    variant="no-effects"
+                    px="30px"
                   >
-                    <Button
-                      w="100%"
-                      mb="16px"
-                      bg={bgButton}
-                      color={colorButton}
-                      fontSize="xs"
-                      variant="no-effects"
-                      px="30px"
-                    >
-                      Download CV
-                    </Button>
-                  </Link>
-                </Box>
-                <Box w="100%">
-                  <Text fontSize="sm" mb="6px" textAlign="center">
-                    Time / Location
-                  </Text>
-                </Box>
-                <Box w="100%">
-                  <Flex justifyContent="center" alignContent="center" mb="16px">
-                    <Button
-                      leftIcon={<FaClock />}
-                      w="48%"
-                      mb="16px"
-                      bg={bgButton}
-                      color={colorButton}
-                      fontSize="xs"
-                      variant="no-effects"
-                      px="16px"
-                      marginRight="10px"
-                      borderRadius="8px"
-                      border="1px solid"
-                    >
-                      {currentTime.toLocaleTimeString()}
-                    </Button>
-                    <Button
-                      leftIcon={<FaMapMarkerAlt />}
-                      w="48%"
-                      mb="16px"
-                      bg={bgButton}
-                      color={colorButton}
-                      fontSize="xs"
-                      variant="no-effects"
-                      px="16px"
-                      borderRadius="8px"
-                      border="1px solid"
-                    >
-                      {location}
-                    </Button>
-                  </Flex>
-                </Box>
+                    Download CV
+                  </Button>
+                </Link>
               </Box>
-            </Flex>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
-    </>
+              <Box w="100%">
+                <Text fontSize="sm" mb="6px" textAlign="center">
+                  Time / Location
+                </Text>
+              </Box>
+              <Box w="100%">
+                <Flex justifyContent="center" alignContent="center" mb="16px">
+                  <Button
+                    leftIcon={<FaClock />}
+                    w="48%"
+                    mb="16px"
+                    bg={bgButton}
+                    color={colorButton}
+                    fontSize="xs"
+                    variant="no-effects"
+                    px="16px"
+                    marginRight="10px"
+                    borderRadius="8px"
+                    border="1px solid"
+                  >
+                    {currentTime.toLocaleTimeString()}
+                  </Button>
+                  <Button
+                    leftIcon={<FaMapMarkerAlt />}
+                    w="48%"
+                    mb="16px"
+                    bg={bgButton}
+                    color={colorButton}
+                    fontSize="xs"
+                    variant="no-effects"
+                    px="16px"
+                    borderRadius="8px"
+                    border="1px solid"
+                  >
+                    {location}
+                  </Button>
+                </Flex>
+              </Box>
+            </Box>
+          </Flex>
+        </DrawerBody>
+      </DrawerContent>
+    </Drawer>
   );
 }
