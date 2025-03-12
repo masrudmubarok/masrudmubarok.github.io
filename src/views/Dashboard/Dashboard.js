@@ -50,16 +50,10 @@ function Profile() {
   const bgProfile = useColorModeValue("hsla(0,0%,100%,.8)", "navy.800");
   const borderProfileColor = useColorModeValue("white", "transparent");
   const emailColor = useColorModeValue("gray.600", "gray.300");
-  let bgButton = useColorModeValue(
-    "linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)",
-    "white"
-  );
   let colorButton = useColorModeValue("gray.700", "gray.700");
-  const bgDrawer = useColorModeValue("white", "navy.800");
-  const settingsRef = React.useRef();
 
   return (
-    <Flex direction='column' pt={{ base: "120px", md: "75px", lg: "100px" }}>
+    <Flex direction='column' pt={{ base: "120px", md: "55px", lg: "55px" }} >
       <Flex
         direction={{ sm: "column", md: "row" }}
         mb='24px'
@@ -165,7 +159,7 @@ function Profile() {
         </Flex>
       </Flex>
 
-      <Grid templateColumns={{ base: "1fr", xl: "repeat(3, 1fr)" }} gap='22px'>
+      <Grid templateColumns={{ base: "1fr", xl: "repeat(3, 1fr)" }} gap='22px' pt={{ lg: "10px"}}>
         <Card p='16px' my={{ base: "24px", xl: "0px" }} maxWidth="100%">
           <CardHeader p='12px 5px' mb='12px'>
             <Text fontSize='lg' color={textColor} fontWeight='bold'>

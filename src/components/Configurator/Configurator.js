@@ -29,7 +29,7 @@ export default function Configurator(props) {
   } = props;
 
   const { colorMode, toggleColorMode } = useColorMode();
-  const [switched, setSwitched] = useState(colorMode !== "dark");
+  const [switched, setSwitched] = useState(colorMode !== "light");
   const [currentTime, setCurrentTime] = useState(new Date());
   const [location, setLocation] = useState("Mencari Lokasi...");
   const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -37,7 +37,7 @@ export default function Configurator(props) {
   useEffect(() => {
     const savedColorMode = localStorage.getItem("chakra-ui-color-mode");
     if (savedColorMode) {
-      setSwitched(savedColorMode !== "dark");
+      setSwitched(savedColorMode == "light");
     }
   }, []);
 
@@ -104,7 +104,6 @@ export default function Configurator(props) {
       <Drawer
         isOpen={props.isOpen}
         onClose={props.onClose}
-        placement={document.documentElement.dir === "rtl" ? "left" : "right"}
         finalFocusRef={settingsRef}
         blockScrollOnMount={false}
       >
