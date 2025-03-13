@@ -197,7 +197,7 @@ function Dashboard() {
                 <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight="bold" mb="8px">
                   Software Development
                 </Text>
-                <Text fontSize="sm" color={emailColor} fontWeight="400">
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight="400">
                   Building scalable web applications using modern technologies.
                 </Text>
               </CardBody>
@@ -217,7 +217,7 @@ function Dashboard() {
                 <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight="bold" mb="8px">
                   Programming Mentor
                 </Text>
-                <Text fontSize="sm" color={emailColor} fontWeight="400">
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight="400">
                   Teaching coding concepts and guiding students through projects.
                 </Text>
               </CardBody>
@@ -230,7 +230,7 @@ function Dashboard() {
       <Card p={{ base: '12px', md: '16px' }} my='24px' id='projects'>
         <CardHeader p='12px 5px' mb='12px'>
           <Flex direction='column'>
-            <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold'>
+            <Text fontSize='lg' color={textColor} fontWeight='bold'>
               Projects
             </Text>
             <Text fontSize='sm' color={emailColor} fontWeight='400'>
@@ -260,7 +260,7 @@ function Dashboard() {
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Web
                 </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
+                <Text fontSize='md' color={textColor} fontWeight='bold' mb='10px'>
                   SIMKEU PPTIK
                 </Text>
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
@@ -301,7 +301,7 @@ function Dashboard() {
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Web
                 </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
+                <Text fontSize='md' color={textColor} fontWeight='bold' mb='10px'>
                   Devlite
                 </Text>
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
@@ -341,7 +341,7 @@ function Dashboard() {
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Web
                 </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
+                <Text fontSize='md' color={textColor} fontWeight='bold' mb='10px'>
                   PPTIK Academy Admin
                 </Text>
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
@@ -382,7 +382,7 @@ function Dashboard() {
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Mobile
                 </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
+                <Text fontSize='md' color={textColor} fontWeight='bold' mb='10px'>
                   PPTIK Academy
                 </Text>
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
@@ -423,7 +423,7 @@ function Dashboard() {
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Web
                 </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
+                <Text fontSize='md' color={textColor} fontWeight='bold' mb='10px'>
                   Khelsya Store
                 </Text>
                 <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
