@@ -135,7 +135,7 @@ function Dashboard() {
           </CardHeader>
           <CardBody px='5px'>
             <Flex direction='column'>
-            <Text fontSize='md' color={emailColor} fontWeight='400' mb='30px' wordBreak="break-word" whiteSpace="normal">
+            <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='30px' wordBreak="break-word" whiteSpace="normal" textAlign="justify">
               Hey there! I'm <b>Masrud Mubarok</b>, a <b>Software Developer</b> with <b>3+ years of experience</b> in building scalable, high-performance applications.
               <br /><br />
               🔹 <b>Back-End:</b> Crafting powerful APIs and designing robust system architectures using <b>Symfony, Laravel, and Node.js</b> <br />
@@ -145,7 +145,7 @@ function Dashboard() {
               Always eager to learn and stay up-to-date with the latest technologies, I enjoy collaborating with teams to build products that make a difference. 🚀
             </Text>
               <Flex direction='column' mb='18px'>
-                <Text fontSize='md' color={textColor} fontWeight='bold' mb='10px'>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={textColor} fontWeight='bold' mb='10px'>
                   Connect With Me :
                 </Text>
                 <Flex>
@@ -441,9 +441,9 @@ function Dashboard() {
                   <Flex gap='8px' align='center' mt={{ base: '10px', md: '0' }}>
                     <Flex gap='6px'>
                       <SiMongodb size={20} color="#4DB33D" />
-                      <SiExpress size={20} color="#808080" />
-                      <FaReact size={20} color="#61DBFB" />
-                      <FaNodeJs size={20} color="#68A063" />
+                       <SiExpress size={20} color="#808080" />
+                       <FaReact size={20} color="#61DBFB" />
+                       <FaNodeJs size={20} color="#68A063" />
                     </Flex>
                   </Flex>
                 </Flex>
