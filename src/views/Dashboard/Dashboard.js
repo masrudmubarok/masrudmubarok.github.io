@@ -1,47 +1,14 @@
-// Chakra imports
-import {
-  Avatar,
-  AvatarGroup,
-  Box,
-  Button,
-  Flex,
-  Grid,
-  Icon,
-  Image,
-  Link,
-  Switch,
-  Text,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
-// Assets
-import avatar2 from "assets/img/avatars/avatar2.png";
-import avatar3 from "assets/img/avatars/avatar3.png";
-import avatar4 from "assets/img/avatars/avatar4.png";
-import avatar5 from "assets/img/avatars/avatar5.png";
-import avatar6 from "assets/img/avatars/avatar6.png";
-import ImageArchitect1 from "assets/img/ImageArchitect1.png";
-import ImageArchitect2 from "assets/img/ImageArchitect2.png";
-import ImageArchitect3 from "assets/img/ImageArchitect3.png";
-// Custom components
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
 import React from "react";
-import {
-  FaCube,
-  FaFacebook,
-  FaInstagram,
-  FaPaperPlane,
-  FaPlus,
-  FaLinkedin,
-  FaGithub,
-  FaYoutube,
-  FaCode,
-  FaChalkboardTeacher
-} from "react-icons/fa";
+import { Avatar, Box, Button, Flex, Grid, Icon, Image, Link, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import avatar5 from "assets/img/avatars/avatar5.png"; 
+import ImageArchitect3 from "assets/img/ImageArchitect3.png";
+import Card from "components/Card/Card"; 
+import CardBody from "components/Card/CardBody"; 
+import CardHeader from "components/Card/CardHeader";
+import { FaFacebook, FaInstagram, FaPaperPlane, FaLinkedin, FaGithub, FaYoutube, FaCode, FaReact, FaNodeJs, FaLaravel, FaJava, FaChalkboardTeacher } from "react-icons/fa";
+import { SiTailwindcss, SiMysql, SiMongodb, SiExpress } from "react-icons/si";
 
-function Profile() {
+function Dashboard() {
   const { colorMode } = useColorMode();
 
   // Chakra color mode
@@ -276,159 +243,208 @@ function Profile() {
             templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
             templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
             gap='24px'>
-            <Flex direction='column'>
-              <Box mb='20px' position='relative' borderRadius='15px'>
-                <Image src={ImageArchitect1} borderRadius='15px' />
+            <Flex direction="column">
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect3} borderRadius="15px" />
                 <Box
-                  w='100%'
-                  h='100%'
-                  position='absolute'
-                  top='0'
-                  borderRadius='15px'
-                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
               </Box>
-              <Flex direction='column'>
-                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
+              <Flex direction="column">
+                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
                   Web
                 </Text>
-                <Text
-                  fontSize='xl'
-                  color={textColor}
-                  fontWeight='bold'
-                  mb='10px'>
+                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
                   SIMKEU PPTIK
                 </Text>
-                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
-                  As Uber works through a huge amount of internal management
-                  turmoil.
+                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                  A financial management system for PPTIK STIKI Malang.
                 </Text>
-                <Flex justifyContent='space-between'>
-                  <Button variant='dark' minW='110px' h='36px'>
-                    VIEW ALL
-                  </Button>
-                  <AvatarGroup size='xs'>
-                    <Avatar name='Ryan Florence' src={avatar6} />
-                    <Avatar name='Segun Adebayo' src={avatar2} />
-                    <Avatar name='Kent Dodds' src={avatar3} />
-                    <Avatar name='Prosper Otemuyiwa' src={avatar4} />
-                  </AvatarGroup>
+                <Flex justify="space-between" align="center">
+                  <Flex gap="10px">
+                    <Button variant="dark" minW="110px" h="36px">
+                      Demo
+                    </Button>
+                    <Button variant="dark" minW="110px" h="36px">
+                      Source
+                    </Button>
+                  </Flex>
+                  <Flex gap="8px" align="center">
+                    <Flex gap="6px">
+                      <FaLaravel size={20} color="#FF2D20" />
+                      <SiTailwindcss size={20} color="#06B6D4" />
+                      <SiMysql size={20} color="#4479A1" />
+                    </Flex>
+                  </Flex>
                 </Flex>
               </Flex>
             </Flex>
-            <Flex direction='column'>
-              <Box mb='20px' position='relative' borderRadius='15px'>
-                <Image src={ImageArchitect2} borderRadius='15px' />
+            <Flex direction="column">
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect3} borderRadius="15px" />
                 <Box
-                  w='100%'
-                  h='100%'
-                  position='absolute'
-                  top='0'
-                  borderRadius='15px'
-                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
               </Box>
-              <Flex direction='column'>
-                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
-                  Web & Mobile
-                </Text>
-                <Text
-                  fontSize='xl'
-                  color={textColor}
-                  fontWeight='bold'
-                  mb='10px'>
-                  PPTIK Academy
-                </Text>
-                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
-                  Music is something that every person has his or her own
-                  specific opinion about.
-                </Text>
-                <Flex justifyContent='space-between'>
-                  <Button variant='dark' minW='110px' h='36px'>
-                    VIEW ALL
-                  </Button>
-                  <AvatarGroup size='xs'>
-                    <Avatar name='Ryan Florence' src={avatar6} />
-                    <Avatar name='Segun Adebayo' src={avatar2} />
-                    <Avatar name='Kent Dodds' src={avatar3} />
-                    <Avatar name='Prosper Otemuyiwa' src={avatar4} />
-                  </AvatarGroup>
-                </Flex>
-              </Flex>
-            </Flex>
-            <Flex direction='column'>
-              <Box mb='20px' position='relative' borderRadius='15px'>
-                <Image src={ImageArchitect3} borderRadius='15px' />
-                <Box
-                  w='100%'
-                  h='100%'
-                  position='absolute'
-                  top='0'
-                  borderRadius='15px'
-                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
-              </Box>
-              <Flex direction='column'>
-                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
+              <Flex direction="column">
+                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
                   Web
                 </Text>
-                <Text
-                  fontSize='xl'
-                  color={textColor}
-                  fontWeight='bold'
-                  mb='10px'>
+                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
                   Devlite
                 </Text>
-                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
-                  Different people have different taste, especially various
-                  types of music.
+                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                  A handbook platform for learning and refining software development skills.
                 </Text>
-                <Flex justifyContent='space-between'>
-                  <Button variant='dark' minW='110px' h='36px'>
-                    VIEW ALL
-                  </Button>
-                  <AvatarGroup size='xs'>
-                    <Avatar name='Ryan Florence' src={avatar6} />
-                    <Avatar name='Segun Adebayo' src={avatar2} />
-                    <Avatar name='Kent Dodds' src={avatar3} />
-                    <Avatar name='Prosper Otemuyiwa' src={avatar4} />
-                  </AvatarGroup>
+                <Flex justify="space-between" align="center">
+                  <Flex gap="10px">
+                    <Button variant="dark" minW="110px" h="36px">
+                      Demo
+                    </Button>
+                    <Button variant="dark" minW="110px" h="36px">
+                      Source
+                    </Button>
+                  </Flex>
+                  <Flex gap="8px" align="center">
+                  <Flex gap="6px">
+                    <FaReact size={20} color="#61DBFB" />
+                    <Image src="https://docusaurus.io/img/docusaurus.png" alt="Docusaurus" width={5} height={5} />
+                  </Flex>
+                  </Flex>
                 </Flex>
               </Flex>
             </Flex>
-            <Flex direction='column'>
-              <Box mb='20px' position='relative' borderRadius='15px'>
-                <Image src={ImageArchitect3} borderRadius='15px' />
+            <Flex direction="column">
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect3} borderRadius="15px" />
                 <Box
-                  w='100%'
-                  h='100%'
-                  position='absolute'
-                  top='0'
-                  borderRadius='15px'
-                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'></Box>
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
               </Box>
-              <Flex direction='column'>
-                <Text fontSize='md' color={emailColor} fontWeight='600' mb='10px'>
+              <Flex direction="column">
+                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
                   Web
                 </Text>
-                <Text
-                  fontSize='xl'
-                  color={textColor}
-                  fontWeight='bold'
-                  mb='10px'>
+                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
+                  PPTIK Academy Admin
+                </Text>
+                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                  Admin panel for managing courses, payments, and users.
+                </Text>
+                <Flex justify="space-between" align="center">
+                  <Flex gap="10px">
+                    <Button variant="dark" minW="110px" h="36px">
+                      Demo
+                    </Button>
+                    <Button variant="dark" minW="110px" h="36px">
+                      Source
+                    </Button>
+                  </Flex>
+                  <Flex gap="8px" align="center">
+                    <Flex gap="6px">
+                      <FaLaravel size={20} color="#FF2D20" />
+                      <SiTailwindcss size={20} color="#06B6D4" />
+                      <SiMysql size={20} color="#4479A1" />
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </Flex>
+            </Flex>
+            <Flex direction="column">
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect3} borderRadius="15px" />
+                <Box
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
+              </Box>
+              <Flex direction="column">
+                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
+                  Mobile
+                </Text>
+                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
+                  PPTIK Academy
+                </Text>
+                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                  A mobile platform for students to learn and purchase PPTIK courses.
+                </Text>
+                <Flex justify="space-between" align="center">
+                  <Flex gap="10px">
+                    <Button variant="dark" minW="110px" h="36px">
+                      Demo
+                    </Button>
+                    <Button variant="dark" minW="110px" h="36px">
+                      Source
+                    </Button>
+                  </Flex>
+                  <Flex gap="8px" align="center">
+                    <Flex gap="6px">
+                      <FaJava size={20} color="#007396" />
+                      <FaLaravel size={20} color="#FF2D20" />
+                      <SiMysql size={20} color="#4479A1" />
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </Flex>
+            </Flex>
+            <Flex direction="column">
+              <Box mb="20px" position="relative" borderRadius="15px">
+                <Image src={ImageArchitect3} borderRadius="15px" />
+                <Box
+                  w="100%"
+                  h="100%"
+                  position="absolute"
+                  top="0"
+                  borderRadius="15px"
+                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                ></Box>
+              </Box>
+              <Flex direction="column">
+                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
+                  Web
+                </Text>
+                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
                   Khelsya Store
                 </Text>
-                <Text fontSize='md' color={emailColor} fontWeight='400' mb='20px'>
-                  Different people have different taste, especially various
-                  types of music.
+                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                  An e-commerce website for selling thrift fashion products.
                 </Text>
-                <Flex justifyContent='space-between'>
-                  <Button variant='dark' minW='110px' h='36px'>
-                    VIEW ALL
-                  </Button>
-                  <AvatarGroup size='xs'>
-                    <Avatar name='Ryan Florence' src={avatar6} />
-                    <Avatar name='Segun Adebayo' src={avatar2} />
-                    <Avatar name='Kent Dodds' src={avatar3} />
-                    <Avatar name='Prosper Otemuyiwa' src={avatar4} />
-                  </AvatarGroup>
+                <Flex justify="space-between" align="center">
+                  <Flex gap="10px">
+                    <Button variant="dark" minW="110px" h="36px">
+                      Demo
+                    </Button>
+                    <Button variant="dark" minW="110px" h="36px">
+                      Source
+                    </Button>
+                  </Flex>
+                  <Flex gap="8px" align="center">
+                    <Flex gap="6px">
+                      <SiMongodb size={20} color="#4DB33D" />
+                      <SiExpress size={20} color="#808080" />
+                      <FaReact size={20} color="#61DBFB" />
+                      <FaNodeJs size={20} color="#68A063" />
+                    </Flex>
+                  </Flex>
                 </Flex>
               </Flex>
             </Flex>
@@ -439,4 +455,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Dashboard;
