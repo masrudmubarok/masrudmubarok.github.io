@@ -190,11 +190,11 @@ function Dashboard() {
               borderRadius="15px"
               textAlign="center"
               maxWidth="100%"
-              boxShadow="0px 5px 20px rgba(44, 43, 43, 0.2)"
+              boxShadow="0px 5px 20px rgba(109, 105, 105, 0.1)"
             >
               <CardBody display="flex" flexDirection="column" alignItems="center">
                 <Icon as={FaCode} color={iconColor} fontSize="4xl" mb="12px" />
-                <Text fontSize="lg" color={textColor} fontWeight="bold" mb="8px">
+                <Text fontSize="md" color={textColor} fontWeight="bold" mb="8px">
                   Software Development
                 </Text>
                 <Text fontSize="sm" color={emailColor} fontWeight="400">
@@ -210,11 +210,11 @@ function Dashboard() {
               borderRadius="15px"
               textAlign="center"
               maxWidth="100%"
-              boxShadow="0px 5px 20px rgba(44, 43, 43, 0.2)"
+              boxShadow="0px 5px 20px rgba(109, 105, 105, 0.1)"
             >
               <CardBody display="flex" flexDirection="column" alignItems="center">
                 <Icon as={FaChalkboardTeacher} color={iconColor} fontSize="4xl" mb="12px" />
-                <Text fontSize="lg" color={textColor} fontWeight="bold" mb="8px">
+                <Text fontSize="md" color={textColor} fontWeight="bold" mb="8px">
                   Programming Mentor
                 </Text>
                 <Text fontSize="sm" color={emailColor} fontWeight="400">
