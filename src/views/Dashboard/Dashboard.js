@@ -227,10 +227,10 @@ function Dashboard() {
         </Card>
       </Grid>
 
-      <Card p='16px' my='24px' id='projects'>
+      <Card p={{ base: '12px', md: '16px' }} my='24px' id='projects'>
         <CardHeader p='12px 5px' mb='12px'>
           <Flex direction='column'>
-            <Text fontSize='lg' color={textColor} fontWeight='bold'>
+            <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold'>
               Projects
             </Text>
             <Text fontSize='sm' color={emailColor} fontWeight='400'>
@@ -240,164 +240,165 @@ function Dashboard() {
         </CardHeader>
         <CardBody px='5px'>
           <Grid
-            templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
-            templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
-            gap='24px'>
-            <Flex direction="column">
-              <Box mb="20px" position="relative" borderRadius="15px">
-                <Image src={ImageArchitect3} borderRadius="15px" />
+            templateColumns={{ sm: '1fr', md: '1fr 1fr', xl: 'repeat(4, 1fr)' }}
+            templateRows={{ sm: '1fr 1fr 1fr auto', md: '1fr 1fr', xl: '1fr' }}
+            gap='24px'
+          >
+            <Flex direction='column' border='1px solid rgba(128, 128, 128, 0.1)' borderRadius='15px' p='10px'>
+              <Box mb='20px' position='relative' borderRadius='15px' overflow='hidden'>
+                <Image src={ImageArchitect3} borderRadius='15px' w='100%' h='100%' objectFit='cover' />
                 <Box
-                  w="100%"
-                  h="100%"
-                  position="absolute"
-                  top="0"
-                  borderRadius="15px"
-                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                  w='100%'
+                  h='100%'
+                  position='absolute'
+                  top='0'
+                  borderRadius='15px'
+                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'
                 ></Box>
               </Box>
-              <Flex direction="column">
-                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
+              <Flex direction='column' p='6px'>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Web
                 </Text>
-                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
+                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
                   SIMKEU PPTIK
                 </Text>
-                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
                   A financial management system for PPTIK STIKI Malang.
                 </Text>
-                <Flex justify="space-between" align="center">
-                  <Flex gap="10px">
-                    <Button variant="dark" minW="110px" h="36px">
+                <Flex justify='space-between' align='center' direction={{ base: 'column', md: 'row' }}>
+                  <Flex gap='10px'>
+                    <Button variant='dark' minW='110px' h='36px'>
                       Demo
                     </Button>
-                    <Button variant="dark" minW="110px" h="36px">
+                    <Button variant='dark' minW='110px' h='36px'>
                       Source
                     </Button>
                   </Flex>
-                  <Flex gap="8px" align="center">
-                    <Flex gap="6px">
-                      <FaLaravel size={20} color="#FF2D20" />
-                      <SiTailwindcss size={20} color="#06B6D4" />
-                      <SiMysql size={20} color="#4479A1" />
+                  <Flex gap='8px' align='center' mt={{ base: '10px', md: '0' }}>
+                    <Flex gap='6px'>
+                      <FaLaravel size={20} color='#FF2D20' />
+                      <SiTailwindcss size={20} color='#06B6D4' />
+                      <SiMysql size={20} color='#4479A1' />
                     </Flex>
                   </Flex>
                 </Flex>
               </Flex>
             </Flex>
-            <Flex direction="column">
-              <Box mb="20px" position="relative" borderRadius="15px">
-                <Image src={ImageArchitect3} borderRadius="15px" />
+            <Flex direction='column' border='1px solid rgba(128, 128, 128, 0.1)' borderRadius='15px' p='10px'>
+              <Box mb='20px' position='relative' borderRadius='15px' overflow='hidden'>
+                <Image src={ImageArchitect3} borderRadius='15px' w='100%' h='100%' objectFit='cover' />
                 <Box
-                  w="100%"
-                  h="100%"
-                  position="absolute"
-                  top="0"
-                  borderRadius="15px"
-                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                  w='100%'
+                  h='100%'
+                  position='absolute'
+                  top='0'
+                  borderRadius='15px'
+                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'
                 ></Box>
               </Box>
-              <Flex direction="column">
-                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
+              <Flex direction='column' p='6px'>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Web
                 </Text>
-                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
+                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
                   Devlite
                 </Text>
-                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
                   A handbook platform for learning and refining software development skills.
                 </Text>
-                <Flex justify="space-between" align="center">
-                  <Flex gap="10px">
-                    <Button variant="dark" minW="110px" h="36px">
+                <Flex justify='space-between' align='center' direction={{ base: 'column', md: 'row' }}>
+                  <Flex gap='10px'>
+                    <Button variant='dark' minW='110px' h='36px'>
                       Demo
                     </Button>
-                    <Button variant="dark" minW="110px" h="36px">
+                    <Button variant='dark' minW='110px' h='36px'>
                       Source
                     </Button>
                   </Flex>
-                  <Flex gap="8px" align="center">
-                  <Flex gap="6px">
-                    <FaReact size={20} color="#61DBFB" />
-                    <Image src="https://docusaurus.io/img/docusaurus.png" alt="Docusaurus" width={5} height={5} />
-                  </Flex>
-                  </Flex>
-                </Flex>
-              </Flex>
-            </Flex>
-            <Flex direction="column">
-              <Box mb="20px" position="relative" borderRadius="15px">
-                <Image src={ImageArchitect3} borderRadius="15px" />
-                <Box
-                  w="100%"
-                  h="100%"
-                  position="absolute"
-                  top="0"
-                  borderRadius="15px"
-                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
-                ></Box>
-              </Box>
-              <Flex direction="column">
-                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
-                  Web
-                </Text>
-                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
-                  PPTIK Academy Admin
-                </Text>
-                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
-                  Admin panel for managing courses, payments, and users.
-                </Text>
-                <Flex justify="space-between" align="center">
-                  <Flex gap="10px">
-                    <Button variant="dark" minW="110px" h="36px">
-                      Demo
-                    </Button>
-                    <Button variant="dark" minW="110px" h="36px">
-                      Source
-                    </Button>
-                  </Flex>
-                  <Flex gap="8px" align="center">
-                    <Flex gap="6px">
-                      <FaLaravel size={20} color="#FF2D20" />
-                      <SiTailwindcss size={20} color="#06B6D4" />
-                      <SiMysql size={20} color="#4479A1" />
+                  <Flex gap='8px' align='center' mt={{ base: '10px', md: '0' }}>
+                    <Flex gap='6px'>
+                      <FaReact size={20} color="#61DBFB" />
+                      <Image src="https://docusaurus.io/img/docusaurus.png" alt="Docusaurus" width={5} height={5} />
                     </Flex>
                   </Flex>
                 </Flex>
               </Flex>
             </Flex>
-            <Flex direction="column">
-              <Box mb="20px" position="relative" borderRadius="15px">
-                <Image src={ImageArchitect3} borderRadius="15px" />
+            <Flex direction='column' border='1px solid rgba(128, 128, 128, 0.1)' borderRadius='15px' p='10px'>
+              <Box mb='20px' position='relative' borderRadius='15px' overflow='hidden'>
+                <Image src={ImageArchitect3} borderRadius='15px' w='100%' h='100%' objectFit='cover' />
                 <Box
-                  w="100%"
-                  h="100%"
-                  position="absolute"
-                  top="0"
-                  borderRadius="15px"
-                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                  w='100%'
+                  h='100%'
+                  position='absolute'
+                  top='0'
+                  borderRadius='15px'
+                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'
                 ></Box>
               </Box>
-              <Flex direction="column">
-                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
-                  Mobile
+              <Flex direction='column' p='6px'>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
+                  Web
                 </Text>
-                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
-                  PPTIK Academy
+                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
+                  PPTIK Academy Admin
                 </Text>
-                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
-                  A mobile platform for students to learn and purchase PPTIK courses.
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
+                  Admin panel for managing courses, payments, and users.
                 </Text>
-                <Flex justify="space-between" align="center">
-                  <Flex gap="10px">
-                    <Button variant="dark" minW="110px" h="36px">
+                <Flex justify='space-between' align='center' direction={{ base: 'column', md: 'row' }}>
+                  <Flex gap='10px'>
+                    <Button variant='dark' minW='110px' h='36px'>
                       Demo
                     </Button>
-                    <Button variant="dark" minW="110px" h="36px">
+                    <Button variant='dark' minW='110px' h='36px'>
                       Source
                     </Button>
                   </Flex>
-                  <Flex gap="8px" align="center">
-                    <Flex gap="6px">
+                  <Flex gap='8px' align='center' mt={{ base: '10px', md: '0' }}>
+                    <Flex gap='6px'>
+                      <FaLaravel size={20} color='#FF2D20' />
+                      <SiTailwindcss size={20} color='#06B6D4' />
+                      <SiMysql size={20} color='#4479A1' />
+                    </Flex>
+                  </Flex>
+                </Flex>
+              </Flex>
+            </Flex>
+            <Flex direction='column' border='1px solid rgba(128, 128, 128, 0.1)' borderRadius='15px' p='10px'>
+              <Box mb='20px' position='relative' borderRadius='15px' overflow='hidden'>
+                <Image src={ImageArchitect3} borderRadius='15px' w='100%' h='100%' objectFit='cover' />
+                <Box
+                  w='100%'
+                  h='100%'
+                  position='absolute'
+                  top='0'
+                  borderRadius='15px'
+                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'
+                ></Box>
+              </Box>
+              <Flex direction='column' p='6px'>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
+                  Mobile
+                </Text>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
+                  PPTIK Academy
+                </Text>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
+                  A financial management system for PPTIK STIKI Malang.
+                </Text>
+                <Flex justify='space-between' align='center' direction={{ base: 'column', md: 'row' }}>
+                  <Flex gap='10px'>
+                    <Button variant='dark' minW='110px' h='36px'>
+                      Demo
+                    </Button>
+                    <Button variant='dark' minW='110px' h='36px'>
+                      Source
+                    </Button>
+                  </Flex>
+                  <Flex gap='8px' align='center' mt={{ base: '10px', md: '0' }}>
+                    <Flex gap='6px'>
                       <FaJava size={20} color="#007396" />
                       <FaLaravel size={20} color="#FF2D20" />
                       <SiMysql size={20} color="#4479A1" />
@@ -406,39 +407,39 @@ function Dashboard() {
                 </Flex>
               </Flex>
             </Flex>
-            <Flex direction="column">
-              <Box mb="20px" position="relative" borderRadius="15px">
-                <Image src={ImageArchitect3} borderRadius="15px" />
+            <Flex direction='column' border='1px solid rgba(128, 128, 128, 0.1)' borderRadius='15px' p='10px'>
+              <Box mb='20px' position='relative' borderRadius='15px' overflow='hidden'>
+                <Image src={ImageArchitect3} borderRadius='15px' w='100%' h='100%' objectFit='cover' />
                 <Box
-                  w="100%"
-                  h="100%"
-                  position="absolute"
-                  top="0"
-                  borderRadius="15px"
-                  bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
+                  w='100%'
+                  h='100%'
+                  position='absolute'
+                  top='0'
+                  borderRadius='15px'
+                  bg='linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)'
                 ></Box>
               </Box>
-              <Flex direction="column">
-                <Text fontSize="md" color={emailColor} fontWeight="600" mb="10px">
+              <Flex direction='column' p='6px'>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='600' mb='10px' mt='-16px'>
                   Web
                 </Text>
-                <Text fontSize="xl" color={textColor} fontWeight="bold" mb="10px">
+                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight='bold' mb='10px'>
                   Khelsya Store
                 </Text>
-                <Text fontSize="md" color={emailColor} fontWeight="400" mb="20px">
+                <Text fontSize={{ base: 'sm', md: 'md' }} color={emailColor} fontWeight='400' mb='20px'>
                   An e-commerce website for selling thrift fashion products.
                 </Text>
-                <Flex justify="space-between" align="center">
-                  <Flex gap="10px">
-                    <Button variant="dark" minW="110px" h="36px">
+                <Flex justify='space-between' align='center' direction={{ base: 'column', md: 'row' }}>
+                  <Flex gap='10px'>
+                    <Button variant='dark' minW='110px' h='36px'>
                       Demo
                     </Button>
-                    <Button variant="dark" minW="110px" h="36px">
+                    <Button variant='dark' minW='110px' h='36px'>
                       Source
                     </Button>
                   </Flex>
-                  <Flex gap="8px" align="center">
-                    <Flex gap="6px">
+                  <Flex gap='8px' align='center' mt={{ base: '10px', md: '0' }}>
+                    <Flex gap='6px'>
                       <SiMongodb size={20} color="#4DB33D" />
                       <SiExpress size={20} color="#808080" />
                       <FaReact size={20} color="#61DBFB" />
