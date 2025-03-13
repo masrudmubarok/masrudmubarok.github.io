@@ -194,7 +194,7 @@ function Dashboard() {
             >
               <CardBody display="flex" flexDirection="column" alignItems="center">
                 <Icon as={FaCode} color={iconColor} fontSize="4xl" mb="12px" />
-                <Text fontSize="md" color={textColor} fontWeight="bold" mb="8px">
+                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight="bold" mb="8px">
                   Software Development
                 </Text>
                 <Text fontSize="sm" color={emailColor} fontWeight="400">
@@ -214,7 +214,7 @@ function Dashboard() {
             >
               <CardBody display="flex" flexDirection="column" alignItems="center">
                 <Icon as={FaChalkboardTeacher} color={iconColor} fontSize="4xl" mb="12px" />
-                <Text fontSize="md" color={textColor} fontWeight="bold" mb="8px">
+                <Text fontSize={{ base: 'md', md: 'lg' }} color={textColor} fontWeight="bold" mb="8px">
                   Programming Mentor
                 </Text>
                 <Text fontSize="sm" color={emailColor} fontWeight="400">
