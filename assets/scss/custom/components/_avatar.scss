@@ -1,0 +1,43 @@
+//
+// avatar.scss
+//
+
+//Avatar
+.avatar {
+  &.avatar-coin,
+  &.avatar-sm-sm {
+      height: 36px !important;
+      width: 36px !important;
+  }
+  &.avatar-ex-sm {
+      max-height: 25px !important;
+  }
+  &.avatar-ex-small {
+      height: 36px !important;
+      width: 36px !important;
+  }
+  &.avatar-md-sm {
+      height: 45px !important;
+      width: 45px !important;
+  }
+  &.avatar-small {
+      height: 65px !important;
+      width: 65px !important;
+  }
+  &.avatar-md-md {
+      height: 80px !important;
+      width: 80px !important;
+  }
+  &.avatar-medium {
+      height: 110px !important;
+      width: 110px !important;
+  }
+  &.avatar-large {
+      height: 140px !important;
+      width: 140px !important;
+  }
+  &.avatar-ex-large {
+      height: 180px !important;
+      width: 180px !important;
+  }
+}
