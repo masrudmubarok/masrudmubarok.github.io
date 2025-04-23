@@ -22,15 +22,24 @@ import React, { useEffect, useRef, useState, useContext } from 'react';
   100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); transform: translateY(0); }
  `;
 
- // Styled Components
- const HeroContainer = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.5rem 2rem 2rem 2rem;
-  text-align: center;
- `;
+// Styled Components
+const HeroContainer = styled(motion.div)`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+padding: 1rem 1.5rem 3rem 1.5rem; /* Padding lebih besar secara default untuk mobile */
+text-align: center;
+
+@media (min-width: 768px) {
+ padding: 0.5rem 2rem 2rem 2rem; /* Padding kembali ke ukuran semula untuk desktop */
+}
+
+@media (min-width: 1200px) {
+ /* Anda bisa menambahkan penyesuaian padding yang lebih besar untuk layar desktop yang sangat lebar jika perlu */
+ padding: 1rem 3rem 3rem 3rem;
+}
+`;
 
  const ImageAndButtonContainer = styled.div`
   display: flex;

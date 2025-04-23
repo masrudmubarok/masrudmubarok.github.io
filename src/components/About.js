@@ -20,12 +20,9 @@ import React from 'react';
   FaGitAlt,
   FaPython,
   FaVuejs,
-  FaSass,
-  FaDatabase, // Ikon umum database dari react-icons
 } from 'react-icons/fa';
- import { SiRedux, SiMysql, SiMongodb, SiPhp, SiCodeigniter, SiLaravel, SiSymfony, SiTailwindcss, SiBootstrap, SiRedis } from 'react-icons/si';
- import { BiCodeBlock } from 'react-icons/bi'; // Ikon umum untuk framework seperti Express.js dan Livewire
- import { darken, lighten } from '../styles/utils';
+ import { SiMysql, SiMongodb, SiPhp, SiCodeigniter, SiLaravel, SiSymfony, SiTailwindcss, SiBootstrap, SiRedis } from 'react-icons/si';
+ import { darken } from '../styles/utils';
 
  // Objek yang menyimpan warna asli setiap teknologi
  const techColors = {
@@ -49,8 +46,8 @@ import React from 'react';
   redis: '#DC382D',
   'tailwind css': '#38B2AC',
   bootstrap: '#563D7C',
-  'framer motion': '#0055FF', // Warna placeholder, bisa disesuaikan
-  livewire: '#CC0000', // Warna placeholder, bisa disesuaikan
+  'framer motion': '#0055FF',
+  livewire: '#CC0000',
  };
 
  const AboutContainer = styled(motion.div)`
@@ -225,7 +222,7 @@ import React from 'react';
  const EducationTitle = styled(motion.h3)`
   font-size: 1.1rem;
   color: ${({ theme }) => theme.text};
-  margin-bottom: 0.3rem;
+  margin-bottom: -0.3rem;
  `;
 
  const EducationSubtitle = styled(motion.p)`

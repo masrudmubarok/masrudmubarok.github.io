@@ -7,9 +7,14 @@ set -e
 echo "Building project..."
 npm run build
 
-# Create CNAME file with the domain
-echo "Creating CNAME file..."
-echo "masrudmubarok.my.id" > build/CNAME
+# Check if build folder exists
+if [ -d "build" ]; then
+  echo "Creating CNAME file..."
+  echo "masrudmubarok.my.id" > build/CNAME
+else
+  echo "Build folder not found. Please check if the build was successful."
+  exit 1
+fi
 
 # Deploy to GitHub Pages
 echo "Deploying to GitHub Pages..."

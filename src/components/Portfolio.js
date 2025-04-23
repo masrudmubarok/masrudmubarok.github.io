@@ -3,9 +3,9 @@ import React, { useState } from 'react';
  import { motion, AnimatePresence } from 'framer-motion';
  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
- import { FaGithub } from 'react-icons/fa';
+ import { FaGithub, FaReact, FaNodeJs, FaVuejs, FaJava } from 'react-icons/fa';
+ import { SiMysql, SiMongodb, SiTailwindcss, SiCodeigniter, SiLaravel, SiExpress, SiRedux, SiRedis } from 'react-icons/si';
 
- // Utility function (pastikan ini tersedia)
  function darken(amount, color) {
   let usePound = false;
   if (color[0] === "#") {
@@ -23,21 +23,52 @@ import React, { useState } from 'react';
  }
 
  const PortfolioContainer = styled(motion.div)`
-  padding: 1rem 1.5rem 1rem 1.5rem; /* Padding lebih besar untuk mobile */
+  padding: 1rem 1.5rem 3rem 1.5rem; /* Added bottom padding */
 
   @media (min-width: 768px) {
-   padding: 2rem 4rem 2rem 4rem; /* Padding lebih besar untuk desktop */
+   padding: 2rem 4rem 4rem 4rem; /* Added bottom padding */
+  }
+ `;
+
+ const ProjectsIntro = styled.div`
+  text-align: center;
+  margin-bottom: 3rem;
+  color: ${({ theme }) => theme.text};
+
+  h2 {
+   font-size: 1.7rem;
+   margin-bottom: 0.5rem;
+  }
+
+  p {
+   font-size: 1rem;
+   color: ${({ theme }) => theme.secondaryText};
+   max-width: 600px;
+   margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+   margin-bottom: 4rem;
+
+   h2 {
+    font-size: 2rem;
+   }
+
+   p {
+    font-size: 1.2rem;
+   }
   }
  `;
 
  const SectionTitle = styled.h2`
-  font-size: 1.5rem; /* Ukuran font lebih besar untuk mobile */
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.text};
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
+  display: none; /* Hide the redundant section title */
 
   @media (min-width: 768px) {
-   font-size: 2rem; /* Ukuran font lebih besar untuk desktop */
+   font-size: 1.7rem;
    margin-bottom: 3rem;
   }
  `;
@@ -57,11 +88,11 @@ import React, { useState } from 'react';
   flex-direction: column;
   align-items: stretch;
   cursor: pointer;
-  max-height: 400px; /* Contoh tinggi maksimal card */
-  transition: box-shadow 0.3s ease; /* Transisi untuk box shadow default */
+  max-height: 450px;
+  transition: box-shadow 0.3s ease;
 
   &:hover {
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Efek bayangan saat hover (fallback) */
+   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
   @media (min-width: 768px) {
@@ -77,18 +108,18 @@ import React, { useState } from 'react';
  })``;
 
  const ProjectImage = styled.img`
-  width: 100%; /* Mengisi lebar card di mobile */
+  width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
-  margin-bottom: 1.5rem;
+  margin-bottom: -0.1rem;
   border-radius: 8px 8px 0 0;
 
   @media (min-width: 768px) {
    width: 650px;
-   height: 120%; /* Mengisi tinggi card di desktop */
-   max-height: 350px; /* Contoh tinggi maksimal gambar yang sedikit lebih besar */
-   flex-basis: 200px; /* Lebar dasar gambar di desktop */
+   height: 120%;
+   max-height: 350px;
+   flex-basis: 200px;
    flex-shrink: 0;
    margin: ${({ index }) => (index % 2 === 0 ? '0 2rem 0 0' : '0 0 0 2rem')};
    border-radius: 8px 0 0 8px;
@@ -101,79 +132,101 @@ import React, { useState } from 'react';
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
+  @media (min-width: 768px) {
+   max-width: 400px;
+  }
  `;
 
  const ProjectTitle = styled.h3`
-  font-size: 1.2rem; /* Ukuran font lebih besar untuk mobile */
+  font-size: 1.2rem;
   color: ${({ theme }) => theme.text};
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 
   @media (min-width: 768px) {
-   font-size: 1.5rem; /* Ukuran font lebih besar untuk desktop */
-   margin-bottom: 1rem;
+   font-size: 1.5rem;
+   margin-bottom: 0.75rem;
   }
  `;
 
  const ProjectShortDescription = styled.p`
-  font-size: 1rem; /* Ukuran font lebih besar untuk mobile */
+  font-size: 1rem;
   color: ${({ theme }) => theme.text};
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* Maximum 7 lines */
+  -webkit-box-orient: vertical;
+  position: relative;
+
+  &::after {
+   content: ...;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+  }
 
   @media (min-width: 768px) {
-   font-size: 1.1rem; /* Ukuran font lebih besar untuk desktop */
-   margin-bottom: 1.5rem;
+   font-size: 1rem;
+   margin-bottom: 1.25rem;
   }
  `;
 
- const TechStackList = styled.ul`
+ const TechStackList = styled(motion.ul)`
   list-style: none;
   padding: 0;
   display: flex;
-  flex-wrap: wrap; /* Biarkan tech stack wrap ke baris baru */
-  gap: 0.5rem;
-  font-size: 0.9rem; /* Ukuran font lebih besar untuk mobile */
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 1.5rem; /* Ukuran ikon */
   color: ${({ theme }) => theme.secondary};
+  margin-bottom: 1rem;
 
   @media (min-width: 768px) {
-   gap: 0.75rem; /* Gap lebih besar untuk desktop */
-   font-size: 1rem; /* Ukuran font lebih besar untuk desktop */
+   gap: 1rem;
+   font-size: 1.75rem; /* Ukuran ikon lebih besar di desktop */
+   margin-bottom: 1.5rem;
+  }
+
+  /* Mobile-specific styling for icon list */
+  @media (max-width: 600px) {
+   justify-content: center; /* Center icons on smaller screens */
+   gap: 1rem; /* Lebih banyak ruang antar ikon di mobile */
    margin-bottom: 1.5rem;
   }
  `;
 
- const TechStackItem = styled.li`
-  background-color: ${({ theme }) => theme.body === '#FFF' ? '#eee' : '#555'};
-  padding: 0.4rem 0.8rem; /* Padding lebih besar untuk mobile */
-  border-radius: 6px;
-  font-size: 0.8rem; /* Ukuran font lebih besar untuk mobile */
-
-  @media (min-width: 768px) {
-   padding: 0.5rem 1rem; /* Padding lebih besar untuk desktop */
-   font-size: 0.9rem; /* Ukuran font lebih besar untuk desktop */
-  }
+ const TechStackItem = styled(motion.li)`
+  display: flex;
  `;
 
  const ProjectActions = styled.div`
   display: flex;
-  gap: 1rem; /* Gap lebih besar untuk mobile */
-  margin-top: 1rem; /* Margin atas untuk mobile */
+  gap: 1rem;
+  margin-top: 1rem;
 
   @media (min-width: 768px) {
-   gap: 1.5rem; /* Gap lebih besar untuk desktop */
+   gap: 1.5rem;
    margin-top: 0;
+  }
+
+  /* Mobile-specific styling for actions */
+  @media (max-width: 600px) {
+   flex-direction: column;
+   align-items: stretch;
   }
  `;
 
  const ActionButton = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem; /* Gap lebih besar untuk mobile */
+  gap: 0.4rem;
   background-color: ${({ theme }) => theme.primary};
   color: white;
-  padding: 0.6rem 1.2rem; /* Padding lebih besar untuk mobile */
+  padding: 0.6rem 1.2rem;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 1rem; /* Ukuran font lebih besar untuk mobile */
+  font-size: 1rem;
   transition: background-color 0.3s ease;
 
   &:hover {
@@ -181,9 +234,14 @@ import React, { useState } from 'react';
   }
 
   @media (min-width: 768px) {
-   gap: 0.5rem; /* Gap lebih besar untuk desktop */
-   padding: 0.7rem 1.5rem; /* Padding lebih besar untuk desktop */
-   font-size: 1.1rem; /* Ukuran font lebih besar untuk desktop */
+   gap: 0.5rem;
+   padding: 0.7rem 1.5rem;
+   font-size: 1.1rem;
+  }
+
+  /* Mobile-specific styling for buttons */
+  @media (max-width: 600px) {
+   width: 100%;
   }
  `;
 
@@ -203,44 +261,44 @@ import React, { useState } from 'react';
  const ProjectModal = styled(motion.div)`
   background-color: ${({ theme }) => theme.body};
   border-radius: 12px;
-  padding: 2rem; /* Padding lebih besar untuk mobile */
-  max-width: 90%; /* Lebar maksimal lebih besar untuk mobile */
-  max-height: 85%; /* Tinggi maksimal lebih besar untuk mobile */
+  padding: 2rem;
+  max-width: 90%;
+  max-height: 85%;
   overflow-y: auto;
   position: relative;
 
   @media (min-width: 768px) {
-   padding: 3rem; /* Padding lebih besar untuk desktop */
-   max-width: 75%; /* Lebar maksimal lebih besar untuk desktop */
-   max-height: 80%; /* Tinggi maksimal lebih besar untuk desktop */
+   padding: 3rem;
+   max-width: 75%;
+   max-height: 80%;
   }
  `;
 
  const ModalImage = styled.img`
   width: 100%;
   height: auto;
-  margin-bottom: 1rem; /* Margin bawah lebih besar untuk mobile */
+  margin-bottom: 1rem;
   border-radius: 8px;
  `;
 
  const ModalTitle = styled.h3`
-  font-size: 1.8rem; /* Ukuran font lebih besar untuk mobile */
+  font-size: 1.5rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: 1rem;
 
   @media (min-width: 768px) {
-   font-size: 2.2rem; /* Ukuran font lebih besar untuk desktop */
+   font-size: 1.7rem;
    margin-bottom: 1.5rem;
   }
  `;
 
  const ModalDescription = styled.p`
-  font-size: 1.1rem; /* Ukuran font lebih besar untuk mobile */
+  font-size: 1rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: 1.5rem;
 
   @media (min-width: 768px) {
-   font-size: 1.2rem; /* Ukuran font lebih besar untuk desktop */
+   font-size: 1.2rem;
    margin-bottom: 2rem;
   }
  `;
@@ -248,49 +306,59 @@ import React, { useState } from 'react';
  const ModalTechStackList = styled.ul`
   list-style: none;
   padding: 0;
-  margin-bottom: 1.5rem; /* Margin bawah lebih besar untuk mobile */
   display: flex;
-  flex-wrap: wrap; /* Biarkan wrap untuk mobile */
-  gap: 0.75rem;
-  font-size: 1rem; /* Ukuran font lebih besar untuk mobile */
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 2rem; /* Ukuran ikon modal */
   color: ${({ theme }) => theme.secondary};
+  justify-content: flex-start; /* Align icons to the start on mobile */
+  align-items: center; /* Vertically align with tech stack */
 
   @media (min-width: 768px) {
-   gap: 1rem; /* Gap lebih besar untuk desktop */
-   font-size: 1.1rem; /* Ukuran font lebih besar untuk desktop */
-   margin-bottom: 2rem;
+   gap: 1.25rem;
+   font-size: 2.25rem; /* Ukuran ikon modal di desktop */
+   justify-content: flex-start;
+   align-items: center; /* Vertically align with tech stack */
+  }
+
+  /* Mobile specific for modal icons */
+  @media (max-width: 600px) {
+   justify-content: center; /* Center icons in modal on mobile */
+   gap: 1.5rem;
+   margin-bottom: 1rem; /* Add some margin on mobile */
   }
  `;
 
- const ModalTechStackItem = styled.li`
-  background-color: ${({ theme }) => theme.body === '#FFF' ? '#eee' : '#555'};
-  padding: 0.5rem 1rem; /* Padding lebih besar untuk mobile */
-  border-radius: 6px;
-  font-size: 0.9rem; /* Ukuran font lebih besar untuk mobile */
-
-  @media (min-width: 768px) {
-   padding: 0.6rem 1.2rem; /* Padding lebih besar untuk desktop */
-   font-size: 1rem; /* Ukuran font lebih besar untuk desktop */
-  }
+ const ModalTechStackItem = styled(motion.li)`
+  display: flex;
  `;
 
  const ModalActions = styled.div`
   display: flex;
-  gap: 1rem; /* Gap lebih besar untuk mobile */
+  gap: 1rem;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center; /* Vertically align with tech stack */
+  margin-top: 1rem;
 
   @media (min-width: 768px) {
-   gap: 1.5rem; /* Gap lebih besar untuk desktop */
+   margin-top: 0;
+  }
+
+  /* Mobile specific for modal actions */
+  @media (max-width: 600px) {
+   flex-direction: column;
+   align-items: center; /* Center items horizontally */
   }
  `;
 
  const CloseButton = styled(motion.button)`
   position: absolute;
-  top: 1rem; /* Posisi lebih jauh dari atas untuk mobile */
-  right: 1rem; /* Posisi lebih jauh dari kanan untuk mobile */
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   color: ${({ theme }) => theme.text};
-  font-size: 1.5rem; /* Ukuran font lebih besar untuk mobile */
+  font-size: 1.5rem;
   cursor: pointer;
 
   &:hover {
@@ -298,77 +366,73 @@ import React, { useState } from 'react';
   }
 
   @media (min-width: 768px) {
-   top: 1.5rem; /* Posisi normal untuk desktop */
-   right: 1.5rem; /* Posisi normal untuk desktop */
-   font-size: 1.8rem; /* Ukuran font normal untuk desktop */
+   top: 1.5rem;
+   right: 1.5rem;
+   font-size: 1.8rem;
   }
  `;
+
+ const techIconMap = {
+  'React.js': { icon: FaReact, color: '#61DAFB' },
+  'Node.js': { icon: FaNodeJs, color: '#339933' },
+  'Express.js': { icon: SiExpress, color: '#000000' },
+  'MySQL': { icon: SiMysql, color: '#4479A1' },
+  'MongoDB': { icon: SiMongodb, color: '#47A248' },
+  'React Native': { icon: FaReact, color: '#61DAFB' },
+  'Redux': { icon: SiRedux, color: '#764ABC' },
+  'Vue.js': { icon: FaVuejs, color: '#42b883' },
+  'Laravel': { icon: SiLaravel, color: '#FF2D20' },
+  'CodeIgniter': { icon: SiCodeigniter, color: '#F9A602' },
+  'Tailwind CSS': { icon: SiTailwindcss, color: '#38B2AC' },
+  'Java': { icon: FaJava, color: '#007396' },
+  'Redis':{ icon: SiRedis, color: '#DC382D' },
+ };
+
+ const getTechIcon = (tech) => {
+  return techIconMap[tech] || null;
+ };
 
  const initialProjects = [
   {
    id: 1,
    title: 'SIMKEU PPTIK',
-   shortDescription: 'A short catchy description of the web application.',
+   shortDescription: 'A short catchy description of the web application. This description will be limited to a maximum of seven lines before being truncated with ...',
    description: 'A more detailed explanation of the Awesome Web App. This could include the problem it solves, the main features, and the technologies used. You can also add multiple paragraphs here for a comprehensive overview.',
    imageUrl: '/project-example.png',
    demoUrl: 'https://demo.awesome-webapp.com',
    githubUrl: 'https://github.com/user/awesome-webapp',
-   techStack: ['React', 'Node.js', 'Express', 'MongoDB'],
+   techStack: ['Laravel', 'Tailwind CSS', 'MySQL'],
    type: 'web',
    fullImage: '/assets/project1-full.png',
   },
   {
    id: 2,
    title: 'PPTIK Academy',
-   shortDescription: 'An exciting mobile game for adventure lovers.',
+   shortDescription: 'An exciting mobile game for adventure lovers. This description will be limited to a maximum of seven lines before being truncated with ....',
    description: 'Dive into the world of Mobile Adventure Game! Explore vast landscapes, solve challenging puzzles, and embark on an epic quest. Built with Unity and C#.',
    imageUrl: '/web-porto.jpg',
    demoUrl: '#',
    githubUrl: 'https://github.com/user/mobile-game',
-   techStack: ['Unity', 'C#'],
+   techStack: ['Java', 'CodeIgniter', 'MySQL'],
    type: 'mobile',
    fullImage: '/assets/project2-full.png',
   },
   {
    id: 3,
-   title: 'Desktop Utility Tool',
-   shortDescription: 'A handy tool to boost your productivity on desktop.',
+   title: 'Khelsya Store',
+   shortDescription: 'A handy tool to boost your productivity on desktop. This description will be limited to a maximum of seven lines before being truncated with ...',
    description: 'Desktop Utility Tool is designed to streamline your workflow. Features include file management, task scheduling, and more. Developed using Java Swing.',
    imageUrl: '/web-porto.jpg',
    demoUrl: '#',
    githubUrl: 'https://github.com/user/desktop-tool',
-   techStack: ['Java', 'Swing'],
+   techStack: ['Node.js', 'React.js', 'MySQL', 'Node.js', 'Redis'],
    type: 'desktop',
    fullImage: '/assets/project3-full.png',
-  },
-  {
-   id: 4,
-   title: 'Another Web Project',
-   shortDescription: 'A brief overview of this other web development project.',
-   description: 'More details about Another Web Project. Discuss its purpose, features, and the technologies that power it.',
-   imageUrl: '/project-example.png',
-   demoUrl: 'https://another-web-project.com',
-   githubUrl: 'https://github.com/user/another-web',
-   techStack: ['Angular', 'Firebase'],
-   type: 'web',
-   fullImage: '/assets/project4-full.png',
-  },
-  {
-   id: 5,
-   title: 'Cool Mobile App',
-   shortDescription: 'A short description of this cool mobile application.',
-   description: 'Learn more about the Cool Mobile App. What problems does it solve? What are its key functionalities? Built with React Native.',
-   imageUrl: '/project-example.png',
-   demoUrl: '#',
-   githubUrl: 'https://github.com/user/cool-mobile',
-   techStack: ['React Native', 'Redux'],
-   type: 'mobile',
-   fullImage: '/assets/project5-full.png',
   },
  ];
 
  const Portfolio = () => {
-  const [visibleProjects] = useState(initialProjects); // Tampilkan semua proyek
+  const [visibleProjects] = useState(initialProjects);
   const [selectedProject, setSelectedProject] = useState(null);
 
   const openModal = (project) => {
@@ -381,6 +445,11 @@ import React, { useState } from 'react';
    document.body.style.overflow = 'unset';
   };
 
+  const itemVariants = {
+   hidden: { opacity: 0, y: 50 },
+   visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50, damping: 10 } },
+  };
+
   return (
    <PortfolioContainer
     id="portfolio"
@@ -389,18 +458,29 @@ import React, { useState } from 'react';
     exit={{ opacity: 0 }}
     transition={{ duration: 0.5 }}
    >
-    <SectionTitle>Project Showcase</SectionTitle>
+    <ProjectsIntro>
+     <h2>Projects</h2>
+     <p>Explore My Projects. I invite you to look at some of the projects I've been developing and completing.</p>
+    </ProjectsIntro>
 
-    <PortfolioList>
+    <SectionTitle>Projects</SectionTitle>
+
+    <PortfolioList
+     initial="hidden"
+     animate="visible"
+     exit="hidden"
+     variants={{
+      visible: {
+       transition: { staggerChildren: 0.1 },
+      },
+     }}
+    >
      <AnimatePresence>
       {visibleProjects.map((project, index) => (
-       <ProjectItem // Menggunakan ProjectItem (yang sudah di-motion)
+       <ProjectItem
         key={project.id}
         layout
-        initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-        transition={{ duration: 0.3 }}
+        variants={itemVariants}
         onClick={() => openModal(project)}
         index={index}
        >
@@ -408,12 +488,24 @@ import React, { useState } from 'react';
         <ProjectInfo>
          <ProjectTitle>{project.title}</ProjectTitle>
          <ProjectShortDescription>{project.shortDescription}</ProjectShortDescription>
-         <TechStackList>
-          {project.techStack.map((tech, i) => (
-           <TechStackItem key={i}>{tech}</TechStackItem>
-          ))}
+         <TechStackList
+          as={motion.ul}
+          whileHover={{ scale: 1 }}
+          transition={{ duration: 0.2 }}
+         >
+          {project.techStack.map((tech, i) => {
+           const techInfo = getTechIcon(tech);
+           return techInfo ? (
+            <TechStackItem as={motion.li} key={i} style={{ color: techInfo.color }} whileHover={{ scale: 1.2 }}>
+             {typeof techInfo.icon === 'function' ? <techInfo.icon /> : <techInfo.icon />}
+            </TechStackItem>
+           ) : (
+            <TechStackItem key={i}>{tech}</TechStackItem>
+           );
+          })}
          </TechStackList>
          <ProjectActions>
+          {/* Actions remain the same */}
          </ProjectActions>
         </ProjectInfo>
        </ProjectItem>
@@ -441,23 +533,32 @@ import React, { useState } from 'react';
         )}
         <ModalTitle>{selectedProject.title}</ModalTitle>
         <ModalDescription>{selectedProject.description}</ModalDescription>
-        <ModalTechStackList>
-         {selectedProject.techStack.map((tech, i) => (
-          <ModalTechStackItem key={i}>{tech}</ModalTechStackItem>
-         ))}
-        </ModalTechStackList>
-        <ModalActions>
-         {selectedProject.demoUrl && (
-          <ActionButton href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer">
-           <FontAwesomeIcon icon={faExternalLinkAlt} /> Demo
-          </ActionButton>
-         )}
-         {selectedProject.githubUrl && (
-          <ActionButton href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
-           <FontAwesomeIcon icon={FaGithub} /> GitHub
-          </ActionButton>
-         )}
-        </ModalActions>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+         <ModalTechStackList>
+          {selectedProject.techStack.map((tech, i) => {
+           const techInfo = getTechIcon(tech);
+           return techInfo ? (
+            <ModalTechStackItem key={i} style={{ color: techInfo.color }}>
+             {typeof techInfo.icon === 'function' ? <techInfo.icon /> : <techInfo.icon />}
+            </ModalTechStackItem>
+           ) : (
+            <ModalTechStackItem key={i}>{tech}</ModalTechStackItem>
+           );
+          })}
+         </ModalTechStackList>
+         <ModalActions>
+          {selectedProject.demoUrl && (
+           <ActionButton href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faExternalLinkAlt} /> Demo
+           </ActionButton>
+          )}
+          {selectedProject.githubUrl && (
+           <ActionButton href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={FaGithub} /> GitHub
+           </ActionButton>
+          )}
+         </ModalActions>
+        </div>
        </ProjectModal>
       </ProjectModalOverlay>
      )}
