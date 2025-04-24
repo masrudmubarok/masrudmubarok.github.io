@@ -134,12 +134,20 @@ import React from 'react';
   color: ${({ theme }) => theme.secondary};
  `;
 
- const Paragraph = styled(motion.p)`
+ const Paragraph = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: 1rem;
-  margin-top: 1.7rem;
+  color: ${({ theme }) => theme.secondaryText};
   line-height: 1.6;
+  margin-bottom: 1rem;
+  padding-left: 0;
+  margin-left: 0;
+
+  & > ul {
+   padding-left: 0; /* Hapus padding pada list container */
+   margin-left: 1rem; /* Berikan margin kiri pada list container */
+   list-style-position: outside;
+  }
+
  `;
 
  const SkillsList = styled(motion.ul)`
@@ -287,7 +295,7 @@ import React from 'react';
       <TitleIcon icon={faUser} /> About
      </SectionTitle>
      <Paragraph>
-     I am a passionate Software Engineer with over 4 years of experience specializing in web development. I have a strong background in building responsive, scalable, and user-friendly web applications. I am always eager to take on new challenges and continuously work on improving my technical skills to stay updated with the latest trends and technologies in web development.
+      Software Developer with over 3 years of experience in designing and building scalable back-end systems and dynamic front-end solutions. Skilled in optimizing system performance, improving user interfaces, and streamlining processes through clean and maintainable code. Experienced in working within agile environments and collaborating effectively with cross-functional teams to deliver solutions that meet both technical and business objectives. Committed to continuous learning and applying best practices to develop reliable, efficient, and scalable software solutions.
      </Paragraph>
     </Section>
 
@@ -389,27 +397,31 @@ import React from 'react';
      </SectionTitle>
      <ExperienceList>
       <ExperienceItem>
-       <ExperienceTitle>Web Developer</ExperienceTitle>
+       <ExperienceTitle>Full Stack Developer</ExperienceTitle>
        <ExperienceOffice>rSchoolToday . Full-time</ExperienceOffice>
        <ExperienceSubtitle>Sep 2021 - Feb 2025</ExperienceSubtitle>
        <ExperienceSubtitle>Indonesia . Remote</ExperienceSubtitle>
        <Paragraph>
-         • Built dynamic software solutions with PHP (Symfony), integrating with Vue.js and React.js to enhance user interfaces and optimize business processes while delivering tailored client features.<br/>
-         • Optimized development and deployment processes by implementing Docker across both local and server environments, ensuring consistency, reducing setup time, and accelerating software delivery.<br/>
-         • Diagnosed and resolved complex software bugs, ensuring system reliability.<br/>
-         • Integrated APIs with third-party platforms, to streamline data synchronization and elevate system interoperability.<br/>
+          <ul>
+            <li>Developed dynamic software solutions using Symfony for the back-end and integrated Vue.js on the front-end to improve user interfaces and streamline business processes.</li>
+            <li>Implemented Docker containerization, reducing deployment time by 30% and improving consistency across development environments.</li>
+            <li>Optimized data management by leveraging MongoDB for log and NoSQL data storage, improving data retrieval speed by 15% and ensuring efficient handling of large datasets.</li>
+            <li>Managed tasks via Agile methodology using JIRA, ensuring on-time completion of sprint tasks and maintaining steady project progress.</li>
+          </ul>
         </Paragraph>
        </ExperienceItem>
        <hr />
        <ExperienceItem>
-        <ExperienceTitle>Web Developer</ExperienceTitle>
+        <ExperienceTitle>Full Stack Developer</ExperienceTitle>
         <ExperienceOffice>PPTIK STIKI Malang . Internship</ExperienceOffice>
         <ExperienceSubtitle>Apr 2020 - Sep 2021</ExperienceSubtitle>
         <ExperienceSubtitle>Malang, East Java, Indonesia . On-site</ExperienceSubtitle>
         <Paragraph>
-         • Developed software solutions to optimize financial management and enhance reporting accuracy using Laravel and Tailwind CSS. <br />
-         • Developed an online course platform using Java for mobile and an admin dashboard using Laravel and Tailwind CSS. <br />
-         • Executed test cases and ensured a seamless user experience by debugging technical issues. <br />
+          <ul>
+            <li>Developed software solutions using Laravel and Tailwind CSS to optimize financial management, increasing reporting efficiency by 40% and supporting more accurate decision-making.</li>
+            <li>Developed a mobile-based online course platform with Java and built a RESTful API and admin dashboard using CodeIgniter, boosting data handling efficiency by 30% and enhancing administrative task management.</li>
+            <li>Conducted comprehensive testing and resolved technical issues, ensuring a smooth user experience and maintaining system reliability across platforms.</li>
+          </ul>
         </Paragraph>
        </ExperienceItem>
       </ExperienceList>
