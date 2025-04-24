@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Stop script if there is an error
+set -e
+
+# Build project
+echo "Building project..."
+npm run build
+
+# Check if build folder exists
+if [ -d "build" ]; then
+  echo "Creating CNAME file..."
+  echo "masrudmubarok.my.id" > build/CNAME
+else
+  echo "Build folder not found. Please check if the build was successful."
+  exit 1
+fi
+
+# Deploy to GitHub Pages
+echo "Deploying to GitHub Pages..."
+npm run deploy
+
+echo "Deployment successful!"
