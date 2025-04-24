@@ -275,7 +275,7 @@ text-align: center;
     <ButtonContainer>
      <AnimatedButton to="/portfolio">
      <FontAwesomeIcon icon={faBriefcase} />
-     My Portfolio
+     My Projects
      </AnimatedButton>
      <AnimatedButton to="/contact">
      <FontAwesomeIcon icon={faEnvelope} />
