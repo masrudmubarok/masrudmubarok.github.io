@@ -186,7 +186,7 @@ const Navbar = ({ theme, toggleTheme }) => {
 
   return (
     <Nav>
-      <Logo to="/">masrud.</Logo>
+      <Logo to="/">~m~</Logo>
       <ThemeToggleButtonWrapper>
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       </ThemeToggleButtonWrapper>

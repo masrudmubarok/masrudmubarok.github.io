@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
  import styled from 'styled-components';
  import { motion, AnimatePresence } from 'framer-motion';
  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
- import { FaGithub, FaReact, FaNodeJs, FaVuejs, FaJava } from 'react-icons/fa';
+ import { FaReact, FaNodeJs, FaVuejs, FaJava } from 'react-icons/fa';
  import { SiMysql, SiMongodb, SiTailwindcss, SiCodeigniter, SiLaravel, SiExpress, SiRedux, SiRedis, SiSymfony } from 'react-icons/si';
 
  function darken(amount, color) {
@@ -79,19 +79,6 @@ import React, { useState, useEffect, useRef } from 'react';
    p {
     font-size: 1.25rem;
    }
-  }
- `;
-
- const SectionTitle = styled.h2`
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: 2rem;
-  text-align: center;
-  display: none; /* Hide the redundant section title */
-
-  @media (min-width: 768px) {
-   font-size: 1.7rem;
-   margin-bottom: 3rem;
   }
  `;
 
@@ -355,7 +342,7 @@ const TechStackList = styled(motion.ul)`
   padding: 0.5rem 1rem;
   border-radius: 50px;
   background-color: transparent;
-  color: ${({ theme }) => theme.secondaryText};
+  color: ${({ theme }) => theme.body === '#FFF' ? theme.secondaryText : '#FFF'};
   border: 1px solid ${({ theme }) => theme.body === '#FFF' ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.2)'};
   cursor: pointer;
   font-size: 0.85rem;
@@ -364,31 +351,6 @@ const TechStackList = styled(motion.ul)`
 
   &:hover {
    background-color: ${({ theme }) => theme.body === '#FFF' ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)'};
-  }
-
-  @media (min-width: 768px) {
-   font-size: 0.9rem;
-   padding: 0.5rem 1.1rem;
-  }
- `;
-
-const ProjectButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  background-color: ${({ primary, theme }) => primary ? theme.primary : 'transparent'};
-  color: ${({ primary, theme }) => primary ? 'white' : theme.secondaryText};
-  border: ${({ primary, theme }) => primary ? 'none' : `1px solid ${theme.body === '#FFF' ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.2)'}`};
-
-  &:hover {
-   background-color: ${({ primary, theme }) => primary ? darken(0.1, theme.primary) : theme.body === '#FFF' ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)'};
   }
 
   @media (min-width: 768px) {
@@ -560,23 +522,6 @@ const ProjectButton = styled.a`
   }
  `;
 
- const ModalTechList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  color: ${({ theme }) => theme.secondaryText};
-  margin-bottom: 1.75rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  
-  @media (min-width: 768px) {
-   font-size: 1.1rem;
-  }
- `;
-
- const ModalTechItem = styled.span`
-  display: inline;
- `;
-
  const ModalFeatureList = styled.ul`
   list-style-type: disc;
   margin-left: 1.25rem;
@@ -704,8 +649,7 @@ const ProjectButton = styled.a`
    shortDescription: 'SIMKEU PPTIK is a financial management system developed for PPTIK STIKI Malang. It is designed to streamline the recording, reporting, and management of financial transactions in an efficient and organized manner.',
    description: 'SIMKEU PPTIK is a financial management system developed for PPTIK STIKI Malang. It is designed to streamline the recording, reporting, and management of financial transactions in an efficient and organized manner. The system provides comprehensive tools for budgeting, expense tracking, financial reporting, and audit preparation.',
    imageUrl: '/simkeu-dashboard.png',
-   demoUrl: 'https://simkeu-pptik.stiki.ac.id',
-   githubUrl: 'https://github.com/masrudmubarok/simkeu-pptik',
+   demoUrl: '#',
    techStack: ['Laravel', 'Tailwind CSS', 'MySQL'],
    type: 'web',
    fullImage: '/simkeu-dashboard.png',
@@ -725,16 +669,14 @@ const ProjectButton = styled.a`
    description: 'PPTIK Academy is a mobile application designed to provide a seamless and interactive learning experience. The platform offers a variety of courses, enabling students to learn at their own pace from anywhere. Built for Android, this app focuses on delivering quality education on-the-go. It also includes an admin panel for managing courses, user accounts, and payment processing, ensuring smooth operation and scalability of the platform.',
    imageUrl: '/pptik-academy.png',
    demoUrl: 'https://youtu.be/bmTcTlXCpRw',
-   githubUrl: 'https://github.com/masrudmubarok/pptik-academy',
    techStack: ['Java', 'CodeIgniter', 'MySQL'],
    type: 'mobile',
    fullImage: '/pptik-academy.png',
    keyFeatures: [
-    'Offline content access for learning without internet',
-    'Interactive quizzes and assessments with instant feedback',
+    'Contains a wide range of courses across various subjects',
     'Progress tracking and learning path customization',
     'HD video lectures with adjustable playback speeds',
-    'In-app discussions and instructor communication'
+    'Provides online payment integration for course purchases using Midtrans Payment Gateway',
    ],
    impact: 'PPTIK Academy has empowered over 100+ students to access quality education remotely, particularly benefiting those in areas with limited educational resources. Student engagement metrics show an 80% completion rate for courses, significantly higher than industry averages for mobile learning platforms.'
   },
@@ -744,19 +686,16 @@ const ProjectButton = styled.a`
    shortDescription: 'A comprehensive sports management system for scheduling athletic activities, managing facilities, and coordinating events. This platform provides schools and athletic departments with tools to streamline scheduling, registration, and communication...',
    description: 'The Activity & Event Scheduling platform is a robust sports management solution designed for schools and athletic departments. It features real-time facility management, automated conflict resolution for scheduling, team and participant registration, and public-facing calendars. The system includes advanced communication tools for coaches, administrators, and parents, as well as integration with transportation scheduling and officiating assignments. Built with Symfony and Vue.js, the platform offers a seamless experience across devices while maintaining data integrity through MongoDB and MySQL databases.',
    imageUrl: '/rschooltoday.png',
-   demoUrl: '#',
-   githubUrl: 'https://github.com/user/desktop-tool',
+   demoUrl: 'https://rschooltoday.com',
    techStack: ['Symfony', 'Vue.js', 'MySQL', 'MongoDB'],
    type: 'web',
    fullImage: '/rschooltoday.png',
    keyFeatures: [
-    'Drag-and-drop visual scheduling interface for athletic events',
-    'Automated conflict detection for overlapping venue bookings',
     'Team roster management with eligibility tracking',
-    'Digital forms for permissions, waivers, and health records',
     'Integrated messaging system for announcements and cancellations',
-    'Transportation coordination with GPS integration',
-    'Officials assignment and payment processing'
+    'Officials assignment and payment processing',
+    'Public event calendars with customizable views',
+    'Synchronized student data with 3rd party Clever integration'
    ],
    impact: 'This platform has been adopted by multiple school districts, reducing administrative workload by approximately 30 hours per week per school. Athletic departments report a 45% decrease in scheduling conflicts and a 70% improvement in parent communication efficiency. The system currently manages over 5,000 athletic events annually across its customer base.'
   },
@@ -765,7 +704,6 @@ const ProjectButton = styled.a`
  const Portfolio = () => {
   const [visibleProjects] = useState(initialProjects);
   const [selectedProject, setSelectedProject] = useState(null);
-  const imageWrappers = useRef([]);
 
   // Advanced 3D hover effect with enhanced Three.js-like features
   useEffect(() => {
@@ -1044,12 +982,7 @@ const ProjectButton = styled.a`
          <ModalActions>
           {selectedProject.demoUrl && (
            <ActionButton href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faExternalLinkAlt} /> View Demo
-           </ActionButton>
-          )}
-          {selectedProject.githubUrl && (
-           <ActionButton href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={FaGithub} /> View Source
+            <FontAwesomeIcon icon={faExternalLinkAlt} /> View Project
            </ActionButton>
           )}
          </ModalActions>
