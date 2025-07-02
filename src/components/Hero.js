@@ -270,7 +270,7 @@ text-align: center;
     <Title>Masrud Mubarok</Title>
     <JobTitle ref={typedRef}></JobTitle>
     <Description>
-     "The ladder of success is never crowded at the top."<br /><br />- Napoleon Hill -
+     "Whatever the mind can conceive and believe, it can achieve."<br /><br />- Napoleon Hill -
     </Description>
     <ButtonContainer>
      <AnimatedButton to="/portfolio">
