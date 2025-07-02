@@ -401,14 +401,6 @@ import React from 'react';
        <ExperienceOffice>rSchoolToday . Full-time</ExperienceOffice>
        <ExperienceSubtitle>Sep 2021 - Feb 2025</ExperienceSubtitle>
        <ExperienceSubtitle>Indonesia . Remote</ExperienceSubtitle>
-       <Paragraph>
-          <ul>
-            <li>Developed dynamic software solutions using Symfony for the back-end and integrated Vue.js on the front-end to improve user interfaces and streamline business processes.</li>
-            <li>Implemented Docker containerization, reducing deployment time by 30% and improving consistency across development environments.</li>
-            <li>Optimized data management by leveraging MongoDB for log and NoSQL data storage, improving data retrieval speed by 15% and ensuring efficient handling of large datasets.</li>
-            <li>Managed tasks via Agile methodology using JIRA, ensuring on-time completion of sprint tasks and maintaining steady project progress.</li>
-          </ul>
-        </Paragraph>
        </ExperienceItem>
        <hr />
        <ExperienceItem>
@@ -416,13 +408,6 @@ import React from 'react';
         <ExperienceOffice>PPTIK STIKI Malang . Internship</ExperienceOffice>
         <ExperienceSubtitle>Apr 2020 - Sep 2021</ExperienceSubtitle>
         <ExperienceSubtitle>Malang, East Java, Indonesia . On-site</ExperienceSubtitle>
-        <Paragraph>
-          <ul>
-            <li>Developed software solutions using Laravel and Tailwind CSS to optimize financial management, increasing reporting efficiency by 40% and supporting more accurate decision-making.</li>
-            <li>Developed a mobile-based online course platform with Java and built a RESTful API and admin dashboard using CodeIgniter, boosting data handling efficiency by 30% and enhancing administrative task management.</li>
-            <li>Conducted comprehensive testing and resolved technical issues, ensuring a smooth user experience and maintaining system reliability across platforms.</li>
-          </ul>
-        </Paragraph>
        </ExperienceItem>
       </ExperienceList>
      </Section>
