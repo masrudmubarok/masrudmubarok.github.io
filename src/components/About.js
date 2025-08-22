@@ -7,11 +7,12 @@ import React from 'react';
   faCode,
   faBriefcase,
   faGraduationCap,
-  faLightbulb,
-  faDatabase as faDatabaseFA, // Alias untuk menghindari konflik dengan react-icons
+  faTools
 } from '@fortawesome/free-solid-svg-icons';
  import {
   FaJs,
+  FaJava,
+  FaCode,
   FaReact,
   FaNodeJs,
   FaHtml5,
@@ -21,14 +22,22 @@ import React from 'react';
   FaPython,
   FaVuejs,
 } from 'react-icons/fa';
- import { SiMysql, SiMongodb, SiPhp, SiCodeigniter, SiLaravel, SiSymfony, SiTailwindcss, SiBootstrap, SiRedis } from 'react-icons/si';
- import { darken } from '../styles/utils';
+import { SiMysql, SiMongodb, SiPhp, SiCodeigniter, SiLaravel, SiSymfony, SiTailwindcss, SiBootstrap, SiRedis, SiNestjs, SiNextdotjs, SiElastic, SiDotnet, SiAdonisjs, SiPostgresql } from 'react-icons/si';
+import { FaDatabase, FaAngular, FaAws } from 'react-icons/fa';
+import { darken } from '../styles/utils';
 
  // Objek yang menyimpan warna asli setiap teknologi
  const techColors = {
   javascript: '#F7DF1E',
   react: '#61DAFB',
   'node.js': '#339933',
+  nestjs: '#E0234E',
+  nextjs: '#000000',
+  aws: '#FFCA28',
+  elastic: '#005571',
+  angular: '#DD0031',
+  dotnet: '#512BD4',
+  adonisjs: '#2C2C32',
   html: '#E34F26',
   css: '#1572B6',
   redux: '#764ABC',
@@ -42,12 +51,17 @@ import React from 'react';
   laravel: '#FF2D20',
   symfony: '#000000',
   mysql: '#4479A1',
+  mssql: '#CC2927',
+  postgresql: '#336791',
   mongodb: '#47A248',
   redis: '#DC382D',
+  cloudwatch: '#FF9900',
   'tailwind css': '#38B2AC',
   bootstrap: '#563D7C',
   'framer motion': '#0055FF',
   livewire: '#CC0000',
+  java: '#007396',
+  csharp: '#239120',
  };
 
  const AboutContainer = styled(motion.div)`
@@ -60,6 +74,40 @@ import React from 'react';
 
   @media (max-width: 768px) {
    padding: 1.5rem 2vw;
+    expressjs: '#000000',
+    adonisjs: '#2C2C32',
+    nestjs: '#E0234E',
+    dotnet: '#512BD4',
+    laravel: '#FF2D20',
+    codeigniter: '#E08E00',
+    symfony: '#000000',
+    nextjs: '#000000',
+    angular: '#DD0031',
+    vuejs: '#41B883',
+    mysql: '#4479A1',
+    postgresql: '#336791',
+    mssql: '#CC2927',
+    mongodb: '#47A248',
+    redis: '#DC382D',
+    elastic: '#005571',
+    cloudwatch: '#FF9900',
+    git: '#F05032',
+    docker: '#2496ED',
+    aws: '#FF9900',
+    html: '#E34F26',
+    css: '#1572B6',
+    bootstrap: '#563D7C',
+    tailwindcss: '#38B2AC',
+    framer: '#0055FF',
+    livewire: '#CC0000',
+    java: '#007396',
+    csharp: '#239120',
+    php: '#8892BE',
+    python: '#3776AB',
+    javascript: '#F7DF1E',
+    react: '#61DAFB',
+    redux: '#764ABC',
+    sass: '#CC6699',
   }
 
   @media (max-width: 480px) {
@@ -150,41 +198,47 @@ import React from 'react';
 
  `;
 
- const SkillsList = styled(motion.ul)`
+const SkillsList = styled(motion.ul)`
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
- `;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
+  gap: 0.6rem;
+`;
 
  const SkillItemWrapper = styled(motion.li)`
-  color: ${({ theme }) => theme.text}; /* Text color is the text color */
+  color: ${({ theme }) => theme.text};
   padding: 0.45rem 0.75rem;
   border-radius: 10px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  background-color: ${({ theme }) => theme.body}; /* Background color is the body color */
-  border: 2px solid ${({ theme }) => theme.text}; /* Border color is the text color */
-  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Added transitions */
+  background-color: ${({ theme }) => theme.body};
+  border: 2px solid ${({ theme }) => theme.text};
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
   @media (max-width: 768px) {
-   font-size: 0.9rem; /* Smaller button text on mobile */
-   padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
   }
 
   &:hover {
-   animation: ${shadowHover} 0.5s ease-in-out forwards; /* Apply shadow animation on hover */
-   background-color: ${({ theme }) => darken(0.1, theme.body)}; /* Slightly darken background on hover */
-   color: ${({ theme }) => theme.text}; /* Keep text color the same */
-   border-color: ${({ theme }) => theme.text}; /* Keep border color the same */
+    animation: ${shadowHover} 0.5s ease-in-out forwards;
+    background-color: ${({ theme }) => darken(0.1, theme.body)};
+    color: ${({ theme }) => theme.text};
+    border-color: ${({ theme }) => theme.text};
   }
- `;
+`;
 
  const SkillIcon = styled.span`
   font-size: 1.2rem;
@@ -270,6 +324,36 @@ import React from 'react';
   whileHover: { scale: 1.05, transition: { duration: 0.2 } },
  };
 
+ // Card-style container for all skills
+const SkillsSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
+// Each category block
+const SkillsCategory = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SkillsCategoryTitle = styled.h4`
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.primary};
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.5px;
+`;
+
+const CategoryIcon = styled.span`
+  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+`;
+
  const About = () => {
   return (
    <AboutContainer
@@ -287,7 +371,7 @@ import React from 'react';
       />
      </AvatarPlaceholder>
      <Name>Masrud Mubarok</Name>
-     <Headline>Software Developer | Web & Mobile Development</Headline>
+     <Headline>Software Engineer | Web & Mobile Development</Headline>
     </ProfileHeader>
 
     <Section variants={sectionVariants}>
@@ -295,100 +379,195 @@ import React from 'react';
       <TitleIcon icon={faUser} /> About
      </SectionTitle>
      <Paragraph>
-      Software Developer with over 3 years of experience in designing and building scalable back-end systems and dynamic front-end solutions. Skilled in optimizing system performance, improving user interfaces, and streamlining processes through clean and maintainable code. Experienced in working within agile environments and collaborating effectively with cross-functional teams to deliver solutions that meet both technical and business objectives. Committed to continuous learning and applying best practices to develop reliable, efficient, and scalable software solutions.
+      Software Engineer with over 5 years of experience in designing and building scalable back-end systems and dynamic front-end solutions. Skilled in optimizing system performance, improving user interfaces, and streamlining processes through clean and maintainable code. Experienced in working within agile environments and collaborating effectively with cross-functional teams to deliver solutions that meet both technical and business objectives. Committed to continuous learning and applying best practices to develop reliable, efficient, and scalable software solutions.
      </Paragraph>
     </Section>
 
     <Section variants={sectionVariants}>
      <SectionTitle>
-      <TitleIcon icon={faCode} /> Skills
+      <TitleIcon icon={faTools} /> Skills
      </SectionTitle>
-     <SkillsList>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.php }}><SiPhp /></SkillIcon> PHP
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.javascript }}><FaJs /></SkillIcon> JavaScript
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.python }}><FaPython /></SkillIcon> Python
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.codeigniter }}><SiCodeigniter /></SkillIcon> CodeIgniter
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.laravel }}><SiLaravel /></SkillIcon> Laravel
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.symfony }}><SiSymfony /></SkillIcon> Symfony
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors['node.js'] }}><FaNodeJs /></SkillIcon> Node.js
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-        <SkillIcon>
-          <img
-            src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg"
-            alt="Express.js"
-            style={{ height: '1.2rem', verticalAlign: 'middle' }}
-          />
-        </SkillIcon>
-        Express.js
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.vuejs }}><FaVuejs /></SkillIcon> Vue.js
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.react }}><FaReact /></SkillIcon> React.js
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.mysql }}><SiMysql /></SkillIcon> MySQL
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.mongodb }}><SiMongodb /></SkillIcon> MongoDB
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.redis }}><SiRedis /></SkillIcon> Redis
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.docker }}><FaDocker /></SkillIcon> Docker
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.git }}><FaGitAlt /></SkillIcon> GIT
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.html }}><FaHtml5 /></SkillIcon> HTML
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.css }}><FaCss3Alt /></SkillIcon> CSS
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors['tailwind css'] }}><SiTailwindcss /></SkillIcon> Tailwind CSS
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-       <SkillIcon style={{ color: techColors.bootstrap }}><SiBootstrap /></SkillIcon> Bootstrap
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-        <SkillIcon>
-        <img
-          src="https://images.seeklogo.com/logo-png/44/1/framer-motion-logo-png_seeklogo-446185.png"
-          alt="Framer Motion"
-          style={{ height: '1.2rem', verticalAlign: 'middle' }}
-        />
-        </SkillIcon>
-        Framer Motion
-      </SkillItemWrapper>
-      <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-        <SkillIcon>
-        <img
-          src="https://logo.svgcdn.com/d/livewire-original.svg"
-          alt="Livewire"
-          style={{ height: '1.2rem', verticalAlign: 'middle' }}
-        />
-        </SkillIcon>
-        Livewire
-      </SkillItemWrapper>
-     </SkillsList>
+     <SkillsSection>
+      <SkillsCategory>
+        <SkillsCategoryTitle><TitleIcon icon={faCode} /> Programming Language</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.javascript }}><FaJs /></SkillIcon> JavaScript
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.php }}><SiPhp /></SkillIcon> PHP
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.python }}><FaPython /></SkillIcon> Python
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.java }}><FaJava /></SkillIcon> Java
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png"
+                alt="C#"
+                style={{ height: '1.2rem', filter: techColors.csharp ? `drop-shadow(0 0 2px ${techColors.csharp})` : undefined }}
+              />
+            </SkillIcon>
+            C#
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>🖥️</CategoryIcon> Backend</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors['node.js'] }}><FaNodeJs /></SkillIcon> Node.js
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon>
+              <img
+                src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg"
+                alt="Express.js"
+                style={{ height: '1.2rem', filter: techColors.expressjs ? `drop-shadow(0 0 2px ${techColors.expressjs})` : undefined }}
+              />
+            </SkillIcon>
+            Express.js
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.adonisjs }}><SiAdonisjs /></SkillIcon> Adonis.js
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.nestjs }}><SiNestjs /></SkillIcon> Nest.js
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.dotnet }}><SiDotnet /></SkillIcon> .NET
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.laravel }}><SiLaravel /></SkillIcon> Laravel
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.codeigniter }}><SiCodeigniter /></SkillIcon> CodeIgniter
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.symfony }}><SiSymfony /></SkillIcon> Symfony
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>🎨</CategoryIcon> Frontend</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.nextjs }}><SiNextdotjs /></SkillIcon> Next.js
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.react }}><FaReact /></SkillIcon> React.js
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.angular }}><FaAngular /></SkillIcon> Angular.js
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.vuejs }}><FaVuejs /></SkillIcon> Vue.js
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>🗄️</CategoryIcon> Database</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.mysql }}><SiMysql /></SkillIcon> MySQL
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.postgresql }}><SiPostgresql /></SkillIcon> PostgreSQL
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon>
+              <img
+                src="/sqlserver.svg"
+                alt="SQL Server"
+                style={{ height: '1.2rem', filter: techColors.mssql ? `drop-shadow(0 0 2px ${techColors.mssql})` : undefined }}
+              />
+            </SkillIcon>
+            MSSQL
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.mongodb }}><SiMongodb /></SkillIcon> MongoDB
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.redis }}><SiRedis /></SkillIcon> Redis
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>🧪</CategoryIcon> Testing</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon>
+              <img
+                src="/jest.png"
+                alt="Jest"
+                style={{ height: '1.2rem', verticalAlign: 'middle', borderRadius: '3px' }}
+              />
+            </SkillIcon>
+            Jest
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon><img src="https://avatars.githubusercontent.com/u/8770009?s=200&v=4" alt="Mocha" style={{ height: '1.2rem', verticalAlign: 'middle', borderRadius: '3px' }} /></SkillIcon> Mocha
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon><img src="https://avatars.githubusercontent.com/u/1515293?s=200&v=4" alt="Chai" style={{ height: '1.2rem', verticalAlign: 'middle', borderRadius: '3px' }} /></SkillIcon> Chai
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon><img src="https://upload.wikimedia.org/wikipedia/en/2/22/Logo_jasmine.svg" alt="Jasmine" style={{ height: '1.2rem' }} /></SkillIcon> Jasmine
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon><img src="https://karma-runner.github.io/assets/img/banner.png" alt="Karma" style={{ height: '1.2rem' }} /></SkillIcon> Karma
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>📈</CategoryIcon> Observability</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.elastic }}><SiElastic /></SkillIcon> Elastic APM
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.cloudwatch }}><FaAws /></SkillIcon> AWS CloudWatch
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>🔖</CategoryIcon> Version Control</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.git }}><FaGitAlt /></SkillIcon> GIT
+          </SkillItemWrapper>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon>
+              <img
+                src="/cvs.png"
+                alt="CVS"
+                style={{ height: '1.2rem', filter: techColors.git ? `drop-shadow(0 0 2px ${techColors.git})` : undefined }}
+              />
+            </SkillIcon>
+            CVS
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>🐳</CategoryIcon> Containerization</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.docker }}><FaDocker /></SkillIcon> Docker
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+      <SkillsCategory>
+        <SkillsCategoryTitle><CategoryIcon>☁️</CategoryIcon> Cloud</SkillsCategoryTitle>
+        <SkillsList>
+          <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+            <SkillIcon style={{ color: techColors.aws }}><FaAws /></SkillIcon> AWS
+          </SkillItemWrapper>
+        </SkillsList>
+      </SkillsCategory>
+     </SkillsSection>
     </Section>
 
     <Section variants={sectionVariants}>
@@ -396,6 +575,13 @@ import React from 'react';
       <TitleIcon icon={faBriefcase} /> Experience
      </SectionTitle>
      <ExperienceList>
+      <ExperienceItem>
+       <ExperienceTitle>Software Engineer</ExperienceTitle>
+       <ExperienceOffice>PHINCON . Full-time</ExperienceOffice>
+       <ExperienceSubtitle>Jul 2025 - present</ExperienceSubtitle>
+       <ExperienceSubtitle>Tangerang, Banten, Indonesia . Hybrid</ExperienceSubtitle>
+       </ExperienceItem>
+       <hr />
       <ExperienceItem>
        <ExperienceTitle>Full Stack Developer</ExperienceTitle>
        <ExperienceOffice>rSchoolToday . Full-time</ExperienceOffice>
@@ -424,13 +610,6 @@ import React from 'react';
        </EducationItem>
       </EducationList>
      </Section>
-
-     {/* Anda bisa menambahkan bagian lain seperti "Projects", "Awards", dll. */}
-     {/* <Section variants={sectionVariants}>
-      <SectionTitle>
-       <TitleIcon icon={faLightbulb} /> Projects
-      </SectionTitle>
-     </Section> */}
     </AboutContainer>
    );
  };

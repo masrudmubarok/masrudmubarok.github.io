@@ -188,7 +188,7 @@ text-align: center;
 
  // Hero Component
  const Hero = () => {
-  const jobTitles = ["I'm software developer", "I love code", "I develop website", "I develop mobile apps"];
+  const jobTitles = ["I'm software engineer", "I love code", "I develop website", "I develop mobile apps"];
   const typedRef = useRef(null);
   const themeContext = useContext(ThemeContext);
 
@@ -264,7 +264,7 @@ text-align: center;
     <OpenToWorkButton>
      <BlinkingDot />
      <RadarEffect />
-     Open to work
+     Online
     </OpenToWorkButton>
     </ImageAndButtonContainer>
     <Title>Masrud Mubarok</Title>
