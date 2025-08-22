@@ -82,29 +82,37 @@ import React from 'react';
   align-items: center;
  `;
 
- const ContactLink = styled(motion.a)`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem; /* Gap lebih kecil untuk mobile */
-  color: ${({ theme }) => theme.text};
-  text-decoration: none;
-  font-size: 1.2rem; /* Ukuran font lebih kecil untuk mobile */
-  font-weight: 600;
-  transition: color 0.3s ease, transform 0.2s ease-in-out;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 0.2rem; /* Padding bawah lebih kecil untuk mobile */
+const ContactLink = styled(motion.a)`
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: ${({ $iconcolor }) => $iconcolor || '#222'};
+    background: transparent;
+    border: 2px solid ${({ $iconcolor }) => $iconcolor || '#222'};
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.2s, color 0.2s, border 0.2s, transform 0.2s;
+    margin-bottom: 0.2rem;
 
-  &:hover {
-   color: ${({ theme }) => theme.primary};
-   transform: translateY(-2px);
-  }
+    &:hover {
+        background: transparent;
+        color: ${({ $iconcolor }) => $iconcolor || '#222'};
+        border: 2px solid ${({ $iconcolor }) => $iconcolor || '#222'};
+        box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+        transform: translateY(-2px) scale(1.07);
+        filter: brightness(1.08);
+    }
 
-  @media (min-width: 768px) {
-   font-size: 1.3rem; /* Ukuran font kembali ke semula untuk desktop */
-   gap: 1.2rem; /* Gap kembali ke semula untuk desktop */
-   padding-bottom: 0.3rem; /* Padding bawah kembali ke semula untuk desktop */
-  }
- `;
+    @media (min-width: 768px) {
+        font-size: 1.3rem;
+        gap: 1.2rem;
+        padding: 0.7rem 1.8rem;
+    }
+`;
 
  const IconStyle = `
   font-size: 1.5rem; /* Ukuran ikon lebih kecil untuk mobile */
@@ -147,15 +155,25 @@ import React from 'react';
     <ContactDescription variants={itemVariants}>
      I'm eager to explore exciting new projects and collaborations. Don't hesitate to reach out if you have an interesting idea or just want to say hello! Your message is highly valued.
     </ContactDescription>
-    <ContactMethodList variants={itemVariants}>
-     <ContactLink href="https://wa.me/6281321219970" target="_blank" rel="noopener noreferrer" variants={itemVariants}>
-      <WhatsApp /> Chat on WhatsApp
-     </ContactLink>
-     <ContactLink href="mailto:masrud.mubarok21@gmail.com" variants={itemVariants}>
-      <Email /> Drop Me an Email
-     </ContactLink>
-     {/* Tambahkan tautan kontak lain jika perlu */}
-    </ContactMethodList>
+        <ContactMethodList variants={itemVariants}>
+            <ContactLink
+                href="https://wa.me/6281321219970"
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={itemVariants}
+                $iconcolor="#25D366"
+            >
+                <WhatsApp /> Chat on WhatsApp
+            </ContactLink>
+            <ContactLink
+                href="mailto:masrud.mubarok21@gmail.com"
+                variants={itemVariants}
+                $iconcolor="#9c9c9cff"
+            >
+                <Email style={{ color: '#9c9c9cff' }} /> Drop Me an Email
+            </ContactLink>
+            {/* Tambahkan tautan kontak lain jika perlu */}
+        </ContactMethodList>
    </ContactContainer>
   );
  };

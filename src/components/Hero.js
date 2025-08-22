@@ -160,12 +160,14 @@ text-align: center;
    padding: 0.6rem 1.2rem;
   }
 
-  &:hover {
-   animation: ${shadowHover} 0.5s ease-in-out forwards; /* Apply shadow animation on hover */
-   background-color: ${({ theme }) => darken(0.1, theme.body)}; /* Slightly darken background on hover */
-   color: ${({ theme }) => theme.text}; /* Keep text color the same */
-   border-color: ${({ theme }) => theme.text}; /* Keep border color the same */
-  }
+    &:hover {
+        background: transparent;
+        color: ${({ theme }) => theme.text};
+        border-color: ${({ theme }) => theme.text};
+        box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+        transform: translateY(-2px) scale(1.07);
+        filter: brightness(1.08);
+    }
  `;
 
  const LogoContainer = styled(motion.div)`

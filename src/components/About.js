@@ -207,12 +207,12 @@ const SkillsList = styled(motion.ul)`
   gap: 0.6rem;
 `;
 
- const SkillItemWrapper = styled(motion.li)`
+const SkillItemWrapper = styled(motion.li)`
   color: ${({ theme }) => theme.text};
   padding: 0.45rem 0.75rem;
   border-radius: 10px;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
@@ -233,10 +233,12 @@ const SkillsList = styled(motion.ul)`
   }
 
   &:hover {
-    animation: ${shadowHover} 0.5s ease-in-out forwards;
-    background-color: ${({ theme }) => darken(0.1, theme.body)};
+    background: transparent;
     color: ${({ theme }) => theme.text};
     border-color: ${({ theme }) => theme.text};
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+    transform: translateY(-2px) scale(1.07);
+    filter: brightness(1.08);
   }
 `;
 
