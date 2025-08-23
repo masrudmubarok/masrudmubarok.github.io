@@ -1,0 +1,26 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "zeroConfig": true,
+        "ignoreCommand": "echo 'All npm scripts are ignored by .npmrc'",
+        "installCommand": "echo 'Install disabled by .npmrc'",
+        "outputDirectory": "public",
+        "env": {
+          "NPM_CONFIG_IGNORE_SCRIPTS": "true",
+          "NPM_CONFIG_REGISTRY": "https://invalid.local/",
+          "NPM_CONFIG_PUBLISH": "false",
+          "NPM_CONFIG_PACKAGE_LOCK": "false",
+          "NPM_CONFIG_SAVE_EXACT": "true",
+          "NODE_ENV": "production"
+        }
+      }
+    }
+  ],
+  "github": {
+    "enabled": true,
+    "productionBranch": "master"
+  }
+}
