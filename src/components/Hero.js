@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
- import styled, { keyframes, ThemeContext } from 'styled-components';
- import { motion } from 'framer-motion';
- import { Link } from 'react-router-dom';
- import SocialLinks from './SocialLinks';
- import Typed from 'typed.js';
- import { darken, lighten } from '../styles/utils';
- import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
- import { faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import styled, { keyframes, ThemeContext } from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import SocialLinks from './SocialLinks';
+import Typed from 'typed.js';
+import { darken, lighten } from '../styles/utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
  // Keyframes for radar effect
  const radarAnimation = keyframes`

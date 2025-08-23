@@ -35,7 +35,7 @@ const Link = styled.a`
 
 const SocialLinks = () => {
   return (
-    <Container>
+    <Container role="navigation" aria-label="Social Links">
       <Link href="https://github.com/masrudmubarok" target="_blank" rel="noopener noreferrer">
         <FaGithub />
       </Link>

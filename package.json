@@ -1,6 +1,6 @@
 {
   "name": "masrudmubarok.github.io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "homepage": "https://masrudmubarok.github.io",
   "dependencies": {
@@ -17,7 +17,7 @@
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
-    "react-router-dom": "^7.5.1",
+    "react-router-dom": "7.5.1",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.17",
     "typed.js": "^2.1.0",
@@ -28,7 +28,17 @@
     "build": "react-scripts build",
     "deploy": "gh-pages -d build -b master",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:coverage": "react-scripts test --coverage",
+    "test:about": "react-scripts test src/tests/About.test.js",
+    "test:contact": "react-scripts test src/tests/Contact.test.js",
+    "test:footer": "react-scripts test src/tests/Footer.test.js",
+    "test:hero": "react-scripts test src/tests/Hero.test.js",
+    "test:navbar": "react-scripts test src/tests/Navbar.test.js",
+    "test:portfolio": "react-scripts test src/tests/Portfolio.test.js",
+    "test:sociallinks": "react-scripts test src/tests/SocialLinks.test.js",
+    "test:themetoggle": "react-scripts test src/tests/ThemeToggle.test.js",
+    "eject": "react-scripts eject",
+    "test:doc": "echo 'Run npm test or npm run test:coverage to execute all unit tests in src/tests and see coverage.'"
   },
   "eslintConfig": {
     "extends": [
