@@ -460,6 +460,44 @@ const experienceData = [
 
     <Section variants={sectionVariants}>
      <SectionTitle>
+        <TitleIcon icon={faBriefcase} /> Experience
+      </SectionTitle>
+      <ExperienceList>
+        {experienceData.map((exp, index) => {
+          const duration = calculateDuration(exp.startDate, exp.endDate);
+          const endDateText = exp.endDate === 'present' ? 'present' : new Date(exp.endDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
+          const startDateText = new Date(exp.startDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
+
+          return (
+            <React.Fragment key={index}>
+              <ExperienceItem>
+                <ExperienceTitle>{exp.title}</ExperienceTitle>
+                <ExperienceOffice>{exp.office} . {exp.type}</ExperienceOffice>
+                <ExperienceSubtitle>{startDateText} - {endDateText} . {duration}</ExperienceSubtitle>
+                <ExperienceSubtitle>{exp.location} . {exp.workMode}</ExperienceSubtitle>
+              </ExperienceItem>
+              {index < experienceData.length - 1 && <hr />}
+            </React.Fragment>
+          );
+        })}
+      </ExperienceList>
+     </Section>
+
+     <Section variants={sectionVariants}>
+      <SectionTitle>
+       <TitleIcon icon={faGraduationCap} /> Education
+      </SectionTitle>
+      <EducationList>
+       <EducationItem>
+        <EducationPlace>STIKI Malang</EducationPlace>
+        <EducationTitle>Bachelor of Informatics</EducationTitle>
+        <ExperienceSubtitle>2017 - 2021</ExperienceSubtitle>
+       </EducationItem>
+      </EducationList>
+    </Section>
+
+    <Section variants={sectionVariants}>
+     <SectionTitle>
       <TitleIcon icon={faTools} /> Skills
      </SectionTitle>
      <SkillsSection>
@@ -672,44 +710,6 @@ const experienceData = [
         <div style={{ flex: 1, background: 'transparent', border: 'none' }} />
       </SkillsRow>
      </SkillsSection>
-    </Section>
-
-    <Section variants={sectionVariants}>
-     <SectionTitle>
-        <TitleIcon icon={faBriefcase} /> Experience
-      </SectionTitle>
-      <ExperienceList>
-        {experienceData.map((exp, index) => {
-          const duration = calculateDuration(exp.startDate, exp.endDate);
-          const endDateText = exp.endDate === 'present' ? 'present' : new Date(exp.endDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
-          const startDateText = new Date(exp.startDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
-
-          return (
-            <React.Fragment key={index}>
-              <ExperienceItem>
-                <ExperienceTitle>{exp.title}</ExperienceTitle>
-                <ExperienceOffice>{exp.office} . {exp.type}</ExperienceOffice>
-                <ExperienceSubtitle>{startDateText} - {endDateText} . {duration}</ExperienceSubtitle>
-                <ExperienceSubtitle>{exp.location} . {exp.workMode}</ExperienceSubtitle>
-              </ExperienceItem>
-              {index < experienceData.length - 1 && <hr />}
-            </React.Fragment>
-          );
-        })}
-      </ExperienceList>
-     </Section>
-
-     <Section variants={sectionVariants}>
-      <SectionTitle>
-       <TitleIcon icon={faGraduationCap} /> Education
-      </SectionTitle>
-      <EducationList>
-       <EducationItem>
-        <EducationPlace>STIKI Malang</EducationPlace>
-        <EducationTitle>Bachelor of Informatics</EducationTitle>
-        <ExperienceSubtitle>2017 - 2021</ExperienceSubtitle>
-       </EducationItem>
-      </EducationList>
     </Section>
     </AboutContainer>
    );
