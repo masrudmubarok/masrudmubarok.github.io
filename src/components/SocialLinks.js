@@ -36,11 +36,11 @@ const Link = styled.a`
 const SocialLinks = () => {
   return (
     <Container role="navigation" aria-label="Social Links">
-      <Link href="https://github.com/masrudmubarok" target="_blank" rel="noopener noreferrer">
-        <FaGithub />
-      </Link>
       <Link href="https://linkedin.com/in/masrudmubarok" target="_blank" rel="noopener noreferrer">
         <FaLinkedin />
+      </Link>
+      <Link href="https://github.com/masrudmubarok" target="_blank" rel="noopener noreferrer">
+        <FaGithub />
       </Link>
       <Link href="https://youtube.com/@masrudmubarok" target="_blank" rel="noopener noreferrer">
         <FaYoutube />

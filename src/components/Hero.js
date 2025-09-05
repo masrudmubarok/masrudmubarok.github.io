@@ -259,10 +259,12 @@ text-align: center;
     transition={{ duration: 1 }}
    >
     <ImageAndButtonContainer>
-    <CartoonImage
-     src="/cartoon-photo.png"
-     alt="Foto Kartun"
-    />
+    <Link to="/about">
+      <CartoonImage
+      src="/cartoon-photo.png"
+      alt="Foto Kartun"
+      />
+    </Link>
     <OpenToWorkButton>
      <BlinkingDot />
      <RadarEffect />

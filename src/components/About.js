@@ -178,6 +178,7 @@ import { FaAngular, FaAws } from 'react-icons/fa';
   margin-bottom: 1rem;
   padding-left: 0;
   margin-left: 0;
+  text-align: justify;
 
   & > ul {
    padding-left: 0; /* Hapus padding pada list container */
@@ -245,13 +246,25 @@ const SkillItemWrapper = styled(motion.li)`
   margin-bottom: 1.5rem;
  `;
 
- const ExperienceTitle = styled(motion.h3)`
+  const ExperienceTitle = styled(motion.h3)`
   font-size: 1.1rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: -0.3rem;
  `;
 
  const ExperienceOffice = styled(motion.p)`
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: -0.5rem;
+ `;
+
+ const EducationPlace = styled(motion.h3)`
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: -0.3rem;
+ `;
+
+ const EducationTitle = styled(motion.p)`
   font-size: 0.9rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: -0.5rem;
@@ -270,12 +283,6 @@ const SkillItemWrapper = styled(motion.li)`
 
  const EducationItem = styled(motion.li)`
   margin-bottom: 1.5rem;
- `;
-
- const EducationTitle = styled(motion.h3)`
-  font-size: 1.1rem;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: -0.3rem;
  `;
 
  const CartoonImage = styled(motion.img)`
@@ -364,6 +371,64 @@ const CategoryIcon = styled.span`
   align-items: center;
 `;
 
+export const calculateDuration = (startDate, endDate) => {
+  const start = new Date(startDate);
+  const end = endDate === 'present' ? new Date() : new Date(endDate);
+
+  let years = end.getFullYear() - start.getFullYear();
+  let months = end.getMonth() - start.getMonth();
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  // Menangani kasus '1 year 0 months'
+  const yearText = years > 0 ? `${years} yr${years > 1 ? 's' : ''}` : '';
+  const monthText = months > 0 ? `${months} mo${months > 1 ? 's' : ''}` : '';
+
+  // Menggabungkan string, memastikan tidak ada spasi berlebih
+  if (yearText && monthText) {
+    return `${yearText} ${monthText}`;
+  } else if (yearText) {
+    return yearText;
+  } else if (monthText) {
+    return monthText;
+  }
+  
+  return '';
+};
+
+const experienceData = [
+  {
+    title: 'Software Engineer',
+    office: 'PHINCON',
+    type: 'Full-time',
+    location: 'Tangerang, Banten, Indonesia',
+    workMode: 'Hybrid',
+    startDate: '2025-07-01',
+    endDate: 'present',
+  },
+  {
+    title: 'Full Stack Developer',
+    office: 'rSchoolToday',
+    type: 'Full-time',
+    location: 'Indonesia',
+    workMode: 'Remote',
+    startDate: '2021-09-01',
+    endDate: '2025-02-28',
+  },
+  {
+    title: 'Full Stack Developer',
+    office: 'PPTIK STIKI Malang',
+    type: 'Internship',
+    location: 'Malang, East Java, Indonesia',
+    workMode: 'On-site',
+    startDate: '2020-04-01',
+    endDate: '2021-09-30',
+  },
+];
+
  const About = () => {
   return (
    <AboutContainer
@@ -381,7 +446,7 @@ const CategoryIcon = styled.span`
       />
      </AvatarPlaceholder>
      <Name>Masrud Mubarok</Name>
-     <Headline>Software Engineer | Web & Mobile Development</Headline>
+     <Headline>Software Engineer | Fullstack Development</Headline>
     </ProfileHeader>
 
     <Section variants={sectionVariants}>
@@ -611,29 +676,26 @@ const CategoryIcon = styled.span`
 
     <Section variants={sectionVariants}>
      <SectionTitle>
-      <TitleIcon icon={faBriefcase} /> Experience
-     </SectionTitle>
-     <ExperienceList>
-      <ExperienceItem>
-       <ExperienceTitle>Software Engineer</ExperienceTitle>
-       <ExperienceOffice>PHINCON . Full-time</ExperienceOffice>
-       <ExperienceSubtitle>Jul 2025 - present</ExperienceSubtitle>
-       <ExperienceSubtitle>Tangerang, Banten, Indonesia . Hybrid</ExperienceSubtitle>
-       </ExperienceItem>
-       <hr />
-      <ExperienceItem>
-       <ExperienceTitle>Full Stack Developer</ExperienceTitle>
-       <ExperienceOffice>rSchoolToday . Full-time</ExperienceOffice>
-       <ExperienceSubtitle>Sep 2021 - Feb 2025</ExperienceSubtitle>
-       <ExperienceSubtitle>Indonesia . Remote</ExperienceSubtitle>
-       </ExperienceItem>
-       <hr />
-       <ExperienceItem>
-        <ExperienceTitle>Full Stack Developer</ExperienceTitle>
-        <ExperienceOffice>PPTIK STIKI Malang . Internship</ExperienceOffice>
-        <ExperienceSubtitle>Apr 2020 - Sep 2021</ExperienceSubtitle>
-        <ExperienceSubtitle>Malang, East Java, Indonesia . On-site</ExperienceSubtitle>
-       </ExperienceItem>
+        <TitleIcon icon={faBriefcase} /> Experience
+      </SectionTitle>
+      <ExperienceList>
+        {experienceData.map((exp, index) => {
+          const duration = calculateDuration(exp.startDate, exp.endDate);
+          const endDateText = exp.endDate === 'present' ? 'present' : new Date(exp.endDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
+          const startDateText = new Date(exp.startDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
+
+          return (
+            <React.Fragment key={index}>
+              <ExperienceItem>
+                <ExperienceTitle>{exp.title}</ExperienceTitle>
+                <ExperienceOffice>{exp.office} . {exp.type}</ExperienceOffice>
+                <ExperienceSubtitle>{startDateText} - {endDateText} . {duration}</ExperienceSubtitle>
+                <ExperienceSubtitle>{exp.location} . {exp.workMode}</ExperienceSubtitle>
+              </ExperienceItem>
+              {index < experienceData.length - 1 && <hr />}
+            </React.Fragment>
+          );
+        })}
       </ExperienceList>
      </Section>
 
@@ -643,8 +705,8 @@ const CategoryIcon = styled.span`
       </SectionTitle>
       <EducationList>
        <EducationItem>
-        <EducationTitle>Bachelor of Inforamtics</EducationTitle>
-        <ExperienceOffice>STIKI Malang</ExperienceOffice>
+        <EducationPlace>STIKI Malang</EducationPlace>
+        <EducationTitle>Bachelor of Informatics</EducationTitle>
         <ExperienceSubtitle>2017 - 2021</ExperienceSubtitle>
        </EducationItem>
       </EducationList>
