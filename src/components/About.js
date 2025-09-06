@@ -242,55 +242,65 @@ const SkillItemWrapper = styled(motion.li)`
   padding: 0;
  `;
 
- const ExperienceItem = styled(motion.li)`
-  margin-bottom: 1.5rem;
- `;
+ const ExperienceItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  gap: 16px;
+`;
 
-  const ExperienceTitle = styled(motion.h3)`
+const ExperienceTitle = styled(motion.h3)`
   font-size: 1.1rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: -0.3rem;
- `;
+  margin-top: -0.02rem;
+`;
 
- const ExperienceOffice = styled(motion.p)`
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: -0.5rem;
- `;
-
- const EducationPlace = styled(motion.h3)`
-  font-size: 1.1rem;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: -0.3rem;
- `;
-
- const EducationTitle = styled(motion.p)`
-  font-size: 0.9rem;
-  color: ${({ theme }) => theme.text};
-  margin-bottom: -0.5rem;
- `;
-
- const ExperienceSubtitle = styled(motion.p)`
+const ExperienceSubtitle = styled(motion.p)`
   font-size: 0.9rem;
   color: ${({ theme }) => theme.secondary};
   margin-bottom: -0.5rem;
- `;
+`;
 
- const EducationList = styled.ul`
+const ExperienceOffice = styled(motion.p)`
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: -0.5rem;
+`;
+
+const EducationPlace = styled(motion.h3)`
+  font-size: 1.1rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: -0.5rem;
+  margin-top: -0.02rem;
+`;
+
+const EducationTitle = styled(motion.p)`
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: -0.5rem;
+`;
+
+const EducationList = styled.ul`
   list-style: none;
   padding: 0;
- `;
+`;
 
- const EducationItem = styled(motion.li)`
-  margin-bottom: 1.5rem;
- `;
+const EducationItem = styled(motion.li)`
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  gap: 16px;
+`;
 
- const CartoonImage = styled(motion.img)`
+const CartoonImage = styled(motion.img)`
   width: 84px;
   height: 84px;
   margin-bottom: 0;
   object-fit: cover;
- `;
+`;
 
  const containerVariants = {
   hidden: { opacity: 0 },
@@ -371,6 +381,29 @@ const CategoryIcon = styled.span`
   align-items: center;
 `;
 
+const LogoImage = styled.img`
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+`;
+
+const LogoWrapper = styled.div`
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 10px;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
 export const calculateDuration = (startDate, endDate) => {
   const start = new Date(startDate);
   const end = endDate === 'present' ? new Date() : new Date(endDate);
@@ -404,32 +437,35 @@ const experienceData = [
     title: 'Software Engineer',
     office: 'PHINCON',
     type: 'Full-time',
-    location: 'Tangerang, Banten, Indonesia',
-    workMode: 'Hybrid',
     startDate: '2025-07-01',
     endDate: 'present',
+    location: 'Tangerang, Banten, Indonesia',
+    workMode: 'Hybrid',
+    companyLogo: '/phincon.jpeg',
   },
   {
     title: 'Full Stack Developer',
     office: 'rSchoolToday',
     type: 'Full-time',
-    location: 'Indonesia',
-    workMode: 'Remote',
     startDate: '2021-09-01',
     endDate: '2025-02-28',
+    location: 'Minnesota, United States',
+    workMode: 'Remote',
+    companyLogo: '/rschooltoday.jpeg',
   },
   {
     title: 'Full Stack Developer',
     office: 'PPTIK STIKI Malang',
     type: 'Internship',
-    location: 'Malang, East Java, Indonesia',
-    workMode: 'On-site',
     startDate: '2020-04-01',
     endDate: '2021-09-30',
+    location: 'Malang, East Java, Indonesia',
+    workMode: 'On-site',
+    companyLogo: '/pptik.jpeg',
   },
 ];
 
- const About = () => {
+const About = () => {
   return (
    <AboutContainer
     variants={containerVariants}
@@ -459,7 +495,7 @@ const experienceData = [
     </Section>
 
     <Section variants={sectionVariants}>
-     <SectionTitle>
+      <SectionTitle>
         <TitleIcon icon={faBriefcase} /> Experience
       </SectionTitle>
       <ExperienceList>
@@ -471,10 +507,15 @@ const experienceData = [
           return (
             <React.Fragment key={index}>
               <ExperienceItem>
-                <ExperienceTitle>{exp.title}</ExperienceTitle>
-                <ExperienceOffice>{exp.office} . {exp.type}</ExperienceOffice>
-                <ExperienceSubtitle>{startDateText} - {endDateText} . {duration}</ExperienceSubtitle>
-                <ExperienceSubtitle>{exp.location} . {exp.workMode}</ExperienceSubtitle>
+                <LogoWrapper>
+                  <LogoImage src={exp.companyLogo} alt={`${exp.office} logo`} />
+                </LogoWrapper>
+                <ContentWrapper>
+                  <ExperienceTitle>{exp.title}</ExperienceTitle>
+                  <ExperienceOffice>{exp.office} . {exp.type}</ExperienceOffice>
+                  <ExperienceSubtitle>{startDateText} - {endDateText} . {duration}</ExperienceSubtitle>
+                  <ExperienceSubtitle>{exp.location} . {exp.workMode}</ExperienceSubtitle>
+                </ContentWrapper>
               </ExperienceItem>
               {index < experienceData.length - 1 && <hr />}
             </React.Fragment>
@@ -489,9 +530,14 @@ const experienceData = [
       </SectionTitle>
       <EducationList>
        <EducationItem>
-        <EducationPlace>STIKI Malang</EducationPlace>
-        <EducationTitle>Bachelor of Informatics</EducationTitle>
-        <ExperienceSubtitle>2017 - 2021</ExperienceSubtitle>
+        <LogoWrapper>
+          <LogoImage src='/stiki.jpeg' alt={`stiki logo`} />
+        </LogoWrapper>
+        <ContentWrapper>
+          <EducationPlace>STIKI Malang</EducationPlace>
+          <EducationTitle>Bachelor of Informatics</EducationTitle>
+          <ExperienceSubtitle>2017 - 2021</ExperienceSubtitle>
+        </ContentWrapper>
        </EducationItem>
       </EducationList>
     </Section>
