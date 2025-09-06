@@ -606,6 +606,7 @@ const TechStackList = styled(motion.ul)`
   position: absolute;
   top: 1rem;
   right: 1rem;
+  margin-top: 1rem;
   background: none;
   border: none;
   color: ${({ theme }) => theme.text};
@@ -616,8 +617,9 @@ const TechStackList = styled(motion.ul)`
    color: ${({ theme }) => theme.secondary};
   }
 
-  @media (min-width: 768px) {
-   font-size: 1.8rem;
+  @media (max-width: 768px) {
+   font-size: 1.2rem;
+   margin-top: 0.2rem;
   }
  `;
 
