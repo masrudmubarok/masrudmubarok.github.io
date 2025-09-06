@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser,
-  faCode,
   faBriefcase,
   faGraduationCap,
   faTools
@@ -146,6 +145,11 @@ import { FaAngular, FaAws } from 'react-icons/fa';
   color: ${({ theme }) => theme.text};
   margin-bottom: 0.1rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    margin-bottom: -0.2rem;
+  }
  `;
 
  const Headline = styled(motion.p)`
@@ -153,6 +157,10 @@ import { FaAngular, FaAws } from 'react-icons/fa';
   color: ${({ theme }) => theme.secondary};
   margin-bottom: 1rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
  `;
 
  const SectionTitle = styled(motion.h2)`
@@ -186,6 +194,9 @@ import { FaAngular, FaAws } from 'react-icons/fa';
    list-style-position: outside;
   }
 
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
  `;
 
 const SkillsList = styled(motion.ul)`
@@ -255,18 +266,30 @@ const ExperienceTitle = styled(motion.h3)`
   color: ${({ theme }) => theme.text};
   margin-bottom: -0.3rem;
   margin-top: -0.02rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const ExperienceSubtitle = styled(motion.p)`
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: ${({ theme }) => theme.secondary};
   margin-bottom: -0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const ExperienceOffice = styled(motion.p)`
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: -0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const EducationPlace = styled(motion.h3)`
@@ -274,12 +297,20 @@ const EducationPlace = styled(motion.h3)`
   color: ${({ theme }) => theme.text};
   margin-bottom: -0.5rem;
   margin-top: -0.02rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const EducationTitle = styled(motion.p)`
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: -0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const EducationList = styled.ul`
@@ -367,18 +398,16 @@ const SkillsCategoryTitle = styled.h4`
   align-items: center;
   gap: 0.5rem;
   letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const CategoryHr = styled.hr`
   border: none;
   border-bottom: 2.5px solid ${({ theme }) => theme.border};
   margin: 0.2rem 0 1.1rem 0;
-`;
-
-const CategoryIcon = styled.span`
-  font-size: 1.25rem;
-  display: inline-flex;
-  align-items: center;
 `;
 
 const LogoImage = styled.img`
@@ -550,7 +579,7 @@ const About = () => {
       {/* Row 1: Programming Language & Database */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><TitleIcon icon={faCode} /> Programming Language</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Programming Language</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -578,7 +607,7 @@ const About = () => {
           </SkillsList>
         </SkillsCategory>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><CategoryIcon>🗄️</CategoryIcon> Database</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Database</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -610,7 +639,7 @@ const About = () => {
       {/* Row 2: Backend & Frontend */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><CategoryIcon>🖥️</CategoryIcon> Backend</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Backend</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -647,7 +676,7 @@ const About = () => {
           </SkillsList>
         </SkillsCategory>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><CategoryIcon>🎨</CategoryIcon> Frontend</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Frontend</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -669,7 +698,7 @@ const About = () => {
       {/* Row 3: Testing & Observability */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><CategoryIcon>🧪</CategoryIcon> Testing</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Testing</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -697,7 +726,7 @@ const About = () => {
           </SkillsList>
         </SkillsCategory>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><CategoryIcon>📈</CategoryIcon> Observability</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Observability</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -713,7 +742,7 @@ const About = () => {
       {/* Row 4: Version Control & Containerization */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><CategoryIcon>🔖</CategoryIcon> Version Control</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Version Control</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -732,7 +761,7 @@ const About = () => {
           </SkillsList>
         </SkillsCategory>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle><CategoryIcon>🐳</CategoryIcon> Containerization</SkillsCategoryTitle>
+    <SkillsCategoryTitle>Containerization</SkillsCategoryTitle>
     <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -745,7 +774,7 @@ const About = () => {
       {/* Row 5: Cloud */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 0.93 }}>
-          <SkillsCategoryTitle><CategoryIcon>☁️</CategoryIcon> Cloud</SkillsCategoryTitle>
+          <SkillsCategoryTitle>Cloud</SkillsCategoryTitle>
           <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">

@@ -410,6 +410,7 @@ const TechStackList = styled(motion.ul)`
  const ModalImageWrapper = styled.div`
   width: 100%;
   margin-bottom: 2rem;
+  margin-top: 1.3rem;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -515,6 +516,7 @@ const TechStackList = styled(motion.ul)`
   color: ${({ theme }) => theme.secondaryText};
   margin-bottom: 1.75rem;
   line-height: 1.7;
+  text-align: justify;
 
   @media (min-width: 768px) {
    font-size: 1.2rem;
@@ -615,8 +617,6 @@ const TechStackList = styled(motion.ul)`
   }
 
   @media (min-width: 768px) {
-   top: 1.5rem;
-   right: 1.5rem;
    font-size: 1.8rem;
   }
  `;

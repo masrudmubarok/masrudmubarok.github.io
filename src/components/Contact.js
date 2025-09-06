@@ -30,7 +30,7 @@ import React from 'react';
  `;
 
  const Title = styled(motion.h2)`
-  font-size: 2.5rem; /* Ukuran font lebih kecil untuk mobile */
+  font-size: 2rem; /* Ukuran font lebih kecil untuk mobile */
   font-weight: 800;
   color: ${({ theme }) => theme.primary};
   margin-bottom: 1.5rem; /* Margin bawah lebih kecil untuk mobile */
@@ -39,7 +39,7 @@ import React from 'react';
   animation: ${WavyTitleAnimation} 2s ease-in-out infinite alternate;
 
   @media (min-width: 768px) {
-   font-size: 3rem; /* Ukuran font kembali ke semula untuk desktop */
+   font-size: 2.5rem; /* Ukuran font kembali ke semula untuk desktop */
    margin-bottom: 2rem; /* Margin bawah kembali ke semula untuk desktop */
    letter-spacing: -0.08em;
    line-height: 1.1;
@@ -47,28 +47,28 @@ import React from 'react';
  `;
 
  const SubTitle = styled(motion.h3)`
-  font-size: 1.3rem; /* Ukuran font lebih kecil untuk mobile */
+  font-size: 1rem; /* Ukuran font lebih kecil untuk mobile */
   font-weight: 600;
   color: ${({ theme }) => theme.secondary};
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 
   @media (min-width: 768px) {
-   font-size: 1.5rem; /* Ukuran font kembali ke semula untuk desktop */
+   font-size: 1.3rem; /* Ukuran font kembali ke semula untuk desktop */
    letter-spacing: -0.03em;
   }
  `;
 
  const ContactDescription = styled(motion.p)`
   color: ${({ theme }) => theme.text};
-  font-size: 1.1rem; /* Ukuran font lebih kecil untuk mobile */
+  font-size: 1rem; /* Ukuran font lebih kecil untuk mobile */
   line-height: 1.6;
   margin-bottom: 2rem; /* Margin bawah lebih kecil untuk mobile */
   max-width: 90%; /* Lebar maksimal lebih besar untuk mobile */
   font-style: italic;
 
   @media (min-width: 768px) {
-   font-size: 1.2rem; /* Ukuran font kembali ke semula untuk desktop */
+   font-size: 1.1rem; /* Ukuran font kembali ke semula untuk desktop */
    line-height: 1.7;
    margin-bottom: 2.5rem;
    max-width: 700px; /* Lebar maksimal kembali ke semula untuk desktop */
@@ -91,7 +91,7 @@ const ContactLink = styled(motion.a)`
     border: 2px solid ${({ $iconcolor }) => $iconcolor || '#222'};
     border-radius: 8px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     padding: 0.6rem 1.4rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
@@ -108,17 +108,17 @@ const ContactLink = styled(motion.a)`
     }
 
     @media (min-width: 768px) {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         gap: 1.2rem;
         padding: 0.7rem 1.8rem;
     }
 `;
 
  const IconStyle = `
-  font-size: 1.5rem; /* Ukuran ikon lebih kecil untuk mobile */
+  font-size: 1.2rem; /* Ukuran ikon lebih kecil untuk mobile */
 
   @media (min-width: 768px) {
-   font-size: 1.8rem; /* Ukuran ikon kembali ke semula untuk desktop */
+   font-size: 1.5rem; /* Ukuran ikon kembali ke semula untuk desktop */
   }
  `;
 
