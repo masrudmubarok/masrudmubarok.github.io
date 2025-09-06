@@ -680,7 +680,7 @@ const TechStackList = styled(motion.ul)`
     'HD video lectures with adjustable playback speeds',
     'Provides online payment integration for course purchases using Midtrans Payment Gateway',
    ],
-   impact: 'PPTIK Academy has empowered over 100+ students to access quality education remotely, particularly benefiting those in areas with limited educational resources. Student engagement metrics show an 80% completion rate for courses, significantly higher than industry averages for mobile learning platforms.'
+   impact: 'PPTIK Academy has empowered 50+ students to access quality education remotely, particularly benefiting those in areas with limited educational resources. Student engagement metrics show an 80% completion rate for courses, significantly higher than industry averages for mobile learning platforms.'
   },
   {
    id: 3,
