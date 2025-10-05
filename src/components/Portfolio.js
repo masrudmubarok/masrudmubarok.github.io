@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
- import styled from 'styled-components';
- import { motion, AnimatePresence } from 'framer-motion';
- import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
- import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
- import { FaReact, FaNodeJs, FaVuejs, FaJava } from 'react-icons/fa';
- import { SiMysql, SiMongodb, SiTailwindcss, SiCodeigniter, SiLaravel, SiExpress, SiRedux, SiRedis, SiSymfony } from 'react-icons/si';
+import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FaReact, FaNodeJs, FaVuejs, FaJava, FaAngular } from 'react-icons/fa';
+import { SiMysql, SiMongodb, SiTailwindcss, SiCodeigniter, SiLaravel, SiExpress, SiRedux, SiRedis, SiSymfony, SiNextdotjs, SiPostgresql } from 'react-icons/si';
 
  function darken(amount, color) {
   let usePound = false;
@@ -630,12 +630,16 @@ const TechStackList = styled(motion.ul)`
   'React Native': { icon: FaReact, color: '#61DAFB' },
   'Redux': { icon: SiRedux, color: '#764ABC' },
   'Vue.js': { icon: FaVuejs, color: '#42b883' },
+  'Angular.js': { icon: FaAngular, color: '#DD0031' },
+  'Next.js': { icon: SiNextdotjs, color: '#000000' },
+  'PostgreSQL': { icon: SiPostgresql, color: '#336791' },
+  'MSSQL': { icon: () => <img src="/sqlserver.svg" alt="MSSQL" width={30} />, color: '#A91D22' },
   'Laravel': { icon: SiLaravel, color: '#FF2D20' },
   'CodeIgniter': { icon: SiCodeigniter, color: '#F9A602' },
   'Tailwind CSS': { icon: SiTailwindcss, color: '#38B2AC' },
   'Java': { icon: FaJava, color: '#007396' },
   'Redis': { icon: SiRedis, color: '#DC382D' },
-  'Symfony': { icon: SiSymfony, color: '#000000' },
+  'Symfony': { icon: SiSymfony, color: '#000000' }, 
  };
 
  const getTechIcon = (tech) => {
@@ -698,6 +702,28 @@ const TechStackList = styled(motion.ul)`
     'Synchronized student data with 3rd party Clever integration'
    ],
    impact: 'This platform has been adopted by multiple school districts, reducing administrative workload by approximately 30 hours per week per school. Athletic departments report a 45% decrease in scheduling conflicts and a 70% improvement in parent communication efficiency. The system currently manages over 5,000 athletic events annually across its customer base.'
+  },
+  {
+    id: 4,
+    title: 'MySiloam - Hospital Patient Management System',
+    shortDescription: 'MySiloam is a web-based hospital information system developed for Siloam Hospitals Group. It centralizes patient records, appointments, billing, and medical data across multiple facilities to enhance service efficiency and data accuracy.',
+    description: 'MySiloam is a comprehensive patient management system built to support the digital transformation of Siloam Hospitals. The platform integrates various hospital operations—such as patient registration, doctor scheduling, medical records, pharmacy, and billing—into a unified interface. Developed with a microservice architecture, the system ensures scalability, security, and real-time synchronization between departments, allowing medical staff to provide faster and more accurate services. It also includes dedicated modules for Front Office operations and PAS Kairos connectivity to support Medical Checkup workflows.',
+    imageUrl: '/mysiloam.png',
+    demoUrl: '#',
+    techStack: ['Node.js', 'Express.js', 'React.js', 'Next.js', 'Angular.js', 'PostgreSQL', 'MSSQL',],
+    type: 'web',
+    fullImage: '/mysiloam.png',
+    keyFeatures: [
+      'Centralized Electronic Medical Records (EMR)',
+      'Real-time doctor and patient appointment scheduling',
+      'Integrated billing and insurance claim management',
+      'Front Office MySiloam module for patient registration and queue management',
+      'PAS Kairos connectivity for Medical Checkup',
+      'Notification system for patient status updates',
+      'Role-based access control for medical staff and administrators',
+    ],
+    impact:
+      'Deployed across multiple Siloam Hospitals, MySiloam has improved data accessibility and reduced administrative delays by 35%. The system ensures medical data accuracy and enables healthcare staff to collaborate more effectively across departments, leading to better patient outcomes and faster hospital operations.',
   },
  ];
 
