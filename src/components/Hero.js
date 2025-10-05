@@ -99,7 +99,7 @@ text-align: center;
  `;
 
  const Title = styled(motion.h1)`
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 0.01rem;
   margin-top: 1rem;
   color: ${({ theme }) => theme.text};

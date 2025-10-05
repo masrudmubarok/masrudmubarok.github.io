@@ -195,7 +195,7 @@ import { FaAngular, FaAws } from 'react-icons/fa';
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
  `;
 
