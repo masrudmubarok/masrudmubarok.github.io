@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
-import styled, { keyframes, ThemeContext } from 'styled-components';
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
-import Typed from 'typed.js';
-import { darken, lighten } from '../styles/utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,12 +13,6 @@ import { faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
   100% { transform: scale(1.8); opacity: 0; }
  `;
 
- // Keyframes for subtle shadow animation on hover
- const shadowHover = keyframes`
-  0% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); transform: translateY(0); }
-  50% { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); transform: translateY(-2px); }
-  100% { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); transform: translateY(0); }
- `;
 
 // Styled Components
 const HeroContainer = styled(motion.div)`
@@ -170,15 +162,6 @@ text-align: center;
     }
  `;
 
- const LogoContainer = styled(motion.div)`
-  position: absolute;
-  top: 1rem;
-  left: 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: ${({ theme }) => theme.text};
- `;
-
  const SocialLinksContainer = styled(motion.div)`
   position: absolute;
   left: 2rem;
@@ -190,67 +173,6 @@ text-align: center;
 
  // Hero Component
  const Hero = () => {
-  const jobTitles = ["I'm software engineer", "I love code", "I develop website", "I develop mobile apps"];
-  const typedRef = useRef(null);
-  const themeContext = useContext(ThemeContext);
-
-  useEffect(() => {
-   const typed = new Typed(typedRef.current, {
-    strings: jobTitles,
-    typeSpeed: 50,
-    backSpeed: 30,
-    loop: true,
-    showCursor: false,
-   });
-
-   return () => {
-    typed.destroy();
-   };
-  }, [jobTitles]);
-
-  function darken(amount, color) {
-   let usePound = false;
-
-   if (color.startsWith("#")) {
-    color = color.slice(1);
-    usePound = true;
-   }
-
-   const num = parseInt(color, 16);
-
-   let r = Math.max(0, Math.min(255, (num >> 16) + amount));
-   let b = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amount));
-   let g = Math.max(0, Math.min(255, (num & 0x0000FF) + amount));
-
-   const toHex = (c) => {
-    const hex = c.toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
-   };
-
-   return (usePound ? "#" : "") + toHex(r) + toHex(g) + toHex(b);
-  }
-
-  function lighten(amount, color) {
-   let usePound = false;
-
-   if (color.startsWith("#")) {
-    color = color.slice(1);
-    usePound = true;
-   }
-
-   const num = parseInt(color, 16);
-
-   let r = Math.max(0, Math.min(255, (num >> 16) - amount)); // Subtract to lighten
-   let b = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) - amount)); // Subtract to lighten
-   let g = Math.max(0, Math.min(255, (num & 0x0000FF) - amount)); // Subtract to lighten
-
-   const toHex = (c) => {
-    const hex = c.toString(16);
-    return hex.length === 1 ? "0" + hex : hex;
-   };
-
-   return (usePound ? "#" : "") + toHex(r) + toHex(g) + toHex(b);
-  }
 
   return (
    <HeroContainer
@@ -272,7 +194,7 @@ text-align: center;
     </OpenToWorkButton>
     </ImageAndButtonContainer>
     <Title>Masrud Mubarok</Title>
-    <JobTitle ref={typedRef}></JobTitle>
+    <JobTitle>Software Engineer</JobTitle>
     <Description>
      "Whatever the mind can conceive and believe, it can achieve."<br /><br />- Napoleon Hill -
     </Description>
