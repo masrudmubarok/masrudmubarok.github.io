@@ -730,7 +730,7 @@ const TechStackList = styled(motion.ul)`
  ];
 
  const Portfolio = () => {
-  const [visibleProjects] = useState(initialProjects);
+  const [visibleProjects] = useState([...initialProjects].reverse());
   const [selectedProject, setSelectedProject] = useState(null);
 
   // Advanced 3D hover effect with enhanced Three.js-like features

@@ -5,18 +5,18 @@ import React from 'react';
  import { MdEmail } from 'react-icons/md';
 
  const ContactContainer = styled(motion.div)`
-  padding: 2rem; /* Padding lebih kecil untuk mobile */
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 70vh; /* Sedikit lebih tinggi untuk tata letak vertikal yang lebih baik */
+  min-height: 70vh;
   background-color: ${({ theme }) => theme.background};
   text-align: center;
 
   @media (min-width: 768px) {
-   padding: 2rem 2rem; /* Padding lebih besar untuk desktop */
-   min-height: 50vh; /* Kembali ke tinggi semula untuk desktop */
+   padding: 2rem 2rem;
+   min-height: 50vh;
   }
  `;
 
@@ -30,55 +30,55 @@ import React from 'react';
  `;
 
  const Title = styled(motion.h2)`
-  font-size: 2rem; /* Ukuran font lebih kecil untuk mobile */
+  font-size: 2rem;
   font-weight: 800;
   color: ${({ theme }) => theme.primary};
-  margin-bottom: 1.5rem; /* Margin bawah lebih kecil untuk mobile */
+  margin-bottom: 1.5rem;
   letter-spacing: -0.06em;
   line-height: 1.2;
   animation: ${WavyTitleAnimation} 2s ease-in-out infinite alternate;
 
   @media (min-width: 768px) {
-   font-size: 2.5rem; /* Ukuran font kembali ke semula untuk desktop */
-   margin-bottom: 2rem; /* Margin bawah kembali ke semula untuk desktop */
+   font-size: 2.5rem; 
+   margin-bottom: 2rem;
    letter-spacing: -0.08em;
    line-height: 1.1;
   }
  `;
 
  const SubTitle = styled(motion.h3)`
-  font-size: 1rem; /* Ukuran font lebih kecil untuk mobile */
+  font-size: 1rem;
   font-weight: 600;
   color: ${({ theme }) => theme.secondary};
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 
   @media (min-width: 768px) {
-   font-size: 1.3rem; /* Ukuran font kembali ke semula untuk desktop */
+   font-size: 1.3rem;
    letter-spacing: -0.03em;
   }
  `;
 
  const ContactDescription = styled(motion.p)`
   color: ${({ theme }) => theme.text};
-  font-size: 1rem; /* Ukuran font lebih kecil untuk mobile */
+  font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 2rem; /* Margin bawah lebih kecil untuk mobile */
-  max-width: 90%; /* Lebar maksimal lebih besar untuk mobile */
+  margin-bottom: 2rem;
+  max-width: 90%;
   font-style: italic;
 
   @media (min-width: 768px) {
-   font-size: 1.1rem; /* Ukuran font kembali ke semula untuk desktop */
+   font-size: 1.1rem;
    line-height: 1.7;
    margin-bottom: 2.5rem;
-   max-width: 700px; /* Lebar maksimal kembali ke semula untuk desktop */
+   max-width: 700px;
   }
  `;
 
  const ContactMethodList = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Gap lebih kecil untuk mobile */
+  gap: 1.5rem;
   align-items: center;
  `;
 
@@ -115,10 +115,10 @@ const ContactLink = styled(motion.a)`
 `;
 
  const IconStyle = `
-  font-size: 1.2rem; /* Ukuran ikon lebih kecil untuk mobile */
+  font-size: 1.2rem;
 
   @media (min-width: 768px) {
-   font-size: 1.5rem; /* Ukuran ikon kembali ke semula untuk desktop */
+   font-size: 1.5rem;
   }
  `;
 
@@ -133,7 +133,7 @@ const ContactLink = styled(motion.a)`
  `;
 
  const EmphasisText = styled.span`
-  color: ${({ theme }) => theme.accent || theme.primary}; /* Warna penekanan */
+  color: ${({ theme }) => theme.accent || theme.primary};
   font-weight: 700;
  `;
 
@@ -144,7 +144,7 @@ const ContactLink = styled(motion.a)`
   };
 
   const itemVariants = {
-   hidden: { opacity: 0, y: 20 }, /* Jarak y lebih kecil untuk mobile */
+   hidden: { opacity: 0, y: 20 },
    visible: { opacity: 1, y: 0 },
   };
 
@@ -172,7 +172,6 @@ const ContactLink = styled(motion.a)`
             >
                 <Email style={{ color: '#9c9c9cff' }} /> Drop Me an Email
             </ContactLink>
-            {/* Tambahkan tautan kontak lain jika perlu */}
         </ContactMethodList>
    </ContactContainer>
   );

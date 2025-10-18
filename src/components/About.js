@@ -14,14 +14,12 @@ import {
   FaReact,
   FaNodeJs,
   FaDocker,
-  FaGitAlt,
   FaPython,
   FaVuejs,
 } from 'react-icons/fa';
-import { SiMysql, SiMongodb, SiPhp, SiCodeigniter, SiLaravel, SiSymfony, SiRedis, SiNestjs, SiNextdotjs, SiElastic, SiDotnet, SiAdonisjs, SiPostgresql } from 'react-icons/si';
+import { SiMysql, SiMongodb, SiPhp, SiCodeigniter, SiLaravel, SiSymfony, SiNestjs, SiNextdotjs, SiElastic, SiAdonisjs, SiPostgresql } from 'react-icons/si';
 import { FaAngular, FaAws } from 'react-icons/fa';
 
- // Objek yang menyimpan warna asli setiap teknologi
  const techColors = {
   javascript: '#F7DF1E',
   react: '#61DAFB',
@@ -189,8 +187,8 @@ import { FaAngular, FaAws } from 'react-icons/fa';
   text-align: justify;
 
   & > ul {
-   padding-left: 0; /* Hapus padding pada list container */
-   margin-left: 1rem; /* Berikan margin kiri pada list container */
+   padding-left: 0; 
+   margin-left: 1rem;
    list-style-position: outside;
   }
 
@@ -356,7 +354,6 @@ const CartoonImage = styled(motion.img)`
   whileHover: { scale: 1.05, transition: { duration: 0.2 } },
  };
 
- // Card-style container for all skills
 const SkillsSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -374,7 +371,6 @@ const SkillsRow = styled.div`
   }
 `;
 
-// Each category block
 const SkillsCategory = styled.div`
   display: flex;
   flex-direction: column;
@@ -445,11 +441,9 @@ export const calculateDuration = (startDate, endDate) => {
     months += 12;
   }
 
-  // Menangani kasus '1 year 0 months'
   const yearText = years > 0 ? `${years} yr${years > 1 ? 's' : ''}` : '';
   const monthText = months > 0 ? `${months} mo${months > 1 ? 's' : ''}` : '';
 
-  // Menggabungkan string, memastikan tidak ada spasi berlebih
   if (yearText && monthText) {
     return `${yearText} ${monthText}`;
   } else if (yearText) {
@@ -576,11 +570,10 @@ const About = () => {
       <TitleIcon icon={faTools} /> Skills
      </SectionTitle>
      <SkillsSection>
-      {/* Row 1: Programming Language & Database */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Programming Language</SkillsCategoryTitle>
-    <CategoryHr />
+          <SkillsCategoryTitle>Programming Language</SkillsCategoryTitle>
+          <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors.javascript }}><FaJs /></SkillIcon> JavaScript
@@ -594,21 +587,11 @@ const About = () => {
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors.java }}><FaJava /></SkillIcon> Java
             </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png"
-                  alt="C#"
-                  style={{ height: '1.2rem', filter: techColors.csharp ? `drop-shadow(0 0 2px ${techColors.csharp})` : undefined }}
-                />
-              </SkillIcon>
-              C#
-            </SkillItemWrapper>
           </SkillsList>
         </SkillsCategory>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Database</SkillsCategoryTitle>
-    <CategoryHr />
+          <SkillsCategoryTitle>Database</SkillsCategoryTitle>
+          <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors.mysql }}><SiMysql /></SkillIcon> MySQL
@@ -629,18 +612,14 @@ const About = () => {
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors.mongodb }}><SiMongodb /></SkillIcon> MongoDB
             </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.redis }}><SiRedis /></SkillIcon> Redis
-            </SkillItemWrapper>
           </SkillsList>
         </SkillsCategory>
       </SkillsRow>
 
-      {/* Row 2: Backend & Frontend */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Backend</SkillsCategoryTitle>
-    <CategoryHr />
+          <SkillsCategoryTitle>Backend</SkillsCategoryTitle>
+          <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors['node.js'] }}><FaNodeJs /></SkillIcon> Node.js
@@ -662,9 +641,6 @@ const About = () => {
               <SkillIcon style={{ color: techColors.nestjs }}><SiNestjs /></SkillIcon> Nest.js
             </SkillItemWrapper>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.dotnet }}><SiDotnet /></SkillIcon> .NET
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors.laravel }}><SiLaravel /></SkillIcon> Laravel
             </SkillItemWrapper>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
@@ -676,8 +652,8 @@ const About = () => {
           </SkillsList>
         </SkillsCategory>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Frontend</SkillsCategoryTitle>
-    <CategoryHr />
+          <SkillsCategoryTitle>Frontend</SkillsCategoryTitle>
+          <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors.nextjs }}><SiNextdotjs /></SkillIcon> Next.js
@@ -695,11 +671,10 @@ const About = () => {
         </SkillsCategory>
       </SkillsRow>
 
-      {/* Row 3: Testing & Observability */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Testing</SkillsCategoryTitle>
-    <CategoryHr />
+          <SkillsCategoryTitle>Automation Testing</SkillsCategoryTitle>
+          <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon>
@@ -726,8 +701,8 @@ const About = () => {
           </SkillsList>
         </SkillsCategory>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Observability</SkillsCategoryTitle>
-    <CategoryHr />
+          <SkillsCategoryTitle>Observability</SkillsCategoryTitle>
+          <CategoryHr />
           <SkillsList>
             <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
               <SkillIcon style={{ color: techColors.elastic }}><SiElastic /></SkillIcon> Elastic APM
@@ -739,41 +714,8 @@ const About = () => {
         </SkillsCategory>
       </SkillsRow>
 
-      {/* Row 4: Version Control & Containerization */}
       <SkillsRow>
         <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Version Control</SkillsCategoryTitle>
-    <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.git }}><FaGitAlt /></SkillIcon> GIT
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon>
-                <img
-                  src="/cvs.png"
-                  alt="CVS"
-                  style={{ height: '1.2rem', filter: techColors.git ? `drop-shadow(0 0 2px ${techColors.git})` : undefined }}
-                />
-              </SkillIcon>
-              CVS
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-        <SkillsCategory style={{ flex: 1 }}>
-    <SkillsCategoryTitle>Containerization</SkillsCategoryTitle>
-    <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.docker }}><FaDocker /></SkillIcon> Docker
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-      </SkillsRow>
-
-      {/* Row 5: Cloud */}
-      <SkillsRow>
-        <SkillsCategory style={{ flex: 0.93 }}>
           <SkillsCategoryTitle>Cloud</SkillsCategoryTitle>
           <CategoryHr />
           <SkillsList>
@@ -782,7 +724,15 @@ const About = () => {
             </SkillItemWrapper>
           </SkillsList>
         </SkillsCategory>
-        <div style={{ flex: 1, background: 'transparent', border: 'none' }} />
+        <SkillsCategory style={{ flex: 1 }}>
+          <SkillsCategoryTitle>Containerization</SkillsCategoryTitle>
+          <CategoryHr />
+          <SkillsList>
+            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
+              <SkillIcon style={{ color: techColors.docker }}><FaDocker /></SkillIcon> Docker
+            </SkillItemWrapper>
+          </SkillsList>
+        </SkillsCategory>
       </SkillsRow>
      </SkillsSection>
     </Section>

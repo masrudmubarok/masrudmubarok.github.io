@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import ThemeToggle from './ThemeToggle'; // Pastikan pathnya benar
+import ThemeToggle from './ThemeToggle';
 
 const Nav = styled.nav`
   display: flex;
@@ -76,7 +76,7 @@ const Hamburger = styled(motion.button)`
   cursor: pointer;
   position: absolute;
   top: 1.5rem;
-  right: 2rem; /* Atur posisi hamburger ke kanan */
+  right: 2rem;
   z-index: 11;
   width: 28px;
   height: 24px;
@@ -98,11 +98,11 @@ const HamburgerLine = styled(motion.span)`
 
 const ThemeToggleButtonWrapper = styled.div`
   position: absolute;
-  top: 1rem; /* Tambahkan top: 1rem; */
-  right: 5rem; /* Posisikan di kiri hamburger dengan space */
-  z-index: 11; /* Pastikan di atas dropdown */
+  top: 1rem;
+  right: 5rem;
+  z-index: 11;
   display: flex;
-  align-items: center; /* Sejajarkan vertikal dengan hamburger */
+  align-items: center;
 `;
 
 const Navbar = ({ theme, toggleTheme }) => {

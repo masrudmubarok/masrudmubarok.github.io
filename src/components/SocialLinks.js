@@ -1,20 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa'; // Contoh ikon
+import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column; /* Mengatur elemen menjadi kolom (vertikal) */
-  align-items: center; /* Membuat ikon berada di tengah secara horizontal */
+  flex-direction: column;
+  align-items: center;
 
-  /* Sembunyikan di tampilan mobile (lebar layar maksimum 768px) */
   @media (max-width: 768px) {
     display: none;
   }
 
-  /* Tampilkan di tampilan desktop dan tablet (lebar layar minimum 769px) */
   @media (min-width: 769px) {
-    /* Anda bisa menambahkan styling tambahan untuk tampilan desktop di sini jika perlu */
+    
   }
 `;
 

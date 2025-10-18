@@ -20,15 +20,14 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-start;
-padding: 1rem 1.5rem 3rem 1.5rem; /* Padding lebih besar secara default untuk mobile */
+padding: 1rem 1.5rem 3rem 1.5rem;
 text-align: center;
 
 @media (min-width: 768px) {
- padding: 0.5rem 2rem 2rem 2rem; /* Padding kembali ke ukuran semula untuk desktop */
+ padding: 0.5rem 2rem 2rem 2rem; 
 }
 
 @media (min-width: 1200px) {
- /* Anda bisa menambahkan penyesuaian padding yang lebih besar untuk layar desktop yang sangat lebar jika perlu */
  padding: 1rem 3rem 3rem 3rem;
 }
 `;
@@ -63,7 +62,7 @@ text-align: center;
   position: relative;
 
   @media (max-width: 768px) {
-   font-size: 0.8rem; /* Slightly smaller font on mobile */
+   font-size: 0.8rem;
    padding: 0.4rem 0.8rem;
   }
  `;
@@ -71,7 +70,7 @@ text-align: center;
  const BlinkingDot = styled.span`
   width: 0.50rem;
   height: 0.50rem;
-  background-color: #4CAF50; /* Warna hijau */
+  background-color: #4CAF50;
   border-radius: 50%;
   margin-right: 0.5rem;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.7); /* Initial shadow */
