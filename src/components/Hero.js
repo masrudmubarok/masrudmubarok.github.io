@@ -1,53 +1,53 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
+import Typed from 'typed.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
  // Keyframes for radar effect
- const radarAnimation = keyframes`
+const radarAnimation = keyframes`
   0% { transform: scale(1); opacity: 0.8; }
   40% { transform: scale(1.8); opacity: 0; }
   100% { transform: scale(1.8); opacity: 0; }
- `;
-
+`;
 
 // Styled Components
 const HeroContainer = styled(motion.div)`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: flex-start;
-padding: 1rem 1.5rem 3rem 1.5rem;
-text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 1.5rem 3rem 1.5rem;
+  text-align: center;
 
-@media (min-width: 768px) {
- padding: 0.5rem 2rem 2rem 2rem; 
-}
+  @media (min-width: 768px) {
+  padding: 0.5rem 2rem 2rem 2rem; 
+  }
 
-@media (min-width: 1200px) {
- padding: 1rem 3rem 3rem 3rem;
-}
+  @media (min-width: 1200px) {
+  padding: 1rem 3rem 3rem 3rem;
+  }
 `;
 
- const ImageAndButtonContainer = styled.div`
+const ImageAndButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1rem;
- `;
+`;
 
- const CartoonImage = styled(motion.img)`
+const CartoonImage = styled(motion.img)`
   width: 100px;
   height: 100px;
   margin-top: 2rem;
   margin-bottom: 0;
   object-fit: cover;
- `;
+`;
 
- const OpenToWorkButton = styled.div`
+const OpenToWorkButton = styled.div`
   display: flex;
   align-items: center;
   background-color: ${({ theme }) => theme.text};
@@ -65,9 +65,9 @@ text-align: center;
    font-size: 0.8rem;
    padding: 0.4rem 0.8rem;
   }
- `;
+`;
 
- const BlinkingDot = styled.span`
+const BlinkingDot = styled.span`
   width: 0.50rem;
   height: 0.50rem;
   background-color: #4CAF50;
@@ -76,9 +76,9 @@ text-align: center;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.7); /* Initial shadow */
   position: relative;
   z-index: 1;
- `;
+`;
 
- const RadarEffect = styled.span`
+const RadarEffect = styled.span`
   position: absolute;
   top: 1;
   margin-left: -0.1rem;
@@ -87,9 +87,9 @@ text-align: center;
   border-radius: 50%;
   border: 2px solid rgba(76, 175, 80, 0.5); /* Green radar color */
   animation: ${radarAnimation} 1.5s infinite ease-out;
- `;
+`;
 
- const Title = styled(motion.h1)`
+const Title = styled(motion.h1)`
   font-size: 3rem;
   margin-bottom: 0.01rem;
   margin-top: 1rem;
@@ -100,28 +100,33 @@ text-align: center;
    margin-top: 0.5rem;
    margin-bottom: 0;
   }
- `;
+`;
 
- const JobTitle = styled(motion.h2)`
+const JobTitle = styled(motion.h2)`
   font-size: 1.5rem;
   color: ${({ theme }) => theme.secondary};
   margin-bottom: 0.1rem;
-
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   @media (max-width: 768px) {
-   font-size: 1.5rem; /* Smaller job title font on mobile */
+   font-size: 1.5rem;
    margin-bottom: 0;
+   min-height: 2rem;
   }
- `;
+`;
 
- const Description = styled(motion.p)`
+const Description = styled(motion.p)`
   font-size: 1rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: 2rem;
   max-width: 600px;
   text-align: center;
- `;
+`;
 
- const ButtonContainer = styled(motion.div)`
+const ButtonContainer = styled(motion.div)`
   display: flex;
   gap: 1rem;
 
@@ -129,9 +134,9 @@ text-align: center;
    flex-direction: column; /* Stack buttons on mobile */
    gap: 1rem;
   }
- `;
+`;
 
- const AnimatedButton = styled(Link)`
+const AnimatedButton = styled(Link)`
   color: ${({ theme }) => theme.text}; /* Text color is the text color */
   padding: 0.75rem 1.5rem;
   border-radius: 10px;
@@ -159,19 +164,35 @@ text-align: center;
         transform: translateY(-2px) scale(1.07);
         filter: brightness(1.08);
     }
- `;
+`;
 
- const SocialLinksContainer = styled(motion.div)`
+const SocialLinksContainer = styled(motion.div)`
   position: absolute;
   left: 2rem;
   bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
- `;
+`;
 
- // Hero Component
- const Hero = () => {
+// Hero Component
+const Hero = () => {
+  const typedRef = useRef(null);
+
+  useEffect(() => {
+    const jobTitles = ["Software Engineer"];
+    const typed = new Typed(typedRef.current, {
+      strings: jobTitles,
+      typeSpeed: 60,
+      backSpeed: 60,
+      loop: true,
+      showCursor: false,
+    });
+
+   return () => {
+    typed.destroy();
+   };
+  }, []);
 
   return (
    <HeroContainer
@@ -193,7 +214,7 @@ text-align: center;
     </OpenToWorkButton>
     </ImageAndButtonContainer>
     <Title>Masrud Mubarok</Title>
-    <JobTitle>Software Engineer</JobTitle>
+    <JobTitle ref={typedRef}></JobTitle>
     <Description>
      "Whatever the mind can conceive and believe, it can achieve."<br /><br />- Napoleon Hill -
     </Description>
@@ -214,4 +235,4 @@ text-align: center;
   );
  };
 
- export default Hero;
+export default Hero;
