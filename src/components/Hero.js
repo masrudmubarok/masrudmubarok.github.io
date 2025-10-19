@@ -210,7 +210,7 @@ const Hero = () => {
     <OpenToWorkButton>
      <BlinkingDot />
      <RadarEffect />
-     Online
+     Active
     </OpenToWorkButton>
     </ImageAndButtonContainer>
     <Title>Masrud Mubarok</Title>
