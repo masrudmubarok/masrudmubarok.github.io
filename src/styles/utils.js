@@ -1,5 +1,3 @@
-// In your /src/styles/utils.js
-
 export function darken(amount, color) {
     let usePound = false;
   
@@ -32,9 +30,9 @@ export function darken(amount, color) {
   
     const num = parseInt(color, 16);
   
-    let r = Math.max(0, Math.min(255, (num >> 16) - amount)); // Subtract to lighten
-    let b = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) - amount)); // Subtract to lighten
-    let g = Math.max(0, Math.min(255, (num & 0x0000FF) - amount)); // Subtract to lighten
+    let r = Math.max(0, Math.min(255, (num >> 16) - amount));
+    let b = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) - amount));
+    let g = Math.max(0, Math.min(255, (num & 0x0000FF) - amount));
   
     const toHex = (c) => {
      const hex = c.toString(16);

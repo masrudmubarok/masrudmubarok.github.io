@@ -36,7 +36,7 @@ describe('About Component', () => {
     render(<About />);
     const headings = screen.getAllByText(/Education/i);
     expect(headings.length).toBe(1);
-    // For STIKI Malang, use getAllByText if multiple, or a function matcher
+
     const stiki = screen.getAllByText((t) => t.includes('STIKI Malang'));
     expect(stiki.length).toBeGreaterThanOrEqual(1);
   });

@@ -724,8 +724,7 @@ const TechStackList = styled(motion.ul)`
       'Notification system for patient status updates',
       'Role-based access control for medical staff and administrators',
     ],
-    impact:
-      'Deployed across multiple Siloam Hospitals, MySiloam has improved data accessibility and reduced administrative delays by 35%. The system ensures medical data accuracy and enables healthcare staff to collaborate more effectively across departments, leading to better patient outcomes and faster hospital operations.',
+    // impact: 'Deployed across multiple Siloam Hospitals, MySiloam has improved data accessibility and reduced administrative delays by 35%. The system ensures medical data accuracy and enables healthcare staff to collaborate more effectively across departments, leading to better patient outcomes and faster hospital operations.',
   },
  ];
 
@@ -733,86 +732,66 @@ const TechStackList = styled(motion.ul)`
   const [visibleProjects] = useState([...initialProjects].reverse());
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // Advanced 3D hover effect with enhanced Three.js-like features
   useEffect(() => {
-    // Check if device is touch-based (mobile)
     const isTouchDevice = () => {
       return (('ontouchstart' in window) ||
         (navigator.maxTouchPoints > 0) ||
         (navigator.msMaxTouchPoints > 0));
     };
     
-    // Only apply 3D effects on non-touch devices
     const isDesktop = !isTouchDevice();
     
     const handleMouseMove = (e, wrapper) => {
-      // Skip effect on touch devices
       if (!isDesktop) return;
       
       const { left, top, width, height } = wrapper.getBoundingClientRect();
       const x = e.clientX - left;
       const y = e.clientY - top;
       
-      // Calculate normalized position (0 to 1)
       const normalizedX = x / width;
       const normalizedY = y / height;
       
-      // Calculate tilt values with enhanced 3D effect
-      // Added more sensitivity to X-axis movement to simulate real 3D object physics
       const tiltX = (normalizedY * 2 - 1) * -18;
       const tiltY = (normalizedX * 2 - 1) * 15;
-      
-      // Calculate distance from center for intensity
+
       const centerX = width / 2;
       const centerY = height / 2;
       const distanceX = (x - centerX) / centerX;
       const distanceY = (y - centerY) / centerY;
       const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-      
-      // Calculate dynamic Z translation based on cursor proximity to center
-      // This simulates the object rising toward the cursor - a true 3D effect
+
       const zTranslation = 20 + (1 - Math.min(1, distance * 1.5)) * 15;
-      
-      // Subtle rotation adjustment based on cursor speed (simulates momentum)
+
       const rotationAdjustment = Math.min(5, Math.max(-5, distanceX * 3));
       
-      // Lighting effect - calculate highlight position with enhanced properties
       const highlightX = 100 * normalizedX;
       const highlightY = 100 * normalizedY;
-      
-      // Apply transform with subtle movement and enhanced perspective
+
       wrapper.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY + rotationAdjustment}deg) scale3d(1.05, 1.05, 1.05) translateZ(${zTranslation}px)`;
-      
-      // Apply dynamic box shadow based on tilt (creates realistic lighting)
+
       const shadowX = tiltY * 0.4;
       const shadowY = -tiltX * 0.4;
       const shadowBlur = 35 + Math.abs(tiltX) + Math.abs(tiltY);
       wrapper.style.boxShadow = `${shadowX}px ${shadowY}px ${shadowBlur}px rgba(0, 0, 0, 0.25)`;
-      
-      // Apply dynamic lighting effect with dual gradients for more realistic look
+
       const highlight = wrapper.querySelector('.highlight-overlay');
       if (highlight) {
-        // Primary highlight follows cursor
         const primaryOpacity = 0.35 - (distance * 0.15);
         const secondaryOpacity = 0.15;
-        
-        // Create two light sources for more Three.js-like rendering
+
         highlight.style.background = `
           radial-gradient(circle at ${highlightX}% ${highlightY}%, rgba(255,255,255,${primaryOpacity}) 0%, rgba(255,255,255,0) 60%),
           radial-gradient(circle at ${100-highlightX}% ${100-highlightY}%, rgba(255,255,255,${secondaryOpacity}) 0%, rgba(255,255,255,0) 70%)
         `;
         highlight.style.opacity = 1;
-        
-        // Add subtle color tint based on position for artistic effect
+
         const hue = 210 + (normalizedX * 30);
         highlight.style.mixBlendMode = 'overlay';
         highlight.style.background += `, linear-gradient(${hue}deg, rgba(100,180,255,0.03), rgba(255,255,255,0))`;
       }
-      
-      // Enhance the image inside the wrapper for more depth
+
       const image = wrapper.querySelector('img');
       if (image) {
-        // Subtle counter-movement for parallax effect
         const imageOffsetX = distanceX * -5;
         const imageOffsetY = distanceY * -5;
         image.style.transform = `scale(1.08) translateZ(30px) translate(${imageOffsetX}px, ${imageOffsetY}px)`;
@@ -820,7 +799,6 @@ const TechStackList = styled(motion.ul)`
     };
 
     const handleMouseLeave = (wrapper) => {
-      // Smooth return to original state
       wrapper.style.transition = 'transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.8s ease';
       wrapper.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1) translateZ(0)';
       wrapper.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
@@ -835,16 +813,13 @@ const TechStackList = styled(motion.ul)`
         image.style.transform = '';
       }
       
-      // Reset transition after animation completes
       setTimeout(() => {
         wrapper.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease';
       }, 800);
     };
 
-    // Add highlight overlays to all image wrappers
     const wrappers = document.querySelectorAll('.project-image-wrapper');
     wrappers.forEach(wrapper => {
-      // Create highlight overlay if it doesn't exist
       if (!wrapper.querySelector('.highlight-overlay')) {
         const highlight = document.createElement('div');
         highlight.className = 'highlight-overlay';

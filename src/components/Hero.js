@@ -7,14 +7,12 @@ import Typed from 'typed.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
- // Keyframes for radar effect
 const radarAnimation = keyframes`
   0% { transform: scale(1); opacity: 0.8; }
   40% { transform: scale(1.8); opacity: 0; }
   100% { transform: scale(1.8); opacity: 0; }
 `;
 
-// Styled Components
 const HeroContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
