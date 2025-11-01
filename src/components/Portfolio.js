@@ -693,7 +693,7 @@ const TechStackList = styled(motion.ul)`
    description: 'The Activity & Event Scheduling platform is a robust sports management solution designed for schools and athletic departments. It features real-time facility management, automated conflict resolution for scheduling, team and participant registration, and public-facing calendars. The system includes advanced communication tools for coaches, administrators, and parents, as well as integration with transportation scheduling and officiating assignments. Built with Symfony and Vue.js, the platform offers a seamless experience across devices while maintaining data integrity through MongoDB and MySQL databases.',
    imageUrl: '/rschooltoday.png',
    demoUrl: 'https://rschooltoday.com',
-   techStack: ['Symfony', 'Vue.js', 'MySQL', 'MongoDB'],
+   techStack: ['Symfony', 'Vue.js', 'Next.js', 'MySQL', 'MongoDB'],
    type: 'web',
    fullImage: '/rschooltoday.png',
    keyFeatures: [
