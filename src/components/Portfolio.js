@@ -705,27 +705,27 @@ const TechStackList = styled(motion.ul)`
    ],
    impact: 'This platform has been adopted by multiple school districts, reducing administrative workload by approximately 30 hours per week per school. Athletic departments report a 45% decrease in scheduling conflicts and a 70% improvement in parent communication efficiency. The system currently manages over 5,000 athletic events annually across its customer base.'
   },
-  {
-    id: 4,
-    title: 'MySiloam - Hospital Patient Management System',
-    shortDescription: 'MySiloam is a web-based hospital information system developed for Siloam Hospitals Group. It centralizes patient records, appointments, billing, and medical data across multiple facilities to enhance service efficiency and data accuracy.',
-    description: 'MySiloam is a comprehensive patient management system built to support the digital transformation of Siloam Hospitals. The platform integrates various hospital operations—such as patient registration, doctor scheduling, medical records, pharmacy, and billing—into a unified interface. Developed with a microservice architecture, the system ensures scalability, security, and real-time synchronization between departments, allowing medical staff to provide faster and more accurate services. It also includes dedicated modules for Front Office operations and PAS Kairos connectivity to support Medical Checkup workflows.',
-    imageUrl: '/mysiloam.png',
-    demoUrl: '#',
-    techStack: ['Node.js', 'Express.js', 'React.js', 'Next.js', 'Angular.js', 'PostgreSQL', 'MSSQL',],
-    type: 'web',
-    fullImage: '/mysiloam.png',
-    keyFeatures: [
-      'Centralized Electronic Medical Records (EMR)',
-      'Real-time doctor and patient appointment scheduling',
-      'Integrated billing and insurance claim management',
-      'Front Office MySiloam module for patient registration and queue management',
-      'PAS Kairos connectivity for Medical Checkup',
-      'Notification system for patient status updates',
-      'Role-based access control for medical staff and administrators',
-    ],
+  // {
+    // id: 4,
+    // title: 'MySiloam - Hospital Patient Management System',
+    // shortDescription: 'MySiloam is a web-based hospital information system developed for Siloam Hospitals Group. It centralizes patient records, appointments, billing, and medical data across multiple facilities to enhance service efficiency and data accuracy.',
+    // description: 'MySiloam is a comprehensive patient management system built to support the digital transformation of Siloam Hospitals. The platform integrates various hospital operations such as patient registration, doctor scheduling, medical records, pharmacy, and billing into a unified interface. Developed with a microservice architecture, the system ensures scalability, security, and real-time synchronization between departments, allowing medical staff to provide faster and more accurate services. It also includes dedicated modules for Front Office operations and PAS Kairos connectivity to support Medical Checkup workflows.',
+    // imageUrl: '/mysiloam.png',
+    // demoUrl: '#',
+    // techStack: ['Node.js', 'Express.js', 'React.js', 'Next.js', 'Angular.js', 'PostgreSQL', 'MSSQL',],
+    // type: 'web',
+    // fullImage: '/mysiloam.png',
+    // keyFeatures: [
+    //   'Centralized Electronic Medical Records (EMR)',
+    //   'Real-time doctor and patient appointment scheduling',
+    //   'Integrated billing and insurance claim management',
+    //   'Front Office MySiloam module for patient registration and queue management',
+    //   'PAS Kairos connectivity for Medical Checkup',
+    //   'Notification system for patient status updates',
+    //   'Role-based access control for medical staff and administrators',
+    // ],
     // impact: 'Deployed across multiple Siloam Hospitals, MySiloam has improved data accessibility and reduced administrative delays by 35%. The system ensures medical data accuracy and enables healthcare staff to collaborate more effectively across departments, leading to better patient outcomes and faster hospital operations.',
-  },
+  // },
  ];
 
  const Portfolio = () => {
