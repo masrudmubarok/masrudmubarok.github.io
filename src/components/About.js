@@ -158,6 +158,17 @@ const ExperienceOffice = styled(motion.p)`
   }
 `;
 
+const ExperienceNote = styled(motion.p)`
+  font-size: 1rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: -0.5rem;
+  margin-top: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+`;
+
 const EducationPlace = styled(motion.h3)`
   font-size: 1.1rem;
   color: ${({ theme }) => theme.text};
@@ -275,6 +286,7 @@ const experienceData = [
     location: 'Tangerang, Banten, Indonesia',
     workMode: 'Hybrid',
     companyLogo: '/phincon.jpeg',
+    note: 'Assigned to MySiloam projects',
   },
   {
     title: 'Full Stack Developer',
@@ -285,6 +297,7 @@ const experienceData = [
     location: 'Minnesota, United States',
     workMode: 'Remote',
     companyLogo: '/rschooltoday.jpeg',
+    note: '',
   },
   {
     title: 'Full Stack Developer',
@@ -295,6 +308,7 @@ const experienceData = [
     location: 'Malang, East Java, Indonesia',
     workMode: 'On-site',
     companyLogo: '/pptik.jpeg',
+    note: '',
   },
 ];
 
@@ -347,6 +361,9 @@ const About = () => {
                   <ExperienceOffice>{exp.office} . {exp.type}</ExperienceOffice>
                   <ExperienceSubtitle>{startDateText} - {endDateText} . {duration}</ExperienceSubtitle>
                   <ExperienceSubtitle>{exp.location} . {exp.workMode}</ExperienceSubtitle>
+                  {exp.note && exp.note.trim() !== '' && (
+                    <ExperienceNote>{exp.note}</ExperienceNote>
+                  )}
                 </ContentWrapper>
               </ExperienceItem>
               {index < experienceData.length - 1 && <hr />}
