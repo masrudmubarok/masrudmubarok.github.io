@@ -5,57 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser,
   faBriefcase,
-  faGraduationCap,
-  faTools
+  faGraduationCap
 } from '@fortawesome/free-solid-svg-icons';
- import {
-  FaJs,
-  FaJava,
-  FaReact,
-  FaNodeJs,
-  FaDocker,
-  FaPython,
-  FaVuejs,
-} from 'react-icons/fa';
-import { SiMysql, SiMongodb, SiPhp, SiCodeigniter, SiLaravel, SiSymfony, SiNestjs, SiNextdotjs, SiElastic, SiAdonisjs, SiPostgresql } from 'react-icons/si';
-import { FaAngular, FaAws } from 'react-icons/fa';
-
- const techColors = {
-  javascript: '#F7DF1E',
-  react: '#61DAFB',
-  'node.js': '#339933',
-  nestjs: '#E0234E',
-  nextjs: '#000000',
-  aws: '#FFCA28',
-  elastic: '#005571',
-  angular: '#DD0031',
-  dotnet: '#512BD4',
-  adonisjs: '#2C2C32',
-  html: '#E34F26',
-  css: '#1572B6',
-  redux: '#764ABC',
-  docker: '#2496ED',
-  git: '#F05032',
-  python: '#3776AB',
-  vuejs: '#41B883',
-  sass: '#CC6699',
-  php: '#8892BE',
-  codeigniter: '#E08E00',
-  laravel: '#FF2D20',
-  symfony: '#000000',
-  mysql: '#4479A1',
-  mssql: '#CC2927',
-  postgresql: '#336791',
-  mongodb: '#47A248',
-  redis: '#DC382D',
-  cloudwatch: '#FF9900',
-  'tailwind css': '#38B2AC',
-  bootstrap: '#563D7C',
-  'framer motion': '#0055FF',
-  livewire: '#CC0000',
-  java: '#007396',
-  csharp: '#239120',
- };
 
  const AboutContainer = styled(motion.div)`
   padding: 1.5rem 3vw;
@@ -67,40 +18,6 @@ import { FaAngular, FaAws } from 'react-icons/fa';
 
   @media (max-width: 768px) {
    padding: 1.5rem 2vw;
-    expressjs: '#000000',
-    adonisjs: '#2C2C32',
-    nestjs: '#E0234E',
-    dotnet: '#512BD4',
-    laravel: '#FF2D20',
-    codeigniter: '#E08E00',
-    symfony: '#000000',
-    nextjs: '#000000',
-    angular: '#DD0031',
-    vuejs: '#41B883',
-    mysql: '#4479A1',
-    postgresql: '#336791',
-    mssql: '#CC2927',
-    mongodb: '#47A248',
-    redis: '#DC382D',
-    elastic: '#005571',
-    cloudwatch: '#FF9900',
-    git: '#F05032',
-    docker: '#2496ED',
-    aws: '#FF9900',
-    html: '#E34F26',
-    css: '#1572B6',
-    bootstrap: '#563D7C',
-    tailwindcss: '#38B2AC',
-    framer: '#0055FF',
-    livewire: '#CC0000',
-    java: '#007396',
-    csharp: '#239120',
-    php: '#8892BE',
-    python: '#3776AB',
-    javascript: '#F7DF1E',
-    react: '#61DAFB',
-    redux: '#764ABC',
-    sass: '#CC6699',
   }
 
   @media (max-width: 480px) {
@@ -195,55 +112,6 @@ import { FaAngular, FaAws } from 'react-icons/fa';
   @media (max-width: 768px) {
     font-size: 1rem;
   }
- `;
-
-const SkillsList = styled(motion.ul)`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
-  gap: 0.6rem;
-`;
-
-const SkillItemWrapper = styled(motion.li)`
-  color: ${({ theme }) => theme.text};
-  padding: 0.45rem 0.75rem;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  background-color: ${({ theme }) => theme.body};
-  border: 2px solid ${({ theme }) => theme.text};
-  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-
-  @media (max-width: 768px) {
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 0.8rem;
-  }
-
-  &:hover {
-    background: transparent;
-    color: ${({ theme }) => theme.text};
-    border-color: ${({ theme }) => theme.text};
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
-    transform: translateY(-2px) scale(1.07);
-    filter: brightness(1.08);
-  }
-`;
-
- const SkillIcon = styled.span`
-  font-size: 1.2rem;
-  margin-right: 0.5rem;
  `;
 
  const ExperienceList = styled.ul`
@@ -347,64 +215,6 @@ const CartoonImage = styled(motion.img)`
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeInOut" } },
  };
-
- const skillItemVariants = {
-  initial: { opacity: 0, scale: 0.9 },
-  animate: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: "easeOut" } },
-  whileHover: { scale: 1.05, transition: { duration: 0.2 } },
- };
-
-const SkillsSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-`;
-
-const SkillsRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 1.2rem;
-  @media (max-width: 900px) {
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-bottom: 0.2rem;
-  }
-`;
-
-const SkillsCategory = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 2px solid ${({ theme }) => theme.border};
-  border-radius: 14px;
-  background: transparent;
-  box-shadow: none;
-  padding: 1.2rem;
-  @media (max-width: 900px) {
-    padding: 0.7rem;
-  }
-`;
-
-const SkillsCategoryTitle = styled.h4`
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.text};
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  letter-spacing: 0.5px;
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-const CategoryHr = styled.hr`
-  border: none;
-  border-bottom: 2.5px solid ${({ theme }) => theme.border};
-  margin: 0.2rem 0 1.1rem 0;
-`;
 
 const LogoImage = styled.img`
   width: 48px;
@@ -526,7 +336,6 @@ const About = () => {
           const duration = calculateDuration(exp.startDate, exp.endDate);
           const endDateText = exp.endDate === 'present' ? 'present' : new Date(exp.endDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
           const startDateText = new Date(exp.startDate).toLocaleString('id-ID', { month: 'short', year: 'numeric' });
-
           return (
             <React.Fragment key={index}>
               <ExperienceItem>
@@ -564,180 +373,8 @@ const About = () => {
        </EducationItem>
       </EducationList>
     </Section>
-
-    <Section variants={sectionVariants}>
-     <SectionTitle>
-      <TitleIcon icon={faTools} /> Skills
-     </SectionTitle>
-     <SkillsSection>
-      <SkillsRow>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Programming Language</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.javascript }}><FaJs /></SkillIcon> JavaScript
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.php }}><SiPhp /></SkillIcon> PHP
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.python }}><FaPython /></SkillIcon> Python
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.java }}><FaJava /></SkillIcon> Java
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Database</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.mysql }}><SiMysql /></SkillIcon> MySQL
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.postgresql }}><SiPostgresql /></SkillIcon> PostgreSQL
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon>
-                <img
-                  src="/sqlserver.svg"
-                  alt="SQL Server"
-                  style={{ height: '1.2rem', filter: techColors.mssql ? `drop-shadow(0 0 2px ${techColors.mssql})` : undefined }}
-                />
-              </SkillIcon>
-              MSSQL
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.mongodb }}><SiMongodb /></SkillIcon> MongoDB
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-      </SkillsRow>
-
-      <SkillsRow>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Backend</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors['node.js'] }}><FaNodeJs /></SkillIcon> Node.js
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon>
-                <img
-                  src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg"
-                  alt="Express.js"
-                  style={{ height: '1.2rem', filter: techColors.expressjs ? `drop-shadow(0 0 2px ${techColors.expressjs})` : undefined }}
-                />
-              </SkillIcon>
-              Express.js
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.adonisjs }}><SiAdonisjs /></SkillIcon> Adonis.js
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.nestjs }}><SiNestjs /></SkillIcon> Nest.js
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.laravel }}><SiLaravel /></SkillIcon> Laravel
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.codeigniter }}><SiCodeigniter /></SkillIcon> CodeIgniter
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.symfony }}><SiSymfony /></SkillIcon> Symfony
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Frontend</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.nextjs }}><SiNextdotjs /></SkillIcon> Next.js
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.react }}><FaReact /></SkillIcon> React.js
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.angular }}><FaAngular /></SkillIcon> Angular.js
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.vuejs }}><FaVuejs /></SkillIcon> Vue.js
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-      </SkillsRow>
-
-      <SkillsRow>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Automation Testing</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon>
-                <img
-                  src="/jest.png"
-                  alt="Jest"
-                  style={{ height: '1.2rem', verticalAlign: 'middle', borderRadius: '3px' }}
-                />
-              </SkillIcon>
-              Jest
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon><img src="https://avatars.githubusercontent.com/u/8770009?s=200&v=4" alt="Mocha" style={{ height: '1.2rem', verticalAlign: 'middle', borderRadius: '3px' }} /></SkillIcon> Mocha
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon><img src="https://avatars.githubusercontent.com/u/1515293?s=200&v=4" alt="Chai" style={{ height: '1.2rem', verticalAlign: 'middle', borderRadius: '3px' }} /></SkillIcon> Chai
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon><img src="https://upload.wikimedia.org/wikipedia/en/2/22/Logo_jasmine.svg" alt="Jasmine" style={{ height: '1.2rem' }} /></SkillIcon> Jasmine
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon><img src="/karma.png" alt="Karma" style={{ height: '1.2rem' }} /></SkillIcon> Karma
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Observability</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.elastic }}><SiElastic /></SkillIcon> Elastic APM
-            </SkillItemWrapper>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.cloudwatch }}><FaAws /></SkillIcon> AWS CloudWatch
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-      </SkillsRow>
-
-      <SkillsRow>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Cloud</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.aws }}><FaAws /></SkillIcon> AWS
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-        <SkillsCategory style={{ flex: 1 }}>
-          <SkillsCategoryTitle>Containerization</SkillsCategoryTitle>
-          <CategoryHr />
-          <SkillsList>
-            <SkillItemWrapper variants={skillItemVariants} whileHover="hover">
-              <SkillIcon style={{ color: techColors.docker }}><FaDocker /></SkillIcon> Docker
-            </SkillItemWrapper>
-          </SkillsList>
-        </SkillsCategory>
-      </SkillsRow>
-     </SkillsSection>
-    </Section>
-    </AboutContainer>
-   );
+   </AboutContainer>
+  );
  };
 
  export default About;
