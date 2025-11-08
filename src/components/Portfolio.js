@@ -711,7 +711,7 @@ const TechStackList = styled(motion.ul)`
     shortDescription: 'MySiloam is a web-based hospital information system developed for Siloam Hospitals. It centralizes patient records, appointments, billing, and medical data across multiple facilities to enhance service efficiency and data accuracy.',
     description: 'MySiloam is a comprehensive patient management system built to support the digital transformation of Siloam Hospitals. The platform integrates various hospital operations such as patient registration, doctor scheduling, medical records, pharmacy, and billing into a unified interface. Developed with a microservice architecture, the system ensures scalability, security, and real-time synchronization between departments, allowing medical staff to provide faster and more accurate services. It also includes dedicated modules for Front Office operations and PAS Kairos connectivity to support Medical Checkup workflows.',
     imageUrl: '/mysiloam.png',
-    demoUrl: '#',
+    demoUrl: 'https://www.siloamhospitals.com/mysiloam',
     techStack: ['Node.js', 'Express.js', 'React.js', 'Next.js', 'Angular.js', 'PostgreSQL', 'MSSQL',],
     type: 'web',
     fullImage: '/mysiloam.png',
